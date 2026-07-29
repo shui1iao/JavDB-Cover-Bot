@@ -25,7 +25,7 @@
 
 ```bash
 mkdir -p ~/javdb-cover-bot && cd ~/javdb-cover-bot
-curl -Lo docker-compose.yml https://github.com/shuijiao1/JavDB-Cover-Bot/releases/latest/download/docker-compose.yml
+curl -Lo docker-compose.yml https://github.com/shui1iao/JavDB-Cover-Bot/releases/latest/download/docker-compose.yml
 ```
 
 写入配置：
