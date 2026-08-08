@@ -63,3 +63,17 @@ test('queryJav321 excludes studio and actress values from English aggregator tag
   const tagsLine = result.caption.split('\n').find((line) => line.includes('<b>标签：</b>')) || '';
   assert.doesNotMatch(tagsLine, /#FALENO|#KamikiRan/);
 });
+
+// Regression: older Aircontrol image-video entries can be absent from JAV321,
+// JavDB, MissAV, and 3xplanet while the manufacturer still has an exact page.
+test('queryJav321 falls back to the official Aircontrol page for OAE entries', async () => {
+  const result = await queryJav321('OAE-176');
+
+  assert.equal(result.detail.source, 'aircontrol');
+  assert.equal(result.detail.code, 'OAE-176');
+  assert.equal(result.detail.releaseDate, '2019-01-25');
+  assert.match(result.caption, /<b>标题：<\/b>ALL NUDE(?:\n|$)/);
+  assert.match(result.caption, /<b>演员：<\/b>#岬ななみ/);
+  assert.match(result.caption, /<b>标签：<\/b>#美乳 #可爱(?:\n|$)/);
+  assert.match(result.cover, /^https:\/\/www\.i-dol\.tv\/contents\/works\/oae176\/oae176-ps\.jpg$/);
+});

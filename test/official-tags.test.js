@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {
   isMoodyzMaker,
   isS1Maker,
+  parseAircontrolOfficialDetail,
   parseMoodyzOfficialTags,
   parseS1OfficialTags,
 } from '../src/jav321.js';
@@ -82,4 +83,33 @@ test('extracts and translates structured genres from an exact Moodyz product pag
 test('recognizes only exact normalized Moodyz maker aliases', () => {
   for (const maker of ['ムーディーズ', 'MOODYZ', 'Moodyz']) assert.equal(isMoodyzMaker(maker), true, maker);
   for (const maker of ['MOODYZVR', 'NotMoodyz', 'ムーディーズプラス']) assert.equal(isMoodyzMaker(maker), false, maker);
+});
+
+const aircontrolDetailHtml = `
+  <main>
+    <dl><dt>出演</dt><dd><p>岬ななみ</p></dd></dl>
+    <dl><dt>タイトル</dt><dd><h1>ALL NUDE</h1></dd></dl>
+    <dl><dt>発売日 :</dt><dd><a>2019年1月25日</a></dd></dl>
+    <dl><dt>ジャンル :</dt><dd><a>美乳</a><a>カワイイ</a></dd></dl>
+    <dl><dt>レーベル :</dt><dd><a>antenna</a></dd></dl>
+    <dl><dt>品番 :</dt><dd><span>DVDOAE176</span></dd></dl>
+    <img src="/contents/works/oae176/oae176-ps.jpg" alt="ALL NUDE">
+  </main>
+`;
+
+test('extracts an exact full detail from an Aircontrol product page', () => {
+  assert.deepEqual(parseAircontrolOfficialDetail(aircontrolDetailHtml, 'OAE-176'), {
+    rawTitle: 'ALL NUDE',
+    maker: 'Aircontrol',
+    releaseDate: '2019-01-25',
+    code: 'OAE-176',
+    actors: ['岬ななみ'],
+    tags: ['美乳', '可爱'],
+    cover: 'https://www.i-dol.tv/contents/works/oae176/oae176-ps.jpg',
+    source: 'aircontrol',
+  });
+});
+
+test('rejects Aircontrol details when the official page code is only a similar match', () => {
+  assert.equal(parseAircontrolOfficialDetail(aircontrolDetailHtml, 'OAE-17'), null);
 });

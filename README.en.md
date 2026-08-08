@@ -14,7 +14,7 @@
 - Supports FC2 shorthand: `FC2-PPV-2767346`, `FC2-2767346`, and `2767346` normalize to `FC2-PPV-2767346`
 - Supports `/av`, `/jav`, `/javdb`, and `/jd`
 - Returns cover image, Simplified Chinese title, release date, actresses and tags
-- Prefers structured genres from official studio pages (currently S1 and MOODYZ), then falls back to aggregator metadata
+- Prefers work details and structured genres from official studio pages (currently S1, MOODYZ, and Aircontrol), then falls back to aggregator metadata
 - Uses JavDB only as a metadata fallback; JavDB/JDBStatic watermarked covers are never sent, and the bot sends text only when no other cover is available
 - Uses bold Telegram HTML labels in captions
 - Optional user allowlist

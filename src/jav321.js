@@ -36,7 +36,19 @@ export function normalizeCode(input) {
     .toUpperCase();
   const fc2 = /^(?:FC2(?:-PPV)?-)?(\d{5,})$/.exec(code);
   if (fc2) return `FC2-PPV-${fc2[1]}`;
+  const aircontrol = /^(O(?:AE|ME))-?(\d+)$/.exec(code);
+  if (aircontrol) return `${aircontrol[1]}-${aircontrol[2]}`;
   return code;
+}
+
+function comparableProductCode(code = '') {
+  return normalizeCode(code).replace(/[^A-Z0-9]/g, '');
+}
+
+function isExactProductCode(pageCode = '', requestedCode = '') {
+  const page = comparableProductCode(pageCode);
+  const requested = comparableProductCode(requestedCode);
+  return Boolean(page && requested && page === requested);
 }
 
 function htmlEscape(text = '') {
@@ -72,10 +84,10 @@ async function curlText(url, postFields = null, referer = 'https://www.jav321.co
   return stdout;
 }
 
-async function translateJaToZh(text) {
+async function translateJaToZh(text, force = false) {
   const raw = String(text || '').trim();
   if (!raw) return raw;
-  if (!/[\u3040-\u30ff]/.test(raw)) return zh(raw);
+  if (!force && !/[\u3040-\u30ff]/.test(raw)) return zh(raw);
   try {
     const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=ja&tl=zh-CN&dt=t&q=${encodeURIComponent(raw)}`;
     const { stdout } = await execFileAsync('curl', [
@@ -186,6 +198,11 @@ const GENRE_TRANSLATIONS = new Map([
   ['アクメ・オーガズム', '高潮'],
   ['潮吹き', '潮吹'],
   ['スポーツ', '运动'],
+  ['カワイイ', '可爱'],
+  ['水着', '泳装'],
+  ['ランジェリー', '内衣'],
+  ['イメージビデオ', '写真'],
+  ['ノーブラ', '无胸罩'],
   ['Pantyhose', '连裤袜'],
   ['Creampie', '中出'],
   ['Cheating Wife', 'NTR'],
@@ -223,6 +240,7 @@ const GENRE_TRANSLATIONS = new Map([
   ['Blowjob', '口交'],
 ]);
 
+const CANONICAL_GENRES = new Set([...GENRE_TRANSLATIONS.values()].filter(Boolean));
 const TAG_ORDER = ['人妻', '巨乳', '单体作品', 'NTR', '中出', '高清', '独家'];
 
 function translateGenre(text = '') {
@@ -304,6 +322,86 @@ export function parseMoodyzOfficialTags(html = '', code = '') {
   return parseS1OfficialTags(html, code);
 }
 
+export function parseAircontrolOfficialDetail(html = '', code = '') {
+  const normalizedCode = normalizeCode(code);
+  const comparableCode = comparableProductCode(normalizedCode);
+  if (!comparableCode || !html) return null;
+
+  const $ = cheerio.load(html);
+  const row = (label) => $('dl').filter((_, el) => (
+    $(el).find('dt').first().text().replace(/\s+/g, '').startsWith(label)
+  )).first().find('dd').first();
+  const pageCodeRow = row('品番');
+  const pageCodeText = pageCodeRow.find('.works-info-desc-tx')
+    .not('.works-info-desc-tx--stream').first().text() || pageCodeRow.text();
+  const pageCode = pageCodeText
+    .normalize('NFKC')
+    .replace(/^\s*DVD/i, '')
+    .replace(/[^A-Z0-9]/gi, '')
+    .toUpperCase();
+  if (pageCode !== comparableCode) return null;
+
+  const rawTitle = row('タイトル').find('h1').first().text().trim()
+    || row('タイトル').text().trim();
+  const actors = [];
+  $('dl').filter((_, el) => (
+    $(el).find('dt').first().text().replace(/\s+/g, '').startsWith('出演')
+  )).each((_, el) => {
+    const actorCell = $(el).find('dd').first();
+    let actorNodes = actorCell.find('a[href*="/idol/detail/"]');
+    if (!actorNodes.length) actorNodes = actorCell.find('.works-info-desc-tx, p > span');
+    const names = actorNodes.length
+      ? actorNodes.map((__, node) => $(node).text().trim()).get()
+      : actorCell.text().split(/[、,，]/).map((name) => name.trim());
+    for (const name of names) {
+      if (name && !actors.includes(name)) actors.push(name);
+    }
+  });
+  const tags = unique(row('ジャンル').find('a').map((_, el) => (
+    translateGenre($(el).text().trim())
+  )).get().filter(Boolean));
+  const rawDate = row('発売日').text().trim();
+  const dateMatch = /^(\d{4})年(\d{1,2})月(\d{1,2})日$/.exec(rawDate);
+  const releaseDate = dateMatch
+    ? `${dateMatch[1]}-${dateMatch[2].padStart(2, '0')}-${dateMatch[3].padStart(2, '0')}`
+    : rawDate;
+  const slug = comparableCode.toLowerCase();
+  const coverPath = $('img').map((_, el) => $(el).attr('src') || $(el).attr('data-src') || '').get()
+    .find((src) => src.includes(`/contents/works/${slug}/`) && src.endsWith(`/${slug}-ps.jpg`));
+  const cover = coverPath ? new URL(coverPath, 'https://www.i-dol.tv/').href : '';
+
+  if (!rawTitle) return null;
+  return {
+    rawTitle,
+    maker: 'Aircontrol',
+    releaseDate,
+    code: normalizedCode,
+    actors,
+    tags,
+    cover,
+    source: 'aircontrol',
+  };
+}
+
+async function fetchAircontrolOfficialDetail(code) {
+  const normalized = normalizeCode(code);
+  if (!/^O(?:AE|ME)-\d+$/.test(normalized)) return null;
+  const slug = normalized.replace(/[^A-Z0-9]/g, '').toLowerCase();
+  try {
+    const html = await curlText(
+      `https://www.i-dol.tv/works/detail/${encodeURIComponent(slug)}/`,
+      null,
+      'https://www.i-dol.tv/search/list/'
+    );
+    const detail = parseAircontrolOfficialDetail(html, normalized);
+    if (!detail) return null;
+    detail.tags = await translateOfficialTags(detail.tags);
+    return detail;
+  } catch {
+    return null;
+  }
+}
+
 const S1_MAKER_ALIASES = new Set([
   'エスワン',
   'エスワンナンバーワンスタイル',
@@ -333,33 +431,44 @@ export function isMoodyzMaker(maker = '') {
   return MOODYZ_MAKER_ALIASES.has(normalizeMaker(maker));
 }
 
-async function translateOfficialTags(tags = []) {
+export async function translateOfficialTags(tags = [], translator = null) {
+  const translate = translator || ((tag) => translateJaToZh(tag, true));
   const translated = [];
   for (const tag of tags) {
-    const text = /[\u3040-\u30ff]/.test(tag) ? await translateJaToZh(tag) : tag;
+    const shouldTranslate = !CANONICAL_GENRES.has(tag) && /[\u3040-\u30ff\u3400-\u9fff]/.test(tag);
+    const text = shouldTranslate ? await translate(tag) : tag;
     const normalized = translateGenre(zh(text)).trim();
-    if (normalized && !BLOCKED_TAGS.has(normalized) && !translated.includes(normalized)) translated.push(normalized);
+    const untranslated = shouldTranslate && (
+      normalized === zh(tag).trim() || /[\u3040-\u30ff]/.test(normalized)
+    );
+    if (!untranslated && normalized && !BLOCKED_TAGS.has(normalized) && !translated.includes(normalized)) translated.push(normalized);
   }
   return translated;
 }
 
 async function fetchOfficialTags(code, maker = '') {
-  const source = isS1Maker(maker)
+  const normalizedCode = normalizeCode(code);
+  const makerKnown = Boolean(String(maker || '').trim());
+  const source = isS1Maker(maker) || (!makerKnown && /^SSIS-\d+$/.test(normalizedCode))
     ? { base: 'https://s1s1s1.com', parse: parseS1OfficialTags }
-    : (isMoodyzMaker(maker)
+    : ((isMoodyzMaker(maker) || (!makerKnown && /^MIDA-\d+$/.test(normalizedCode)))
       ? { base: 'https://moodyz.com', parse: parseMoodyzOfficialTags }
       : null);
   if (!source) return [];
 
   const slug = normalizeCode(code).replace(/[^A-Z0-9]/g, '').toLowerCase();
   if (!slug) return [];
-  try {
-    const url = `${source.base}/works/detail/${encodeURIComponent(slug)}`;
-    const html = await curlText(url, null, `${source.base}/works/`);
-    return translateOfficialTags(source.parse(html, code));
-  } catch {
-    return [];
+  const url = `${source.base}/works/detail/${encodeURIComponent(slug)}`;
+  for (let attempt = 0; attempt < 2; attempt += 1) {
+    try {
+      const html = await curlText(url, null, `${source.base}/works/`);
+      const tags = await translateOfficialTags(source.parse(html, code));
+      if (tags.length || attempt === 1) return tags;
+    } catch {
+      if (attempt === 1) return [];
+    }
   }
+  return [];
 }
 
 export function parseThreeXPlanetTags(description = '') {
@@ -392,26 +501,57 @@ export function parseThreeXPlanetTags(description = '') {
   return normalizeTags(tags.map((tag) => translateGenre(tag)));
 }
 
+function productCodeFromUrl(value = '') {
+  try {
+    const segments = new URL(value).pathname.split('/').filter(Boolean);
+    return segments.length ? normalizeCode(decodeURIComponent(segments.at(-1))) : '';
+  } catch {
+    return '';
+  }
+}
+
+function productCodeFromText(value = '') {
+  const match = /(?:FC2[\s_-]*(?:PPV[\s_-]*)?\d{5,}|[A-Z]{2,10}-?\d+)/i.exec(String(value));
+  return match ? normalizeCode(match[0]) : '';
+}
+
+export function parseMissavDetailPage(html = '', code = '') {
+  const normalized = normalizeCode(code);
+  if (!normalized || !html) return null;
+  const $ = cheerio.load(html);
+  const getBlock = (label) => pickFirst(new RegExp(`<span>${label}:<\/span>([\\s\\S]*?)<\/div>`, 'i'), html);
+  const linkTexts = (block) => [...String(block || '').matchAll(/<a [^>]*>([^<]+)<\/a>/gi)].map((m) => zh(m[1]));
+  const title = zh(pickFirst(/<span>Title:<\/span>\s*<span[^>]*>([^<]+)<\/span>/i, html));
+  const notFoundText = `${$('title').first().text()} ${$('main h1, body h1').first().text()}`;
+  if (!title || /(?:video|page)?\s*not\s*found|\b404\b/i.test(notFoundText)) return null;
+  const pageUrl = $('link[rel="canonical"]').first().attr('href')
+    || $('meta[property="og:url"]').first().attr('content')
+    || '';
+  const canonicalCode = productCodeFromUrl(pageUrl);
+  const titleCode = productCodeFromText(title);
+  if (!isExactProductCode(canonicalCode, normalized) || !isExactProductCode(titleCode, normalized)) return null;
+
+  const releaseDate = pickFirst(/<span>Release date:<\/span>\s*<time[^>]*>([^<]+)<\/time>/i, html);
+  let actors = linkTexts(getBlock('Actress'));
+  const titleActor = title.includes('/') ? title.split('/')[0].trim() : '';
+  if (titleActor && /[\u3040-\u30ff\u3400-\u9fff]/.test(titleActor)) actors = [titleActor];
+  const tags = normalizeTags(linkTexts(getBlock('Genre')).map(translateGenre));
+  const cover = absDmm(
+    $('meta[property="og:image"]').first().attr('content') ||
+    $('meta[name="twitter:image"]').first().attr('content') || ''
+  );
+  return { rawTitle: title, releaseDate, code: normalized, actors, tags, cover, source: 'missav' };
+}
+
 async function fetchMissavDetail(code) {
-  const slug = String(code || '').toLowerCase();
+  const normalized = normalizeCode(code);
+  const slug = normalized.toLowerCase();
   if (!slug) return null;
   for (const base of ['https://missav.ai/en/', 'https://missav.com/en/']) {
     try {
       const html = await curlText(`${base}${encodeURIComponent(slug)}`, null, base);
-      if (!new RegExp(String(code).replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'), 'i').test(html)) continue;
-      const getBlock = (label) => pickFirst(new RegExp(`<span>${label}:<\/span>([\\s\\S]*?)<\/div>`, 'i'), html);
-      const linkTexts = (block) => [...String(block || '').matchAll(/<a [^>]*>([^<]+)<\/a>/gi)].map((m) => zh(m[1]));
-      const title = zh(pickFirst(/<span>Title:<\/span>\s*<span[^>]*>([^<]+)<\/span>/i, html));
-      const releaseDate = pickFirst(/<span>Release date:<\/span>\s*<time[^>]*>([^<]+)<\/time>/i, html);
-      let actors = linkTexts(getBlock('Actress'));
-      const titleActor = title.includes('/') ? title.split('/')[0].trim() : '';
-      if (titleActor && /[\u3040-\u30ff\u3400-\u9fff]/.test(titleActor)) actors = [titleActor];
-      const tags = normalizeTags(linkTexts(getBlock('Genre')).map(translateGenre));
-      const cover = absDmm(
-        pickFirst(/<meta property="og:image" content="([^"]+)"/i, html) ||
-        pickFirst(/<meta name="twitter:image" content="([^"]+)"/i, html)
-      );
-      return { rawTitle: title, releaseDate, code: String(code).toUpperCase(), actors, tags, cover, source: 'missav' };
+      const detail = parseMissavDetailPage(html, normalized);
+      if (detail) return detail;
     } catch {}
   }
   return null;
@@ -421,39 +561,62 @@ async function fetchMissavTags(code) {
   return (await fetchMissavDetail(code))?.tags || [];
 }
 
+export function parseThreeXPlanetDetailPage(html = '', code = '') {
+  const normalized = normalizeCode(code);
+  if (!normalized || !html) return null;
+  const $ = cheerio.load(html);
+  const rawTitle = zh(
+    $('h1').first().text().trim() ||
+    $('meta[property="og:title"]').first().attr('content') ||
+    $('title').first().text()
+  ).replace(/\s+-\s+3xplanet.*$/i, '').trim();
+  const pageHeading = `${$('title').first().text()} ${$('h1').first().text()}`;
+  if (!rawTitle || /(?:video|page)?\s*not\s*found|\bnothing\s+found\b|\b404\b/i.test(pageHeading)) return null;
+  const description = decodeBasicEntities(zh(
+    $('meta[name="description"]').first().attr('content') ||
+    $('meta[property="og:description"]').first().attr('content') || ''
+  ));
+  const structuredCode = pickFirst(/品番[：:]\s*([A-Z0-9_-]+\d)/i, description);
+  const hasEnglishMetadata = /Starring:\s*\S[\s\S]*?Studio:\s*\S[\s\S]*?Tags:/i.test(description);
+  const hasJapaneseMetadata = /(?:商品タグ|ジャンル)[：:]\s*\S/.test(description)
+    && /(?:配信開始日|発売日|販売日|収録時間)[：:]/.test(description);
+  if (!structuredCode && !hasEnglishMetadata && !hasJapaneseMetadata) return null;
+  const pageUrl = $('link[rel="canonical"]').first().attr('href')
+    || $('meta[property="og:url"]').first().attr('content')
+    || '';
+  const canonicalCode = productCodeFromUrl(pageUrl);
+  const titleCode = productCodeFromText(rawTitle);
+  const structuredMatch = structuredCode && isExactProductCode(structuredCode, normalized);
+  const canonicalTitleMatch = isExactProductCode(canonicalCode, normalized)
+    && isExactProductCode(titleCode, normalized);
+  if (!structuredMatch && !canonicalTitleMatch) return null;
+
+  const releaseDate = pickFirst(/(?:配信開始日|発売日|販売日|贩売日|销售日)[：:]\s*([0-9/.-]+)/i, description);
+  const maker = pickFirst(/メーカー[：:]\s*(.*?)\s+(?:レーベル|ジャンル|出演者|~~DOWNLOAD~~)/i, description)
+    || pickFirst(/Studio:\s*(.*?)\s+Tags:/i, description);
+  const actorJa = pickFirst(/出演者[：:]\s*([^\s]+(?:[、,，]\s*[^\s]+)*)\s+(?:サイズ|~~DOWNLOAD~~)/i, description);
+  const actorEn = pickFirst(/Starring:\s*(.*?)\s+Studio:/i, description);
+  const actors = unique([
+    ...actorJa.split(/[、,，]/),
+    ...actorEn.split(/[,，]/),
+  ].map((name) => zh(name).trim()).filter(Boolean));
+  const tags = parseThreeXPlanetTags(description);
+  const cover = absDmm(
+    $('meta[property="og:image"]').first().attr('content') ||
+    $('meta[name="twitter:image"]').first().attr('content') ||
+    pickFirst(/<img[^>]+src="([^"]*3xplanet[^"<>]*_cover\.jpg)"/i, html)
+  );
+  if (!cover) return null;
+  return { rawTitle, maker: zh(maker), releaseDate, code: normalized, actors, tags, cover, source: '3xplanet' };
+}
+
 async function fetchThreeXPlanetDetail(code) {
   const normalized = normalizeCode(code);
   if (!normalized) return null;
   const slug = normalized.toLowerCase();
   try {
     const html = await curlText(`https://3xplanet.com/${encodeURIComponent(slug)}/`, null, 'https://3xplanet.com/');
-    if (!new RegExp(normalized.replace(/[-/\^$*+?.()|[\]{}]/g, '\\$&'), 'i').test(html)) return null;
-    const rawTitle = zh(
-      pickFirst(/<h1[^>]*>([^<]+)<\/h1>/i, html) ||
-      pickFirst(/<meta property="og:title" content="([^"]+)"/i, html) ||
-      pickFirst(/<title>([^<]+)<\/title>/i, html)
-    ).replace(/\s+-\s+3xplanet.*$/i, '').trim();
-    const description = decodeBasicEntities(zh(
-      pickFirst(/<meta name="description" content="([^"]+)"/i, html) ||
-      pickFirst(/<meta property="og:description" content="([^"]+)"/i, html)
-    ));
-    const releaseDate = pickFirst(/(?:配信開始日|発売日|販売日|贩売日|销售日)[：:]\s*([0-9/.-]+)/i, description);
-    const maker = pickFirst(/メーカー[：:]\s*(.*?)\s+(?:レーベル|ジャンル|出演者|~~DOWNLOAD~~)/i, description)
-      || pickFirst(/Studio:\s*(.*?)\s+Tags:/i, description);
-    const actorJa = pickFirst(/出演者[：:]\s*([^\s]+(?:[、,，]\s*[^\s]+)*)\s+(?:サイズ|~~DOWNLOAD~~)/i, description);
-    const actorEn = pickFirst(/Starring:\s*(.*?)\s+Studio:/i, description);
-    const actors = unique([
-      ...actorJa.split(/[、,，]/),
-      ...actorEn.split(/[,，]/),
-    ].map((name) => zh(name).trim()).filter(Boolean));
-    const tags = parseThreeXPlanetTags(description);
-    const cover = absDmm(
-      pickFirst(/<meta property="og:image" content="([^"]+)"/i, html) ||
-      pickFirst(/<meta name="twitter:image" content="([^"]+)"/i, html) ||
-      pickFirst(/<img[^>]+src="([^"]*3xplanet[^"<>]*_cover\.jpg)"/i, html)
-    );
-    if (!cover) return null;
-    return { rawTitle, maker: zh(maker), releaseDate, code: normalized, actors, tags, cover, source: '3xplanet' };
+    return parseThreeXPlanetDetailPage(html, normalized);
   } catch {
     return null;
   }
@@ -530,19 +693,44 @@ function parseDetail(html) {
   return { rawTitle, maker, releaseDate, code, actors, tags, cover, panelText };
 }
 
+export function parseJav321DetailPage(html = '', code = '') {
+  if (!html || !/配信開始日|出演者|メーカー/.test(html)) return null;
+  const detail = parseDetail(html);
+  if (!isExactProductCode(detail.code, code)) return null;
+  return detail;
+}
+
+export function mergeThreeXPlanetDetail(detail, fallback) {
+  if (!detail || !fallback || !isExactProductCode(detail.code, fallback.code)) return detail;
+  if (!detail.cover && fallback.cover) detail.cover = allowedCover(fallback.cover);
+  if (!detail.releaseDate && fallback.releaseDate) detail.releaseDate = fallback.releaseDate;
+  if (!detail.maker && fallback.maker) detail.maker = fallback.maker;
+  if ((!detail.actors || !detail.actors.length) && fallback.actors?.length) detail.actors = fallback.actors;
+  if ((!detail.tags || !detail.tags.length) && fallback.tags?.length) detail.tags = fallback.tags;
+  return detail;
+}
+
 export async function queryJav321(input) {
   const code = normalizeCode(input);
   if (!code || !/(?:FC2-PPV-\d+|[A-Z]+-?\d+)/.test(code)) throw new Error('请输入番号，例如：SSIS-001');
 
-  let detail;
-  try {
-    const html = await curlText('https://www.jav321.com/search', `sn=${encodeURIComponent(code)}`);
-    if (!html || !/配信開始日|出演者|メーカー/.test(html)) throw new Error('not found on jav321');
-    detail = parseDetail(html);
-  } catch {
-    detail = await fetchMissavDetail(code);
+  let detail = await fetchAircontrolOfficialDetail(code);
+  if (!detail) {
+    for (let attempt = 0; attempt < 2 && !detail; attempt += 1) {
+      try {
+        const html = await curlText('https://www.jav321.com/search', `sn=${encodeURIComponent(code)}`, '');
+        detail = parseJav321DetailPage(html, code);
+      } catch {}
+    }
+    if (!detail) detail = await fetchMissavDetail(code);
   }
-  const javdbMeta = await fetchJavdbMeta(detail?.code || code);
+  const aircontrolMetaComplete = detail?.source === 'aircontrol'
+    && detail.releaseDate
+    && detail.actors?.length
+    && detail.tags?.length;
+  const javdbMeta = aircontrolMetaComplete
+    ? { rawTitle: '', releaseDate: '', maker: '', tags: [], actors: [] }
+    : await fetchJavdbMeta(detail?.code || code);
   let threeXPlanetDetail = null;
   if (!detail && !javdbMeta?.rawTitle) {
     threeXPlanetDetail = await fetchThreeXPlanetDetail(code);
@@ -564,29 +752,35 @@ export async function queryJav321(input) {
   }
   if (!detail) throw new Error('未找到相关番号');
   detail.cover = allowedCover(detail.cover);
+  if (!detail.releaseDate && javdbMeta.releaseDate) detail.releaseDate = javdbMeta.releaseDate;
   const needsThreeXContent = !detail.cover || !detail.actors?.length || !detail.tags?.length;
   const needsMaker = !(detail.maker || javdbMeta.maker);
   threeXPlanetDetail = threeXPlanetDetail || ((needsThreeXContent || needsMaker)
     ? await fetchThreeXPlanetDetail(detail.code || code)
     : null);
-  if (threeXPlanetDetail?.cover && needsThreeXContent) {
-    // 3xplanet often has the actual composite cover for amateur entries where jav321/DMM returns a mismatched small jacket.
-    detail.cover = allowedCover(threeXPlanetDetail.cover);
-    if (!detail.releaseDate && threeXPlanetDetail.releaseDate) detail.releaseDate = threeXPlanetDetail.releaseDate;
+  if (threeXPlanetDetail) {
+    const mergeFallback = {
+      ...threeXPlanetDetail,
+      actors: javdbMeta.actors.length ? [] : threeXPlanetDetail.actors,
+      tags: javdbMeta.tags.length ? [] : threeXPlanetDetail.tags,
+    };
+    detail = mergeThreeXPlanetDetail(detail, mergeFallback);
   }
-  if ((!detail.actors || !detail.actors.length) && !javdbMeta.actors.length && threeXPlanetDetail?.actors?.length) detail.actors = threeXPlanetDetail.actors;
-  if ((!detail.tags || !detail.tags.length) && threeXPlanetDetail?.tags?.length) detail.tags = threeXPlanetDetail.tags;
-  const officialTags = await fetchOfficialTags(
-    detail.code || code,
-    detail.maker || javdbMeta.maker || threeXPlanetDetail?.maker || ''
-  );
+  const officialTags = detail.source === 'aircontrol'
+    ? detail.tags
+    : await fetchOfficialTags(
+      detail.code || code,
+      detail.maker || javdbMeta.maker || threeXPlanetDetail?.maker || ''
+    );
   detail.tags = officialTags.length
     ? officialTags
     : (javdbMeta.tags.length ? javdbMeta.tags : (detail.tags || []));
   if ((!detail.actors || !detail.actors.length) && javdbMeta.actors.length) detail.actors = javdbMeta.actors;
   if (!detail.actors || !detail.actors.length) detail.actors = extractActorsFromTitle(detail.rawTitle);
   if (!detail.tags.length && detail.source === 'missav') detail.tags = detail.tags || [];
-  const cleanJavdbTitle = cleanTitle(javdbMeta.rawTitle || '', detail.code || code);
+  const cleanJavdbTitle = detail.source === 'aircontrol'
+    ? ''
+    : cleanTitle(javdbMeta.rawTitle || '', detail.code || code);
   let originalTitle = cleanJavdbTitle || cleanTitle(detail.rawTitle || code, detail.code || code);
   originalTitle = originalTitle.replace(/[」』"'“”‘’：:、，。\s]+$/g, '').trim();
   detail.rawTitle = originalTitle;
