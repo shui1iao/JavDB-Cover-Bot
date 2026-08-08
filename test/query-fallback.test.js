@@ -36,3 +36,20 @@ test('queryJav321 falls back to 3xplanet for numeric FC2 entries missing from Ja
   assert.doesNotMatch(result.detail.rawTitle, /^(?:FC2\s*)?PPV\s*4361640\b/i);
   assert.ok(result.cover, 'expected cover from 3xplanet fallback source');
 });
+
+// Regression: aggregator tags for SSIS-348 include technical or overly broad
+// categories. The S1 product page has the authoritative structured genres.
+test('queryJav321 prefers official S1 genres over aggregator tags', async () => {
+  const result = await queryJav321('SSIS-348');
+
+  assert.match(result.caption, /<b>标签：<\/b>#巨乳 #美少女 #姐妹 #单体作品 #NTR(?:\n|$)/);
+  assert.doesNotMatch(result.caption, /#ギリモザ|#妹(?:\s|$)/);
+});
+
+// Regression: MIDA-687 has no genre block on JAV321 or 3xplanet, while the
+// Moodyz product page exposes authoritative structured genres.
+test('queryJav321 uses official Moodyz genres when aggregators return no tags', async () => {
+  const result = await queryJav321('MIDA-687');
+
+  assert.match(result.caption, /<b>标签：<\/b>#高潮 #潮吹 #女学生 #运动 #美少女(?:\n|$)/);
+});

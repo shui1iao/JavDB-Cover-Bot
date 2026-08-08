@@ -174,6 +174,18 @@ const GENRE_TRANSLATIONS = new Map([
   ['Tall Lady', '高个子'],
   ['Beautiful Girl', '美少女'],
   ['Pretty Girl', '美少女'],
+  ['姉・妹', '姐妹'],
+  ['姉妹', '姐妹'],
+  ['単体作品', '单体作品'],
+  ['寝取り・寝取られ・ＮＴＲ', 'NTR'],
+  ['寝取り・寝取られ・NTR', 'NTR'],
+  ['ハメ撮り', '自拍性爱'],
+  ['スレンダー', '苗条'],
+  ['ドラマ', '剧情'],
+  ['アイドル・芸能人', '偶像艺人'],
+  ['アクメ・オーガズム', '高潮'],
+  ['潮吹き', '潮吹'],
+  ['スポーツ', '运动'],
   ['Creampie', '中出'],
   ['Cheating Wife', 'NTR'],
   ['Married Woman', '人妻'],
@@ -266,6 +278,106 @@ function normalizeTags(tags = []) {
   });
 }
 
+export function parseS1OfficialTags(html = '', code = '') {
+  const normalizedCode = normalizeCode(code).replace(/[^A-Z0-9]/g, '');
+  if (!normalizedCode || !html) return [];
+
+  const $ = cheerio.load(html);
+  const codeLabel = $('.th').filter((_, el) => $(el).text().trim() === '品番').first();
+  const pageCodeText = codeLabel.siblings('.td').first().text()
+    || codeLabel.parent().find('.td').first().text();
+  const pageCode = String(pageCodeText || '')
+    .normalize('NFKC')
+    .replace(/^\s*(?:DVD|配信)\s*/i, '')
+    .replace(/[^A-Z0-9]/gi, '')
+    .toUpperCase();
+  if (pageCode !== normalizedCode) return [];
+
+  const tags = $('a[href*="/works/list/genre/"]')
+    .map((_, el) => translateGenre($(el).text().trim()))
+    .get();
+  return unique(tags.filter((tag) => tag && !BLOCKED_TAGS.has(tag)));
+}
+
+export function parseMoodyzOfficialTags(html = '', code = '') {
+  return parseS1OfficialTags(html, code);
+}
+
+const S1_MAKER_ALIASES = new Set([
+  'エスワン',
+  'エスワンナンバーワンスタイル',
+  's1',
+  's1no1style',
+  'esuwan',
+  'esuwannumberonestyle',
+]);
+
+const MOODYZ_MAKER_ALIASES = new Set([
+  'ムーディーズ',
+  'moodyz',
+]);
+
+function normalizeMaker(maker = '') {
+  return String(maker)
+    .normalize('NFKC')
+    .toLowerCase()
+    .replace(/[\s._-]+/g, '');
+}
+
+export function isS1Maker(maker = '') {
+  return S1_MAKER_ALIASES.has(normalizeMaker(maker));
+}
+
+export function isMoodyzMaker(maker = '') {
+  return MOODYZ_MAKER_ALIASES.has(normalizeMaker(maker));
+}
+
+async function translateOfficialTags(tags = []) {
+  const translated = [];
+  for (const tag of tags) {
+    const text = /[\u3040-\u30ff]/.test(tag) ? await translateJaToZh(tag) : tag;
+    const normalized = translateGenre(zh(text)).trim();
+    if (normalized && !BLOCKED_TAGS.has(normalized) && !translated.includes(normalized)) translated.push(normalized);
+  }
+  return translated;
+}
+
+async function fetchOfficialTags(code, maker = '') {
+  const source = isS1Maker(maker)
+    ? { base: 'https://s1s1s1.com', parse: parseS1OfficialTags }
+    : (isMoodyzMaker(maker)
+      ? { base: 'https://moodyz.com', parse: parseMoodyzOfficialTags }
+      : null);
+  if (!source) return [];
+
+  const slug = normalizeCode(code).replace(/[^A-Z0-9]/g, '').toLowerCase();
+  if (!slug) return [];
+  try {
+    const url = `${source.base}/works/detail/${encodeURIComponent(slug)}`;
+    const html = await curlText(url, null, `${source.base}/works/`);
+    return translateOfficialTags(source.parse(html, code));
+  } catch {
+    return [];
+  }
+}
+
+export function parseThreeXPlanetTags(description = '') {
+  const text = decodeBasicEntities(zh(description));
+  const jpGenreBlock = pickFirst(
+    /(?:ジャンル|商品タグ|商品标签)[：:]\s*(.*?)(?=\s+(?:出演者|東京恋人|品番|配信開始日|発売日|販売日|贩売日|销售日|収録時間|収录时间|收录时间|監督|监督|メーカー|レーベル)[：:]|\s+~~DOWNLOAD~~|$)/i,
+    text
+  );
+  if (jpGenreBlock) {
+    return normalizeTags(jpGenreBlock.split(/\s+/).map((tag) => translateGenre(tag)));
+  }
+
+  const enTagsBlock = pickFirst(
+    /Tags:\s*(.*?)(?=\s+(?:品番|配信開始日|発売日|販売日|贩売日|销售日|収録時間|収录时间|收录时间|監督|监督|メーカー|レーベル|出演者|Release date|Duration|Director|Maker|Label|Genre|Actress|Performer|Starring|Studio)[：:]|\s+【|\s+~~DOWNLOAD~~|$)/i,
+    text
+  );
+  return normalizeTags(enTagsBlock.split(/[,，]/).map((tag) => translateGenre(tag)));
+}
+
 async function fetchMissavDetail(code) {
   const slug = String(code || '').toLowerCase();
   if (!slug) return null;
@@ -311,26 +423,23 @@ async function fetchThreeXPlanetDetail(code) {
       pickFirst(/<meta name="description" content="([^"]+)"/i, html) ||
       pickFirst(/<meta property="og:description" content="([^"]+)"/i, html)
     ));
-    const releaseDate = pickFirst(/(?:配信開始日|販売日|贩売日|销售日)[：:]\s*([0-9/.-]+)/i, description);
-    const actorJa = pickFirst(/出演者[：:]\s*([^\s]+(?:[、,，]\s*[^\s]+)*)\s+サイズ[：:]/i, description);
+    const releaseDate = pickFirst(/(?:配信開始日|発売日|販売日|贩売日|销售日)[：:]\s*([0-9/.-]+)/i, description);
+    const maker = pickFirst(/メーカー[：:]\s*(.*?)\s+(?:レーベル|ジャンル|出演者|~~DOWNLOAD~~)/i, description)
+      || pickFirst(/Studio:\s*(.*?)\s+Tags:/i, description);
+    const actorJa = pickFirst(/出演者[：:]\s*([^\s]+(?:[、,，]\s*[^\s]+)*)\s+(?:サイズ|~~DOWNLOAD~~)/i, description);
     const actorEn = pickFirst(/Starring:\s*(.*?)\s+Studio:/i, description);
     const actors = unique([
       ...actorJa.split(/[、,，]/),
       ...actorEn.split(/[,，]/),
     ].map((name) => zh(name).trim()).filter(Boolean));
-    const jpGenreBlock = pickFirst(/(?:ジャンル|商品タグ|商品标签)[：:]\s*(.*?)\s+(?:東京恋人|品番|配信開始日|販売日|贩売日|销售日|収録時間|収录时间|收录时间|~~DOWNLOAD~~)/i, description);
-    const enTagsBlock = pickFirst(/Tags:\s*(.*?)\s+(?:配信開始日|販売日|贩売日|销售日|商品タグ|商品标签|【|~~DOWNLOAD~~)/i, description);
-    const tags = normalizeTags([
-      ...jpGenreBlock.split(/\s+/),
-      ...enTagsBlock.split(/[,，]/),
-    ].map((tag) => translateGenre(zh(tag).trim())));
+    const tags = parseThreeXPlanetTags(description);
     const cover = absDmm(
       pickFirst(/<meta property="og:image" content="([^"]+)"/i, html) ||
       pickFirst(/<meta name="twitter:image" content="([^"]+)"/i, html) ||
       pickFirst(/<img[^>]+src="([^"]*3xplanet[^"<>]*_cover\.jpg)"/i, html)
     );
     if (!cover) return null;
-    return { rawTitle, releaseDate, code: normalized, actors, tags, cover, source: '3xplanet' };
+    return { rawTitle, maker: zh(maker), releaseDate, code: normalized, actors, tags, cover, source: '3xplanet' };
   } catch {
     return null;
   }
@@ -357,6 +466,7 @@ async function fetchJavdbMeta(code) {
     return {
       rawTitle: result?.detail?.rawTitle || result?.item?.title || '',
       releaseDate: result?.detail?.releaseDate || result?.item?.meta || '',
+      maker: result?.detail?.maker || '',
       tags: normalizeTags(result?.detail?.tags || []),
       actors: (result?.detail?.actors || [])
         .filter((a) => !a?.gender || a.gender === 'female')
@@ -427,6 +537,7 @@ export async function queryJav321(input) {
     detail = {
       rawTitle: javdbMeta.rawTitle,
       releaseDate: javdbMeta.releaseDate,
+      maker: javdbMeta.maker || '',
       code,
       actors: javdbMeta.actors || [],
       tags: javdbMeta.tags || [],
@@ -439,17 +550,25 @@ export async function queryJav321(input) {
   }
   if (!detail) throw new Error('未找到相关番号');
   detail.cover = allowedCover(detail.cover);
-  threeXPlanetDetail = threeXPlanetDetail || ((!detail.cover || !detail.actors?.length || !detail.tags?.length)
+  const needsThreeXContent = !detail.cover || !detail.actors?.length || !detail.tags?.length;
+  const needsMaker = !(detail.maker || javdbMeta.maker);
+  threeXPlanetDetail = threeXPlanetDetail || ((needsThreeXContent || needsMaker)
     ? await fetchThreeXPlanetDetail(detail.code || code)
     : null);
-  if (threeXPlanetDetail?.cover) {
+  if (threeXPlanetDetail?.cover && needsThreeXContent) {
     // 3xplanet often has the actual composite cover for amateur entries where jav321/DMM returns a mismatched small jacket.
     detail.cover = allowedCover(threeXPlanetDetail.cover);
     if (!detail.releaseDate && threeXPlanetDetail.releaseDate) detail.releaseDate = threeXPlanetDetail.releaseDate;
   }
   if ((!detail.actors || !detail.actors.length) && !javdbMeta.actors.length && threeXPlanetDetail?.actors?.length) detail.actors = threeXPlanetDetail.actors;
   if ((!detail.tags || !detail.tags.length) && threeXPlanetDetail?.tags?.length) detail.tags = threeXPlanetDetail.tags;
-  detail.tags = javdbMeta.tags.length ? javdbMeta.tags : (detail.tags || []);
+  const officialTags = await fetchOfficialTags(
+    detail.code || code,
+    detail.maker || javdbMeta.maker || threeXPlanetDetail?.maker || ''
+  );
+  detail.tags = officialTags.length
+    ? officialTags
+    : (javdbMeta.tags.length ? javdbMeta.tags : (detail.tags || []));
   if ((!detail.actors || !detail.actors.length) && javdbMeta.actors.length) detail.actors = javdbMeta.actors;
   if (!detail.actors || !detail.actors.length) detail.actors = extractActorsFromTitle(detail.rawTitle);
   if (!detail.tags.length && detail.source === 'missav') detail.tags = detail.tags || [];
