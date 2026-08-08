@@ -53,3 +53,13 @@ test('queryJav321 uses official Moodyz genres when aggregators return no tags', 
 
   assert.match(result.caption, /<b>标签：<\/b>#高潮 #潮吹 #女学生 #运动 #美少女(?:\n|$)/);
 });
+
+// Regression: 3xplanet repeats the studio and actress inside its English Tags
+// field for FSDSS-582; only the real pantyhose genre should remain.
+test('queryJav321 excludes studio and actress values from English aggregator tags', async () => {
+  const result = await queryJav321('FSDSS-582');
+
+  assert.match(result.caption, /<b>标签：<\/b>#连裤袜(?:\n|$)/);
+  const tagsLine = result.caption.split('\n').find((line) => line.includes('<b>标签：</b>')) || '';
+  assert.doesNotMatch(tagsLine, /#FALENO|#KamikiRan/);
+});

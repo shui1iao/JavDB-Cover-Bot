@@ -186,6 +186,7 @@ const GENRE_TRANSLATIONS = new Map([
   ['アクメ・オーガズム', '高潮'],
   ['潮吹き', '潮吹'],
   ['スポーツ', '运动'],
+  ['Pantyhose', '连裤袜'],
   ['Creampie', '中出'],
   ['Cheating Wife', 'NTR'],
   ['Married Woman', '人妻'],
@@ -375,7 +376,20 @@ export function parseThreeXPlanetTags(description = '') {
     /Tags:\s*(.*?)(?=\s+(?:品番|配信開始日|発売日|販売日|贩売日|销售日|収録時間|収录时间|收录时间|監督|监督|メーカー|レーベル|出演者|Release date|Duration|Director|Maker|Label|Genre|Actress|Performer|Starring|Studio)[：:]|\s+【|\s+~~DOWNLOAD~~|$)/i,
     text
   );
-  return normalizeTags(enTagsBlock.split(/[,，]/).map((tag) => translateGenre(tag)));
+  const normalizeMetadataValue = (value) => String(value || '')
+    .normalize('NFKC')
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, ' ');
+  const excludedValues = new Set([
+    ...pickFirst(/Starring:\s*(.*?)\s+Studio:/i, text).split(/[,，]/),
+    ...pickFirst(/Studio:\s*(.*?)\s+Tags:/i, text).split(/[,，]/),
+  ].map(normalizeMetadataValue).filter(Boolean));
+  const tags = enTagsBlock
+    .split(/[,，]/)
+    .map((tag) => tag.trim())
+    .filter((tag) => tag && !excludedValues.has(normalizeMetadataValue(tag)));
+  return normalizeTags(tags.map((tag) => translateGenre(tag)));
 }
 
 async function fetchMissavDetail(code) {

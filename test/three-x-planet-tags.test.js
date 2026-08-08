@@ -21,3 +21,9 @@ test('3xplanet English tags stop before starring and studio metadata', () => {
     ['巨乳']
   );
 });
+
+test('3xplanet English tags exclude repeated studio and actress values', () => {
+  const description = 'Starring: Kamiki Ran Studio: FALENO Tags: CENSORED, FALENO, Kamiki Ran, pantyhose ~~DOWNLOAD~~';
+
+  assert.deepEqual(parseThreeXPlanetTags(description), ['连裤袜']);
+});
