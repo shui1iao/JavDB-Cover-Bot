@@ -21,6 +21,17 @@ test('Aircontrol parser extracts adjacent actor nodes once across duplicated per
   assert.ok(detail);
   assert.equal(detail.code, 'OME-432');
   assert.deepEqual(detail.actors, ['徳江かな', '桜りん']);
+  assert.equal(detail.cover, 'https://pics.dmm.co.jp/digital/video/ome00432/ome00432pl.jpg');
+});
+
+test('Aircontrol parser keeps official portrait art when no matching DMM digital product exists', () => {
+  const html = fixture('aircontrol-ome432.html').replace(
+    /<a href="http:\/\/www\.dmm\.co\.jp\/digital\/videoa\/[^<]+<\/a>/,
+    ''
+  );
+  const detail = parseAircontrolOfficialDetail(html, 'OME-432');
+
+  assert.ok(detail);
   assert.equal(detail.cover, 'https://www.i-dol.tv/contents/works/ome432/ome432-ps.jpg');
 });
 

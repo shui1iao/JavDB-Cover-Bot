@@ -368,7 +368,19 @@ export function parseAircontrolOfficialDetail(html = '', code = '') {
   const slug = comparableCode.toLowerCase();
   const coverPath = $('img').map((_, el) => $(el).attr('src') || $(el).attr('data-src') || '').get()
     .find((src) => src.includes(`/contents/works/${slug}/`) && src.endsWith(`/${slug}-ps.jpg`));
-  const cover = coverPath ? new URL(coverPath, 'https://www.i-dol.tv/').href : '';
+  const dmmDigitalHref = $('a[href*="dmm.co.jp/digital/videoa/"][href*="/cid="]')
+    .map((_, el) => $(el).attr('href') || '').get().find(Boolean) || '';
+  const dmmCid = /\/cid=([a-z0-9_-]+)(?:\/|$)/i.exec(dmmDigitalHref)?.[1] || '';
+  const codeParts = /^([A-Z]+)-(\d+)$/.exec(normalizedCode);
+  const cidParts = /^([a-z]+)0*(\d+)$/i.exec(dmmCid);
+  const dmmCover = codeParts && cidParts
+    && codeParts[1].toLowerCase() === cidParts[1].toLowerCase()
+    && Number(codeParts[2]) === Number(cidParts[2])
+    ? `https://pics.dmm.co.jp/digital/video/${dmmCid}/${dmmCid}pl.jpg`
+    : '';
+  // Aircontrol's own *-ps.jpg is portrait package art. Prefer the landscape
+  // DMM digital cover advertised by the same official product page.
+  const cover = dmmCover || (coverPath ? new URL(coverPath, 'https://www.i-dol.tv/').href : '');
 
   if (!rawTitle) return null;
   return {

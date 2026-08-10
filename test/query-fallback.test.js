@@ -55,11 +55,12 @@ test('queryJav321 uses official Moodyz genres when aggregators return no tags', 
 });
 
 // Regression: 3xplanet repeats the studio and actress inside its English Tags
-// field for FSDSS-582; only the real pantyhose genre should remain.
+// field for FSDSS-582; the real pantyhose genre must remain while those
+// metadata values stay excluded, even when another source adds valid genres.
 test('queryJav321 excludes studio and actress values from English aggregator tags', async () => {
   const result = await queryJav321('FSDSS-582');
 
-  assert.match(result.caption, /<b>标签：<\/b>#连裤袜(?:\n|$)/);
+  assert.match(result.caption, /<b>标签：<\/b>[^\n]*#连裤袜(?:\s|$)/);
   const tagsLine = result.caption.split('\n').find((line) => line.includes('<b>标签：</b>')) || '';
   assert.doesNotMatch(tagsLine, /#FALENO|#KamikiRan/);
 });
@@ -75,5 +76,5 @@ test('queryJav321 falls back to the official Aircontrol page for OAE entries', a
   assert.match(result.caption, /<b>标题：<\/b>ALL NUDE(?:\n|$)/);
   assert.match(result.caption, /<b>演员：<\/b>#岬ななみ/);
   assert.match(result.caption, /<b>标签：<\/b>#美乳 #可爱(?:\n|$)/);
-  assert.match(result.cover, /^https:\/\/www\.i-dol\.tv\/contents\/works\/oae176\/oae176-ps\.jpg$/);
+  assert.match(result.cover, /^https:\/\/pics\.dmm\.co\.jp\/digital\/video\/oae00176\/oae00176pl\.jpg$/);
 });
