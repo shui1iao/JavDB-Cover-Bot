@@ -38,3 +38,21 @@ test('3xplanet detail validation rejects a page whose code only starts with the 
 test('3xplanet detail validation rejects soft-404/search pages containing recommendations', () => {
   assert.equal(parseThreeXPlanetDetailPage(fixture('three-x-planet-soft-404.html'), 'OME-713'), null);
 });
+
+test('3xplanet accepts an exact FC2 page without legacy metadata blocks', () => {
+  const html = `
+    <html><head>
+      <link rel="canonical" href="https://3xplanet.com/fc2-ppv-4961121/">
+      <meta property="og:url" content="https://3xplanet.com/fc2-ppv-4961121/">
+      <meta property="og:image" content="https://3xplanetimg2.com/images/FC2-PPV-4961121_cover.jpg">
+      <meta name="description" content="ビデオ情報 / Video Info 出演者 / Actress amateur メーカー / Studio FC2">
+    </head><body>
+      <h1>FC2-PPV-4961121 sample title</h1>
+    </body></html>`;
+
+  const detail = parseThreeXPlanetDetailPage(html, 'FC2-PPV-4961121');
+
+  assert.ok(detail);
+  assert.equal(detail.code, 'FC2-PPV-4961121');
+  assert.equal(detail.cover, 'https://3xplanetimg2.com/images/FC2-PPV-4961121_cover.jpg');
+});

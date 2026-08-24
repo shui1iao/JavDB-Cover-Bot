@@ -583,7 +583,7 @@ export function parseThreeXPlanetDetailPage(html = '', code = '') {
     $('title').first().text()
   ).replace(/\s+-\s+3xplanet.*$/i, '').trim();
   const pageHeading = `${$('title').first().text()} ${$('h1').first().text()}`;
-  if (!rawTitle || /(?:video|page)?\s*not\s*found|\bnothing\s+found\b|\b404\b/i.test(pageHeading)) return null;
+  if (!rawTitle || /(?:video|page)?\s*not\s*found|\bnothing\s+found\b|\bsearch\s+results?\b|\b404\b/i.test(pageHeading)) return null;
   const description = decodeBasicEntities(zh(
     $('meta[name="description"]').first().attr('content') ||
     $('meta[property="og:description"]').first().attr('content') || ''
@@ -592,7 +592,6 @@ export function parseThreeXPlanetDetailPage(html = '', code = '') {
   const hasEnglishMetadata = /Starring:\s*\S[\s\S]*?Studio:\s*\S[\s\S]*?Tags:/i.test(description);
   const hasJapaneseMetadata = /(?:商品タグ|ジャンル)[：:]\s*\S/.test(description)
     && /(?:配信開始日|発売日|販売日|収録時間)[：:]/.test(description);
-  if (!structuredCode && !hasEnglishMetadata && !hasJapaneseMetadata) return null;
   const pageUrl = $('link[rel="canonical"]').first().attr('href')
     || $('meta[property="og:url"]').first().attr('content')
     || '';
@@ -601,6 +600,10 @@ export function parseThreeXPlanetDetailPage(html = '', code = '') {
   const structuredMatch = structuredCode && isExactProductCode(structuredCode, normalized);
   const canonicalTitleMatch = isExactProductCode(canonicalCode, normalized)
     && isExactProductCode(titleCode, normalized);
+  // Newer 3xplanet FC2 pages may omit the legacy release-date/tag blocks from
+  // their meta description. Exact agreement between canonical URL and title
+  // is still a strong product-page identity check and avoids soft-404 matches.
+  if (!structuredCode && !hasEnglishMetadata && !hasJapaneseMetadata && !canonicalTitleMatch) return null;
   if (!structuredMatch && !canonicalTitleMatch) return null;
 
   const releaseDate = pickFirst(/(?:配信開始日|発売日|販売日|贩売日|销售日)[：:]\s*([0-9/.-]+)/i, description);
