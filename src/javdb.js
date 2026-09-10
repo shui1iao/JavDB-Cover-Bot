@@ -104,11 +104,12 @@ async function translateJaToZh(text) {
   }
 }
 
-async function curlBinary(url, outPath, referer = 'https://javdb.com/') {
+async function curlBinary(url, outPath, referer = 'https://javdb.com/', timeoutSeconds = 35) {
   await execFileAsync('curl', [
-    '-fsSL', '--compressed', '--max-time', '35',
+    '-fsSL', '--compressed', '--connect-timeout', '4', '--max-time', String(timeoutSeconds),
+    '--max-filesize', '10485760',
     '-A', UA,
-    '-H', 'Accept: image/avif,image/webp,image/apng,image/*,*/*;q=0.8',
+    '-H', 'Accept: image/jpeg,image/png;q=0.9,*/*;q=0.8',
     '-H', 'Accept-Language: zh-CN,zh;q=0.9,en;q=0.8',
     '-H', `Referer: ${referer}`,
     '-o', outPath,
@@ -206,19 +207,39 @@ export async function queryJavdb(input) {
   return { code, item, detail, cover, caption };
 }
 
-export async function downloadCover(coverUrl, tmpRoot) {
+export function prestigeCoverFallback(coverUrl) {
+  let parsedUrl;
+  try { parsedUrl = new URL(coverUrl); } catch { return ''; }
+  const prestige = /^\/images\/prestige\/([a-z]+)\/(\d+)\/pf_(?:o1_)?([a-z]+)-(\d+)\.jpg$/.exec(parsedUrl.pathname);
+  if (['jav321.com', 'www.jav321.com'].includes(parsedUrl.hostname)
+      && prestige && prestige[1] === prestige[3] && prestige[2] === prestige[4]) {
+    return `https://www.prestige-av.com/api/media/goods/prestige/${prestige[1]}/${prestige[2]}/pf_${prestige[3]}-${prestige[4]}.jpg?w=482&f=jpg`;
+  }
+  return '';
+}
+
+export async function downloadCover(coverUrl, tmpRoot, { timeoutSeconds = 35, officialFallback = true } = {}) {
   if (!coverUrl) return null;
   const parsedUrl = new URL(coverUrl);
   const ext = extname(parsedUrl.pathname) || '.jpg';
-  const hostname = parsedUrl.hostname;
-  const referer = hostname.includes('fourhoi.com') ? 'https://missav.ai/' : 'https://javdb.com/';
+  const sources = [parsedUrl];
+  // Recovery controls this fallback itself, after all landscape alternatives.
+  const fallback = officialFallback && prestigeCoverFallback(coverUrl);
+  if (fallback) sources.push(new URL(fallback));
   const dir = await mkdtemp(join(tmpRoot || tmpdir(), 'javdb-cover-'));
   const file = join(dir, `cover${ext}`);
-  try {
-    await curlBinary(coverUrl, file, referer);
-  } catch (e) {
-    await rm(dir, { recursive: true, force: true });
-    throw e;
+  let failure;
+  for (const source of sources) {
+    const hostname = source.hostname;
+    const referer = hostname === 'fourhoi.com' || hostname.endsWith('.fourhoi.com')
+      ? 'https://missav.ai/' : `${source.origin}/`;
+    try {
+      await curlBinary(source.href, file, referer, timeoutSeconds);
+      return { file, source: source.href, cleanup: () => rm(dir, { recursive: true, force: true }) };
+    } catch (e) {
+      failure = e;
+    }
   }
-  return { file, cleanup: () => rm(dir, { recursive: true, force: true }) };
+  await rm(dir, { recursive: true, force: true });
+  throw failure;
 }

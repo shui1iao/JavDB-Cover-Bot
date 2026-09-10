@@ -29,7 +29,7 @@ before(async () => {
           }`,
         './jav321.js': `export const normalizeCode = raw => String(raw || '').trim().toUpperCase();
           export const queryJav321 = (...args) => globalThis.${stateKey}.query(...args);`,
-        './javdb.js': `export const downloadCover = (...args) => globalThis.${stateKey}.download(...args);`,
+        './cover-recovery.js': `export const recoverCover = (...args) => globalThis.${stateKey}.download(...args);`,
       };
       if (context.parentURL === new URL('../src/bot.js', import.meta.url).href && specifier in modules) {
         return { url: `data:text/javascript,${encodeURIComponent(modules[specifier])}`, shortCircuit: true };
@@ -131,13 +131,23 @@ test('failed error reply still removes loader in finally', async (t) => {
   assert.deepEqual(deleted, [[99, 123]]);
 });
 
-test('missing cover retains existing text path', async (t) => {
+test('missing primary and exhausted recovery retain existing text path', async (t) => {
   const { ctx, replies, deleted } = setup(t);
-  state.query = async () => ({ caption });
+  state.query = async () => ({ code: 'KBI-098', caption });
+  state.download = t.mock.fn(async () => null);
   await state.handler(ctx);
   assert.deepEqual(replies[1], [caption, { parse_mode: 'HTML', disable_web_page_preview: false }]);
-  assert.equal(state.download.mock.callCount(), 0);
+  assert.equal(state.download.mock.callCount(), 1);
   assert.deepEqual(deleted, [[99, 123]]);
+});
+
+test('missing primary cover can still return a recovered photo', async (t) => {
+  const { ctx, photos, replies, cleanup } = setup(t);
+  state.query = async () => ({ code: 'KBI-098', caption });
+  await state.handler(ctx);
+  assert.equal(photos.length, 1);
+  assert.deepEqual(replies, [['🔎 正在查询...']]);
+  assert.equal(cleanup.mock.callCount(), 1);
 });
 
 test('permissions and empty input do not start a lookup', async (t) => {

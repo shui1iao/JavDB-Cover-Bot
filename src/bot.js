@@ -1,7 +1,8 @@
 import 'dotenv/config';
 import { Telegraf } from 'telegraf';
 import { mkdir } from 'node:fs/promises';
-import { downloadCover } from './javdb.js';
+import { join } from 'node:path';
+import { recoverCover } from './cover-recovery.js';
 import { queryJav321, normalizeCode } from './jav321.js';
 
 const token = process.env.BOT_TOKEN;
@@ -32,12 +33,10 @@ async function handleQuery(ctx, raw) {
   let coverFile;
   try {
     const result = await queryJav321(code);
-    if (result.cover) {
-      try {
-        coverFile = await downloadCover(result.cover, tmpDir);
-      } catch (e) {
-        console.warn('[cover]', code, e);
-      }
+    try {
+      coverFile = await recoverCover(result, tmpDir, { cacheRoot: join(tmpDir, '..', 'covers') });
+    } catch (e) {
+      console.warn('[cover]', code, e);
     }
     if (coverFile?.file) {
       await ctx.replyWithPhoto({ source: coverFile.file }, {

@@ -16,6 +16,9 @@
 - Returns cover image, Simplified Chinese title, release date, actresses and tags
 - Prefers work details and structured genres from official studio pages (currently S1, MOODYZ, and Aircontrol), then falls back to aggregator metadata
 - Uses JavDB only as a metadata fallback; JavDB/JDBStatic watermarked covers are never sent, and the bot sends text only when no other cover is available
+- Keeps the original landscape cover first. Each image request is bounded to 8 seconds; failures trigger exact-code alternatives from 3xplanet, MissAV and supported studios (Prestige official art is also fallback-only).
+- Measures actual image dimensions: alternate landscape covers are preferred; portrait/square candidates and portrait caches are held until landscape sources are exhausted.
+- Caches successful covers by product code in `covers/` beside `TMP_DIR`, capped at 64 MiB. Cached art is used only after the original source fails.
 - Uses bold Telegram HTML labels in captions
 - Optional user allowlist
 - Docker Compose deployment

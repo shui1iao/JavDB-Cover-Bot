@@ -70,9 +70,9 @@ function normalizeActorName(name = '') {
   return raw;
 }
 
-async function curlText(url, postFields = null, referer = 'https://www.jav321.com/') {
+async function curlText(url, postFields = null, referer = 'https://www.jav321.com/', timeoutSeconds = 25) {
   const args = [
-    '-fsSL', '--compressed', '--max-time', '25',
+    '-fsSL', '--compressed', '--connect-timeout', '4', '--max-time', String(timeoutSeconds),
     '-A', UA,
     '-H', 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8',
     '-H', 'Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,ja;q=0.7',
@@ -555,13 +555,13 @@ export function parseMissavDetailPage(html = '', code = '') {
   return { rawTitle: title, releaseDate, code: normalized, actors, tags, cover, source: 'missav' };
 }
 
-async function fetchMissavDetail(code) {
+async function fetchMissavDetail(code, timeoutSeconds = 25) {
   const normalized = normalizeCode(code);
   const slug = normalized.toLowerCase();
   if (!slug) return null;
   for (const base of ['https://missav.ai/en/', 'https://missav.com/en/']) {
     try {
-      const html = await curlText(`${base}${encodeURIComponent(slug)}`, null, base);
+      const html = await curlText(`${base}${encodeURIComponent(slug)}`, null, base, timeoutSeconds);
       const detail = parseMissavDetailPage(html, normalized);
       if (detail) return detail;
     } catch {}
@@ -625,15 +625,40 @@ export function parseThreeXPlanetDetailPage(html = '', code = '') {
   return { rawTitle, maker: zh(maker), releaseDate, code: normalized, actors, tags, cover, source: '3xplanet' };
 }
 
-async function fetchThreeXPlanetDetail(code) {
+async function fetchThreeXPlanetDetail(code, timeoutSeconds = 25) {
   const normalized = normalizeCode(code);
   if (!normalized) return null;
   const slug = normalized.toLowerCase();
   try {
-    const html = await curlText(`https://3xplanet.com/${encodeURIComponent(slug)}/`, null, 'https://3xplanet.com/');
+    const html = await curlText(`https://3xplanet.com/${encodeURIComponent(slug)}/`, null, 'https://3xplanet.com/', timeoutSeconds);
     return parseThreeXPlanetDetailPage(html, normalized);
   } catch {
     return null;
+  }
+}
+
+// Cover recovery is independent from metadata enrichment: an existing but
+// unreachable cover must not prevent discovery of another exact product page.
+// Yield lazily so a healthy fallback never waits for later blocked providers.
+export async function* findCoverAlternatives(input) {
+  const code = normalizeCode(input);
+  const seen = new Set();
+  for (const fetchDetail of [fetchThreeXPlanetDetail, fetchMissavDetail]) {
+    const detail = await fetchDetail(code, 8);
+    const cover = allowedCover(detail?.cover || '');
+    if (cover && isExactProductCode(detail.code, code) && !seen.has(cover)) {
+      seen.add(cover);
+      yield cover;
+    }
+  }
+  if (/^O(?:AE|ME)-\d+$/.test(code)) {
+    const slug = code.replace(/[^A-Z0-9]/g, '').toLowerCase();
+    try {
+      const html = await curlText(`https://www.i-dol.tv/works/detail/${slug}/`, null, 'https://www.i-dol.tv/', 8);
+      const detail = parseAircontrolOfficialDetail(html, code);
+      const cover = allowedCover(detail?.cover || '');
+      if (cover && !seen.has(cover)) yield cover;
+    } catch {}
   }
 }
 
