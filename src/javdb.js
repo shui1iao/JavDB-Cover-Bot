@@ -208,11 +208,17 @@ export async function queryJavdb(input) {
 
 export async function downloadCover(coverUrl, tmpRoot) {
   if (!coverUrl) return null;
-  const dir = await mkdtemp(join(tmpRoot || tmpdir(), 'javdb-cover-'));
-  const ext = extname(new URL(coverUrl).pathname) || '.jpg';
-  const file = join(dir, `cover${ext}`);
-  const hostname = new URL(coverUrl).hostname;
+  const parsedUrl = new URL(coverUrl);
+  const ext = extname(parsedUrl.pathname) || '.jpg';
+  const hostname = parsedUrl.hostname;
   const referer = hostname.includes('fourhoi.com') ? 'https://missav.ai/' : 'https://javdb.com/';
-  await curlBinary(coverUrl, file, referer);
+  const dir = await mkdtemp(join(tmpRoot || tmpdir(), 'javdb-cover-'));
+  const file = join(dir, `cover${ext}`);
+  try {
+    await curlBinary(coverUrl, file, referer);
+  } catch (e) {
+    await rm(dir, { recursive: true, force: true });
+    throw e;
+  }
   return { file, cleanup: () => rm(dir, { recursive: true, force: true }) };
 }

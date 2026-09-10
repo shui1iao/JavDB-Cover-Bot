@@ -32,7 +32,13 @@ async function handleQuery(ctx, raw) {
   let coverFile;
   try {
     const result = await queryJav321(code);
-    if (result.cover) coverFile = await downloadCover(result.cover, tmpDir);
+    if (result.cover) {
+      try {
+        coverFile = await downloadCover(result.cover, tmpDir);
+      } catch (e) {
+        console.warn('[cover]', code, e);
+      }
+    }
     if (coverFile?.file) {
       await ctx.replyWithPhoto({ source: coverFile.file }, {
         caption: result.caption,
@@ -42,10 +48,11 @@ async function handleQuery(ctx, raw) {
     } else {
       await ctx.reply(result.caption, { parse_mode: 'HTML', disable_web_page_preview: false });
     }
-    try { await ctx.telegram.deleteMessage(ctx.chat.id, loading.message_id); } catch {}
   } catch (e) {
-    await ctx.reply(`❌ 查询失败：${e.message || e}`);
+    console.error('[query]', code, e);
+    await ctx.reply('❌ 查询失败，请稍后重试。');
   } finally {
+    try { await ctx.telegram.deleteMessage(ctx.chat.id, loading.message_id); } catch {}
     await coverFile?.cleanup?.();
   }
 }
