@@ -2,6 +2,8 @@ node_modules/
 .env
 data/tmp/
 data/covers/
+data/translations/
+backups/
 npm-debug.log*
 docker-compose.yml.bak.*
 .github/workflows.disabled/

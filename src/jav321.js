@@ -4,6 +4,7 @@ import * as cheerio from 'cheerio';
 import * as OpenCC from 'opencc-js';
 import { ACTRESS_NAME_FIXES } from './actress-names.js';
 import { queryJavdb } from './javdb.js';
+import { translateTitleToZh } from './title-translation.js';
 
 const execFileAsync = promisify(execFile);
 const toSimplified = OpenCC.Converter({ from: 'tw', to: 'cn' });
@@ -682,6 +683,7 @@ async function fetchJavdbMeta(code) {
     if (matchedCode !== normalized) return { tags: [], actors: [] };
     return {
       rawTitle: result?.detail?.rawTitle || result?.item?.title || '',
+      searchTitle: result?.item?.title || '',
       releaseDate: result?.detail?.releaseDate || result?.item?.meta || '',
       maker: result?.detail?.maker || '',
       tags: normalizeTags(result?.detail?.tags || []),
@@ -821,10 +823,21 @@ export async function queryJav321(input) {
   const cleanJavdbTitle = detail.source === 'aircontrol'
     ? ''
     : cleanTitle(javdbMeta.rawTitle || '', detail.code || code);
-  let originalTitle = cleanJavdbTitle || cleanTitle(detail.rawTitle || code, detail.code || code);
+  // All candidates come from exact-code-validated metadata already fetched.
+  // Prefer Han-script titles without kana before translating a Japanese title;
+  // NFKC also exposes halfwidth kana. No extra requests or cover merges here.
+  const chineseTitle = [
+    javdbMeta.rawTitle,
+    javdbMeta.searchTitle,
+    detail.rawTitle,
+    threeXPlanetDetail?.rawTitle,
+  ].map(title => cleanTitle(title || '', detail.code || code))
+    .find(title => /\p{Script=Han}/u.test(title)
+      && !/[\p{Script=Hiragana}\p{Script=Katakana}]/u.test(title.normalize('NFKC')));
+  let originalTitle = chineseTitle || cleanJavdbTitle || cleanTitle(detail.rawTitle || code, detail.code || code);
   originalTitle = originalTitle.replace(/[」』"'“”‘’：:、，。\s]+$/g, '').trim();
   detail.rawTitle = originalTitle;
-  const translatedTitle = cleanTitle(await translateJaToZh(originalTitle), detail.code || code).replace(/[」』"'“”‘’：:、，。\s]+$/g, '').trim();
+  const translatedTitle = cleanTitle(chineseTitle ? zh(originalTitle) : fixTitleTranslation(zh(await translateTitleToZh(originalTitle, { names: detail.actors || [] }))), detail.code || code).replace(/[」』"'“”‘’：:、，。\s]+$/g, '').trim();
 
   const actorTags = [];
   for (const rawName of detail.actors || []) {

@@ -73,7 +73,10 @@ test('queryJav321 falls back to the official Aircontrol page for OAE entries', a
   assert.equal(result.detail.source, 'aircontrol');
   assert.equal(result.detail.code, 'OAE-176');
   assert.equal(result.detail.releaseDate, '2019-01-25');
-  assert.match(result.caption, /<b>标题：<\/b>ALL NUDE(?:\n|$)/);
+  // The official original stays stable; display translation may succeed or
+  // fall back to that original depending on live translation availability.
+  assert.equal(result.detail.rawTitle, 'ALL NUDE');
+  assert.match(result.caption, /<b>标题：<\/b>[^\n]+/);
   assert.match(result.caption, /<b>演员：<\/b>#岬ななみ/);
   assert.match(result.caption, /<b>标签：<\/b>#美乳 #可爱(?:\n|$)/);
   assert.match(result.cover, /^https:\/\/pics\.dmm\.co\.jp\/digital\/video\/oae00176\/oae00176pl\.jpg$/);
