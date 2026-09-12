@@ -121,35 +121,71 @@ test('English title uses automatic source language and Chinese titles do not nee
   assert.equal(seen.length, 1);
 });
 
-test('fallback sends an authenticated bounded Responses request, with input isolated as data', async () => {
-  let call;
+const bingPage = 'IG:"test-ig" data-iid="translator.1" params_AbusePreventionHelper = [123456,"page-token",3600000];';
+
+test('fallback uses only Bing page-issued tokens, never configured API credentials', async () => {
+  const calls = [];
   const result = await requestFallbackTranslation('放課後の約束', {
-    baseUrl: 'https://translation.example/v1/', apiKey: 'test-secret', model: 'test-model',
+    baseUrl: 'https://must-not-call.example/v1', apiKey: 'must-not-send', model: 'unused',
     fetchImpl: async (url, options) => {
-      call = { url, options, body: JSON.parse(options.body) };
-      return { ok: true, json: async () => ({ status: 'completed', output: [{ type: 'message', content: [{ type: 'output_text', text: '放学后的约定' }] }] }) };
+      calls.push({ url, options });
+      return calls.length === 1
+        ? { ok: true, text: async () => bingPage }
+        : { ok: true, json: async () => [{ translations: [{ text: '放學後的約定', to: 'zh-Hans' }] }] };
     },
   });
   assert.equal(result, '放学后的约定');
-  assert.equal(call.url, 'https://translation.example/v1/responses');
-  assert.equal(call.options.headers.Authorization, 'Bearer test-secret');
-  assert.equal(call.options.redirect, 'error');
-  assert.ok(call.options.signal);
-  assert.equal(call.body.store, false);
-  assert.equal(call.body.stream, false);
-  assert.equal(call.body.model, 'test-model');
-  assert.match(call.body.input[0].content, /data|数据/);
-  assert.equal(JSON.parse(call.body.input[1].content).text, '放課後の約束');
-  assert.ok(!call.options.body.includes('test-secret'));
+  assert.equal(calls.length, 2);
+  assert.equal(calls[0].url, 'https://www.bing.com/translator');
+  const endpoint = new URL(calls[1].url);
+  assert.equal(endpoint.origin, 'https://www.bing.com');
+  assert.equal(endpoint.pathname, '/ttranslatev3');
+  const body = new URLSearchParams(calls[1].options.body);
+  assert.equal(body.get('text'), '放課後の約束');
+  assert.equal(body.get('token'), 'page-token');
+  assert.equal(body.get('fromLang'), 'ja');
+  assert.equal(body.get('to'), 'zh-Hans');
+  for (const { options } of calls) {
+    assert.equal(options.redirect, 'error');
+    assert.ok(options.signal);
+    assert.equal(options.headers.Authorization, undefined);
+    assert.ok(!JSON.stringify(options).includes('must-not-send'));
+  }
 });
 
-test('incomplete and error Responses are rejected instead of cached as translations', async () => {
+test('Bing supports automatic source detection and verified names', async () => {
+  let body;
+  const result = await requestFallbackTranslation('After School 山田はな', {
+    language: 'auto', names: ['山田はな'],
+    fetchImpl: async (url, options) => {
+      if (!options.body) return { ok: true, text: async () => bingPage };
+      body = new URLSearchParams(options.body);
+      return { ok: true, json: async () => [{ translations: [{ text: '放学以后 山田はな', to: 'zh-Hans' }] }] };
+    },
+  });
+  assert.equal(result, '放学以后 山田はな');
+  assert.equal(body.get('fromLang'), 'auto-detect');
+});
+
+test('missing Bing page tokens stop before any translation request', async () => {
+  let calls = 0;
+  await assert.rejects(requestFallbackTranslation('放課後の約束', {
+    fetchImpl: async () => { calls++; return { ok: true, text: async () => '<html>unavailable</html>' }; },
+  }));
+  assert.equal(calls, 1);
+});
+
+test('Bing HTTP failures, captcha, malformed and untranslated output are rejected', async () => {
   for (const response of [
     { ok: false, status: 429 },
-    { ok: true, json: async () => ({ status: 'incomplete', output_text: '放学' }) },
-    { ok: true, json: async () => ({ status: 'completed', output: [] }) },
+    { ok: true, json: async () => ({ ShowCaptcha: true }) },
+    { ok: true, json: async () => [] },
+    { ok: true, json: async () => [{ translations: [{ text: '放課後の約束', to: 'zh-Hans' }] }] },
+    { ok: true, json: async () => [{ translations: [{ text: '放学后的约定', to: 'en' }] }] },
   ]) {
-    await assert.rejects(requestFallbackTranslation('放課後の約束', { baseUrl: 'https://translation.example/v1', apiKey: 'test-secret', model: 'test-model', fetchImpl: async () => response }));
+    await assert.rejects(requestFallbackTranslation('放課後の約束', {
+      fetchImpl: async (url, options) => options.body ? response : { ok: true, text: async () => bingPage },
+    }));
   }
 });
 
