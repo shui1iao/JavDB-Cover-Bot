@@ -46,6 +46,13 @@ test('queryJav321 prefers official S1 genres over aggregator tags', async () => 
   assert.doesNotMatch(result.caption, /#ギリモザ|#妹(?:\s|$)/);
 });
 
+test('HEYZO fallback emits only the translated tag line, never later metadata or synopsis', async () => {
+  const result = await queryJav321('HEYZO-3791');
+  assert.equal(result.code, 'HEYZO-3791');
+  assert.equal(result.caption.split('\n').find(line => line.startsWith('<b>标签：</b>')),
+    '<b>标签：</b>#人妻 #中出 #无码 #出轨 #美乳 #口交 #骑乘位 #舔阴 #熟女');
+});
+
 // Regression: MIDA-687 has no genre block on JAV321 or 3xplanet, while the
 // Moodyz product page exposes authoritative structured genres.
 test('queryJav321 uses official Moodyz genres when aggregators return no tags', async () => {

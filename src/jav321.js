@@ -239,6 +239,11 @@ const GENRE_TRANSLATIONS = new Map([
   ['Toy', '玩具'],
   ['Masturbation', '自慰'],
   ['Blowjob', '口交'],
+  ['Uncensored', '无码'],
+  ['Affair', '出轨'],
+  ['Cowgirl', '骑乘位'],
+  ['Housewife', '人妻'],
+  ['Mature', '熟女'],
 ]);
 
 const CANONICAL_GENRES = new Set([...GENRE_TRANSLATIONS.values()].filter(Boolean));
@@ -486,8 +491,10 @@ async function fetchOfficialTags(code, maker = '') {
 
 export function parseThreeXPlanetTags(description = '') {
   const text = decodeBasicEntities(zh(description));
+  // HEYZO descriptions use shorter date/duration/performer labels before
+  // their native metadata and synopsis; none of those fields belong in Tags.
   const jpGenreBlock = pickFirst(
-    /(?:ジャンル|商品タグ|商品标签)[：:]\s*(.*?)(?=\s+(?:出演者|東京恋人|品番|配信開始日|発売日|販売日|贩売日|销售日|収録時間|収录时间|收录时间|監督|监督|メーカー|レーベル)[：:]|\s+~~DOWNLOAD~~|$)/i,
+    /(?:ジャンル|商品タグ|商品标签)[：:]\s*(.*?)(?=\s+(?:出演者|出演|女優タイプ|女优タイプ|タグ|東京恋人|品番|配信開始日|配信日|再生時間|再生时间|発売日|販売日|贩売日|销售日|収録時間|収录时间|收录时间|監督|监督|メーカー|レーベル)[：:]|\s+~~DOWNLOAD~~|$)/i,
     text
   );
   if (jpGenreBlock) {
@@ -495,7 +502,7 @@ export function parseThreeXPlanetTags(description = '') {
   }
 
   const enTagsBlock = pickFirst(
-    /Tags:\s*(.*?)(?=\s+(?:品番|配信開始日|発売日|販売日|贩売日|销售日|収録時間|収录时间|收录时间|監督|监督|メーカー|レーベル|出演者|Release date|Duration|Director|Maker|Label|Genre|Actress|Performer|Starring|Studio)[：:]|\s+【|\s+~~DOWNLOAD~~|$)/i,
+    /Tags:\s*(.*?)(?=\s+(?:品番|配信開始日|配信日|再生時間|再生时间|発売日|販売日|贩売日|销售日|収録時間|収录时间|收录时间|監督|监督|メーカー|レーベル|出演者|出演|女優タイプ|女优タイプ|タグ|Release date|Duration|Director|Maker|Label|Genre|Actress|Performer|Starring|Studio)[：:]|\s+【|\s+~~DOWNLOAD~~|$)/i,
     text
   );
   const normalizeMetadataValue = (value) => String(value || '')
