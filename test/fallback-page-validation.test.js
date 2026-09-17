@@ -39,6 +39,47 @@ test('3xplanet detail validation rejects soft-404/search pages containing recomm
   assert.equal(parseThreeXPlanetDetailPage(fixture('three-x-planet-soft-404.html'), 'OME-713'), null);
 });
 
+for (const displayCode of ['HEYZO 3791', 'HEYZO_3791', 'HEYZO-3791', 'HEYZO3791', 'HEYZO  3791']) {
+  test(`3xplanet accepts exact product title display form ${JSON.stringify(displayCode)}`, () => {
+    const html = fixture('three-x-planet-heyzo-spaced-code.html')
+      .replace('HEYZO 3791 sample title', `${displayCode} sample title`);
+    const detail = parseThreeXPlanetDetailPage(html, 'HEYZO-3791');
+
+    assert.ok(detail);
+    assert.equal(detail.code, 'HEYZO-3791');
+    assert.equal(detail.source, '3xplanet');
+    assert.equal(detail.cover, 'https://3xplanetimg.com/images/HEYZO_3791_cover.jpg');
+  });
+}
+
+test('3xplanet rejects a spaced title for a neighboring or longer code despite an exact canonical', () => {
+  const html = fixture('three-x-planet-heyzo-spaced-code.html');
+  for (const wrongCode of ['HEYZO 3792', 'HEYZO 37910']) {
+    assert.equal(parseThreeXPlanetDetailPage(
+      html.replace('HEYZO 3791 sample title', `${wrongCode} sample title`), 'HEYZO-3791'), null);
+  }
+  assert.equal(parseThreeXPlanetDetailPage(html, 'HEYZO-379'), null);
+  assert.equal(parseThreeXPlanetDetailPage(html, 'HEYZO-3792'), null);
+});
+
+test('3xplanet rejects a mismatched canonical even when the spaced title is exact', () => {
+  const html = fixture('three-x-planet-heyzo-spaced-code.html')
+    .replace('https://3xplanet.com/heyzo-3791/', 'https://3xplanet.com/heyzo-37910/');
+  assert.equal(parseThreeXPlanetDetailPage(html, 'HEYZO-3791'), null);
+});
+
+test('3xplanet rejects a soft 404 with a spaced code only in recommendations', () => {
+  const html = fixture('three-x-planet-heyzo-spaced-code.html')
+    .replace('<h1>HEYZO 3791 sample title</h1>', '<h1>Nothing found</h1><aside>HEYZO 3791 sample title</aside>');
+  assert.equal(parseThreeXPlanetDetailPage(html, 'HEYZO-3791'), null);
+});
+
+test('MissAV accepts a spaced title code while preserving exact canonical validation', () => {
+  const html = fixture('missav-exact.html').replaceAll('OME-713 sample', 'OME 713 sample');
+  assert.equal(parseMissavDetailPage(html, 'OME-713')?.code, 'OME-713');
+  assert.equal(parseMissavDetailPage(html, 'OME-7130'), null);
+});
+
 test('3xplanet accepts an exact FC2 page without legacy metadata blocks', () => {
   const html = `
     <html><head>

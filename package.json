@@ -1,6 +1,6 @@
 {
   "name": "javdb-cover-bot",
-  "version": "0.3.7",
+  "version": "0.3.8",
   "description": "Telegram bot: send JAV code, return cover and Simplified Chinese metadata",
   "type": "module",
   "main": "src/bot.js",

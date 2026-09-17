@@ -524,7 +524,9 @@ function productCodeFromUrl(value = '') {
 }
 
 function productCodeFromText(value = '') {
-  const match = /(?:FC2[\s_-]*(?:PPV[\s_-]*)?\d{5,}|[A-Z]{2,10}-?\d+)/i.exec(String(value));
+  // Source headings may display HEYZO 3791 or HEYZO_3791 for a hyphenated slug.
+  // Normalize the extracted token; callers still require exact product identity.
+  const match = /(?:FC2[\s_-]*(?:PPV[\s_-]*)?\d{5,}|[A-Z]{2,10}[\s_-]*\d+)/i.exec(String(value));
   return match ? normalizeCode(match[0]) : '';
 }
 
