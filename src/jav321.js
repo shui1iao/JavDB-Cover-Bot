@@ -551,7 +551,14 @@ export function parseMissavDetailPage(html = '', code = '') {
     || '';
   const canonicalCode = productCodeFromUrl(pageUrl);
   const titleCode = productCodeFromText(title);
-  if (!isExactProductCode(canonicalCode, normalized) || !isExactProductCode(titleCode, normalized)) return null;
+  // Some pages omit the code in Title. Only use a unique product heading:
+  // prefer main, or the observed MissAV detail column when main is absent.
+  // Never let a recommendation H1 or an explicit conflicting Title supply it.
+  const headings = ($('main').length ? $('main h1') : $('.content-without-search .flex-1.order-first h1'))
+    .filter((_, element) => !$(element).closest('aside, nav, footer, header, [role="complementary"], [role="navigation"]').length);
+  const headingCode = headings.length === 1 ? productCodeFromText(headings.text()) : '';
+  const identityCode = titleCode || headingCode;
+  if (!isExactProductCode(canonicalCode, normalized) || !isExactProductCode(identityCode, normalized)) return null;
 
   const releaseDate = pickFirst(/<span>Release date:<\/span>\s*<time[^>]*>([^<]+)<\/time>/i, html);
   let actors = linkTexts(getBlock('Actress'));
