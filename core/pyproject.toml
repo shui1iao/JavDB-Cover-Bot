@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools==82.0.1"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "se-catalog-core"
+version = "2026.10.25.1"
+requires-python = ">=3.14"
+license = "MIT"
+license-files = ["LICENSE", "NOTICE.md", "BOT-MIT-LICENSE", "OPENCC-LICENSE", "OPENCC-THIRD-PARTY-LICENSES.md", "THIRD-PARTY-NOTICES.md"]
+dependencies = ["httpx==0.28.1", "beautifulsoup4==4.15.0", "pillow==12.3.0", "numpy==2.4.4", "opencv-python-headless==4.13.0.92"]
+[project.scripts]
+se-catalog = "se_catalog.cli:main"
+[tool.setuptools.packages.find]
+where = ["src"]
+[tool.setuptools.package-data]
+se_catalog = ["data/*.json"]

@@ -1,0 +1,5864 @@
+{
+  "schema_version": 1,
+  "version": "2026-10-25.category-original-canonical.v2",
+  "source_hashes": {
+    "category_data.py": "089e07bdbf29944220df80cb381668eb916a61ab67ad613c5e2e1201ed577e2c",
+    "category_originals.py": "3185082e327088f3fe5e953e9b5c13386b306c810ef044ee2fdd6900aaf264f4"
+  },
+  "scope": "Apply only category fields/confirmed category hashtag spans. Preserve actor fields/tags and catalog codes and all non-category text/formatting.",
+  "encoding": {
+    "name": "unicode-LMN-underscore-v1",
+    "algorithm": "Preserve original Unicode letters, marks, numbers and underscore; replace each run of other characters with underscore; strip edge underscores. Never split labels. Tokens exclude leading #. token_to_canonical_id keys are exact NFKC token strings.",
+    "unknown": "No automatic category inference; leave unknown input behavior unchanged."
+  },
+  "role_exceptions": [
+    {
+      "token": "素人",
+      "category_canonical_id": "0d09635e3e06a69054e05f83",
+      "actor_role": "existing_unknown_performer_placeholder_not_a_person",
+      "rule": "Apply category normalization/drop only to confirmed category fields/spans; preserve actor #素人 unchanged. Do not infer real actor identity or portrait."
+    }
+  ],
+  "categories": [
+    {
+      "canonical_id": "0105d878805fdc69f7864e7c",
+      "canonical_name": "恋乳癖",
+      "original_label": "恋乳癖",
+      "raw_members": [
+        "恋乳癖"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "恋乳癖",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "01787d4d1fc6d2deddbf75fc",
+      "canonical_name": "平胸",
+      "original_label": "平胸",
+      "raw_members": [
+        "平胸"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "平胸",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "02309838911d7c5fe4936915",
+      "canonical_name": "脚フェチ",
+      "original_label": "脚フェチ",
+      "raw_members": [
+        "脚フェチ"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "脚フェチ",
+      "search_aliases": [
+        "脚フェチ",
+        "恋足癖",
+        "恋腿癖"
+      ]
+    },
+    {
+      "canonical_id": "02343faedee98761eb8562b4",
+      "canonical_name": "早漏",
+      "original_label": "早漏",
+      "raw_members": [
+        "早漏"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "早漏",
+      "search_aliases": [
+        "早泄"
+      ]
+    },
+    {
+      "canonical_id": "033f1ee942e54b3fd0fa0b02",
+      "canonical_name": "巨尻",
+      "original_label": "巨尻",
+      "raw_members": [
+        "巨尻",
+        "大屁股"
+      ],
+      "merge_ref": "M38",
+      "hashtag_token": "巨尻",
+      "search_aliases": [
+        "巨尻",
+        "大屁股",
+        "巨臀"
+      ]
+    },
+    {
+      "canonical_id": "03ac1b8fa2842a3c69f712dc",
+      "canonical_name": "撸铁美女",
+      "original_label": "撸铁美女",
+      "raw_members": [
+        "撸铁美女"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "撸铁美女",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "0499c70a7fa2b1e566e024bf",
+      "canonical_name": "Blu-ray（ブルーレイ）",
+      "original_label": "Blu-ray（ブルーレイ）",
+      "raw_members": [
+        "Blu-ray（ブルーレイ）",
+        "Blu-rayブルーレイ"
+      ],
+      "merge_ref": "M71",
+      "hashtag_token": "Blu_ray_ブルーレイ",
+      "search_aliases": [
+        "Blu-ray（ブルーレイ）",
+        "蓝光",
+        "Blu-rayブルーレイ"
+      ]
+    },
+    {
+      "canonical_id": "04cf98821c1f08f79030cd3d",
+      "canonical_name": "淫乱・ハード系",
+      "original_label": "淫乱・ハード系",
+      "raw_members": [
+        "淫乱・ハード系"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "淫乱_ハード系",
+      "search_aliases": [
+        "淫乱・ハード系",
+        "淫荡/硬朗",
+        "淫乱/重口系"
+      ]
+    },
+    {
+      "canonical_id": "04d7f20d2789c6d3e2b51301",
+      "canonical_name": "女大学生",
+      "original_label": "女子大生",
+      "raw_members": [
+        "女子大生",
+        "女大学生"
+      ],
+      "merge_ref": "M36",
+      "hashtag_token": "女子大生",
+      "search_aliases": [
+        "女子大生",
+        "女大学生"
+      ]
+    },
+    {
+      "canonical_id": "05a6dd9c8badbbf74d66f992",
+      "canonical_name": "高画質特典",
+      "original_label": "高画質特典",
+      "raw_members": [
+        "高画質特典"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "高画質特典",
+      "search_aliases": [
+        "高画質特典",
+        "高品质效益",
+        "高清特典"
+      ]
+    },
+    {
+      "canonical_id": "060306ca2a4e393f120b644c",
+      "canonical_name": "18歳",
+      "original_label": "18歳",
+      "raw_members": [
+        "18歳"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "18歳",
+      "search_aliases": [
+        "18岁"
+      ]
+    },
+    {
+      "canonical_id": "06238b5f66e3984d23d31b75",
+      "canonical_name": "恶作剧",
+      "original_label": "イタズラ",
+      "raw_members": [
+        "イタズラ",
+        "恶作剧"
+      ],
+      "merge_ref": "M52",
+      "hashtag_token": "イタズラ",
+      "search_aliases": [
+        "イタズラ",
+        "恶作剧"
+      ]
+    },
+    {
+      "canonical_id": "066254eeb2aea3e9b3405ae6",
+      "canonical_name": "恋腿癖",
+      "original_label": "恋腿癖",
+      "raw_members": [
+        "恋腿癖"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "恋腿癖",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "0666a3b25672a1d5faa3062d",
+      "canonical_name": "温泉",
+      "original_label": "温泉",
+      "raw_members": [
+        "温泉"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "温泉",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "07b9b9382ab3a463f6e93fbe",
+      "canonical_name": "可爱",
+      "original_label": "可愛い",
+      "raw_members": [
+        "可愛い",
+        "かわいい",
+        "可爱"
+      ],
+      "merge_ref": "M32",
+      "hashtag_token": "可愛い",
+      "search_aliases": [
+        "可愛い",
+        "可爱的",
+        "可爱",
+        "かわいい"
+      ]
+    },
+    {
+      "canonical_id": "07fb35a3616c41a0cb1436cb",
+      "canonical_name": "フェラ抜き",
+      "original_label": "フェラ抜き",
+      "raw_members": [
+        "フェラ抜き"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "フェラ抜き",
+      "search_aliases": [
+        "フェラ抜き",
+        "没有口交",
+        "口交至射精"
+      ]
+    },
+    {
+      "canonical_id": "089050a5977583225fcf8a50",
+      "canonical_name": "妓女",
+      "original_label": "妓女",
+      "raw_members": [
+        "妓女"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "妓女",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "099d100b05e5eda159c0f0f7",
+      "canonical_name": "ドキュメント",
+      "original_label": "ドキュメント",
+      "raw_members": [
+        "ドキュメント"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "ドキュメント",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "0a2b4a7191ddbc333153cf44",
+      "canonical_name": "飲み会・合コン",
+      "original_label": "飲み会・合コン",
+      "raw_members": [
+        "飲み会・合コン"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "飲み会_合コン",
+      "search_aliases": [
+        "飲み会・合コン",
+        "酒会/团体聚会",
+        "酒会/联谊"
+      ]
+    },
+    {
+      "canonical_id": "0a6c13a78f82461b995eec40",
+      "canonical_name": "体操着・ブルマ",
+      "original_label": "体操着・ブルマ",
+      "raw_members": [
+        "体操着・ブルマ"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "体操着_ブルマ",
+      "search_aliases": [
+        "体操着・ブルマ",
+        "体操服/灯笼裤",
+        "体操服/运动短裤"
+      ]
+    },
+    {
+      "canonical_id": "0c45c719e3e5ebd2d5b0d293",
+      "canonical_name": "色白",
+      "original_label": "色白",
+      "raw_members": [
+        "色白"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "色白",
+      "search_aliases": [
+        "皮肤白皙"
+      ]
+    },
+    {
+      "canonical_id": "0cedf689414aa20cff5c8ee8",
+      "canonical_name": "水手服",
+      "original_label": "セーラー服",
+      "raw_members": [
+        "セーラー服",
+        "水手服"
+      ],
+      "merge_ref": "M46",
+      "hashtag_token": "セーラー服",
+      "search_aliases": [
+        "セーラー服",
+        "水手服"
+      ]
+    },
+    {
+      "canonical_id": "0cf9fc2df3215dac4a2a28a5",
+      "canonical_name": "多P",
+      "original_label": "多P",
+      "raw_members": [
+        "多P"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "多P",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "0d09635e3e06a69054e05f83",
+      "canonical_name": "素人",
+      "original_label": "素人",
+      "raw_members": [
+        "素人"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "素人",
+      "search_aliases": [
+        "素人",
+        "业余"
+      ]
+    },
+    {
+      "canonical_id": "0d4d350f5096e36722e84dc5",
+      "canonical_name": "くびれ",
+      "original_label": "くびれ",
+      "raw_members": [
+        "くびれ"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "くびれ",
+      "search_aliases": [
+        "くびれ",
+        "收缩",
+        "纤腰"
+      ]
+    },
+    {
+      "canonical_id": "0de5074307671d93e4829ddf",
+      "canonical_name": "薄马赛克",
+      "original_label": "薄马赛克",
+      "raw_members": [
+        "薄马赛克"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "薄马赛克",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "0e6f13680a082fd9a9b47249",
+      "canonical_name": "裸エプロン",
+      "original_label": "裸エプロン",
+      "raw_members": [
+        "裸エプロン"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "裸エプロン",
+      "search_aliases": [
+        "裸围裙"
+      ]
+    },
+    {
+      "canonical_id": "0f3e9cd8ebc436aeaae8d902",
+      "canonical_name": "糖心vlog",
+      "original_label": "糖心vlog",
+      "raw_members": [
+        "糖心vlog"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "糖心vlog",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "0f73b61a80b6386312873037",
+      "canonical_name": "猥亵穿着",
+      "original_label": "猥亵穿着",
+      "raw_members": [
+        "猥亵穿着"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "猥亵穿着",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "0fb52de46f420007c8b7f9e1",
+      "canonical_name": "打手枪",
+      "original_label": "打手枪",
+      "raw_members": [
+        "打手枪"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "打手枪",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "0fb561233cdc64a3fa7f788b",
+      "canonical_name": "ノーブラ",
+      "original_label": "ノーブラ",
+      "raw_members": [
+        "ノーブラ"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "ノーブラ",
+      "search_aliases": [
+        "无胸罩"
+      ]
+    },
+    {
+      "canonical_id": "10b254f0f9df9be7157a4c83",
+      "canonical_name": "连裤袜",
+      "original_label": "连裤袜",
+      "raw_members": [
+        "连裤袜"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "连裤袜",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "138a7a35c6d319fe4693ead9",
+      "canonical_name": "ミニ系",
+      "original_label": "ミニ系",
+      "raw_members": [
+        "ミニ系"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "ミニ系",
+      "search_aliases": [
+        "迷你型"
+      ]
+    },
+    {
+      "canonical_id": "152a9a07dadd4d23a06bf424",
+      "canonical_name": "独家",
+      "original_label": "独占配信",
+      "raw_members": [
+        "独占配信",
+        "独家"
+      ],
+      "merge_ref": "M08",
+      "hashtag_token": "独占配信",
+      "search_aliases": [
+        "独占配信",
+        "独家"
+      ]
+    },
+    {
+      "canonical_id": "153c12349122ca8a9b965ac7",
+      "canonical_name": "局部特写",
+      "original_label": "局部アップ",
+      "raw_members": [
+        "局部アップ",
+        "局部特写"
+      ],
+      "merge_ref": "M54",
+      "hashtag_token": "局部アップ",
+      "search_aliases": [
+        "局部アップ",
+        "局部特写"
+      ]
+    },
+    {
+      "canonical_id": "15a502f677d73fed598b5865",
+      "canonical_name": "探花",
+      "original_label": "探花",
+      "raw_members": [
+        "探花"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "探花",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "168b6920010ee55d93b46a17",
+      "canonical_name": "运动短裤",
+      "original_label": "运动短裤",
+      "raw_members": [
+        "运动短裤"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "运动短裤",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "19e6c77407ab517f13979197",
+      "canonical_name": "おっぱい",
+      "original_label": "おっぱい",
+      "raw_members": [
+        "おっぱい"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "おっぱい",
+      "search_aliases": [
+        "おっぱい",
+        "山雀",
+        "乳房"
+      ]
+    },
+    {
+      "canonical_id": "1a18ab3baeaae9cdabebaa77",
+      "canonical_name": "乳交",
+      "original_label": "パイズリ",
+      "raw_members": [
+        "パイズリ",
+        "乳交"
+      ],
+      "merge_ref": "M60",
+      "hashtag_token": "パイズリ",
+      "search_aliases": [
+        "パイズリ",
+        "他妈的奶",
+        "乳交"
+      ]
+    },
+    {
+      "canonical_id": "1ab67c9f8e90a62f190d3b98",
+      "canonical_name": "熟女",
+      "original_label": "熟女",
+      "raw_members": [
+        "熟女"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "熟女",
+      "search_aliases": [
+        "熟女"
+      ]
+    },
+    {
+      "canonical_id": "1c15d8b279787af1a557ba7a",
+      "canonical_name": "角色扮演者",
+      "original_label": "角色扮演者",
+      "raw_members": [
+        "角色扮演者"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "角色扮演者",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "1d498987560e722f6fa987d9",
+      "canonical_name": "美乳",
+      "original_label": "美乳",
+      "raw_members": [
+        "美乳"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "美乳",
+      "search_aliases": [
+        "美乳"
+      ]
+    },
+    {
+      "canonical_id": "1dc5cb5a186d2e4c772e9af3",
+      "canonical_name": "美脚",
+      "original_label": "美脚",
+      "raw_members": [
+        "美脚"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "美脚",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "1e9fdeb6a46eea07b63be4cd",
+      "canonical_name": "パンチラ",
+      "original_label": "パンチラ",
+      "raw_members": [
+        "パンチラ"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "パンチラ",
+      "search_aliases": [
+        "パンチラ",
+        "内裤拍摄",
+        "内裤走光"
+      ]
+    },
+    {
+      "canonical_id": "1fbce854194f3fd7495a9450",
+      "canonical_name": "デジモ",
+      "original_label": "デジモ",
+      "raw_members": [
+        "デジモ"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "デジモ",
+      "search_aliases": [
+        "数码莫"
+      ]
+    },
+    {
+      "canonical_id": "1fd2c66483485f7c2aca9f7e",
+      "canonical_name": "辱め",
+      "original_label": "辱め",
+      "raw_members": [
+        "辱め"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "辱め",
+      "search_aliases": [
+        "屈辱"
+      ]
+    },
+    {
+      "canonical_id": "1fea2755484a796ad55b80b2",
+      "canonical_name": "キャバ嬢・風俗嬢",
+      "original_label": "キャバ嬢・風俗嬢",
+      "raw_members": [
+        "キャバ嬢・風俗嬢"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "キャバ嬢_風俗嬢",
+      "search_aliases": [
+        "キャバ嬢・風俗嬢",
+        "女主人/妓女",
+        "陪酒女郎/风俗从业者"
+      ]
+    },
+    {
+      "canonical_id": "2122ad937b0751c1129d7aea",
+      "canonical_name": "デカ乳首",
+      "original_label": "デカ乳首",
+      "raw_members": [
+        "デカ乳首"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "デカ乳首",
+      "search_aliases": [
+        "大乳头"
+      ]
+    },
+    {
+      "canonical_id": "21f2524f726f963f291f19ad",
+      "canonical_name": "貧乳・微乳",
+      "original_label": "貧乳・微乳",
+      "raw_members": [
+        "貧乳・微乳"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "貧乳_微乳",
+      "search_aliases": [
+        "貧乳・微乳",
+        "小乳房/小乳房",
+        "贫乳/微乳"
+      ]
+    },
+    {
+      "canonical_id": "220a3827d88846a496f43834",
+      "canonical_name": "4K",
+      "original_label": "4K",
+      "raw_members": [
+        "4K"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "4K",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "222d8b386e534cb419d268d9",
+      "canonical_name": "荡妇",
+      "original_label": "荡妇",
+      "raw_members": [
+        "荡妇"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "荡妇",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "23769073021494628e6b5165",
+      "canonical_name": "くすぐり",
+      "original_label": "くすぐり",
+      "raw_members": [
+        "くすぐり"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "くすぐり",
+      "search_aliases": [
+        "くすぐり",
+        "挠痒痒的",
+        "挠痒"
+      ]
+    },
+    {
+      "canonical_id": "24163e343481ccd0ebe90af9",
+      "canonical_name": "ディルド",
+      "original_label": "ディルド",
+      "raw_members": [
+        "ディルド"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "ディルド",
+      "search_aliases": [
+        "假阳具"
+      ]
+    },
+    {
+      "canonical_id": "24f34afdfccaa89712e17923",
+      "canonical_name": "放尿",
+      "original_label": "放尿",
+      "raw_members": [
+        "放尿"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "放尿",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "25a7d5ef4aa6bce71ee795b9",
+      "canonical_name": "即ハメ",
+      "original_label": "即ハメ",
+      "raw_members": [
+        "即ハメ"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "即ハメ",
+      "search_aliases": [
+        "即时性爱"
+      ]
+    },
+    {
+      "canonical_id": "260cfdba5b4da7bdd4a174c5",
+      "canonical_name": "拘束",
+      "original_label": "拘束",
+      "raw_members": [
+        "拘束"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "拘束",
+      "search_aliases": [
+        "拘束",
+        "克制",
+        "束缚"
+      ]
+    },
+    {
+      "canonical_id": "2667917d3bf0e3462b6fb008",
+      "canonical_name": "美女",
+      "original_label": "美女",
+      "raw_members": [
+        "美女"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "美女",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "266c8ce16303478f0cc5bc3d",
+      "canonical_name": "无码破解",
+      "original_label": "无码破解",
+      "raw_members": [
+        "无码破解"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "无码破解",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "269c7b1358610ac7d0582c30",
+      "canonical_name": "高清",
+      "original_label": "ハイビジョン",
+      "raw_members": [
+        "ハイビジョン",
+        "高清"
+      ],
+      "merge_ref": "M04",
+      "hashtag_token": "ハイビジョン",
+      "search_aliases": [
+        "ハイビジョン",
+        "高清"
+      ]
+    },
+    {
+      "canonical_id": "27101e0c771c17a6081d2d05",
+      "canonical_name": "野外・露出",
+      "original_label": "野外・露出",
+      "raw_members": [
+        "野外・露出"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "野外_露出",
+      "search_aliases": [
+        "户外/暴露"
+      ]
+    },
+    {
+      "canonical_id": "27ebed3a12c18cbf3ca32838",
+      "canonical_name": "淫乱ハード系",
+      "original_label": "淫乱ハード系",
+      "raw_members": [
+        "淫乱ハード系"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "淫乱ハード系",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "28df64790cebd73123fdaf08",
+      "canonical_name": "レオタード",
+      "original_label": "レオタード",
+      "raw_members": [
+        "レオタード"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "レオタード",
+      "search_aliases": [
+        "レオタード",
+        "紧身衣",
+        "连体紧身衣"
+      ]
+    },
+    {
+      "canonical_id": "291902db71688596c136be29",
+      "canonical_name": "药物",
+      "original_label": "药物",
+      "raw_members": [
+        "药物"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "药物",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "29f9a2b4e1df5784721f933e",
+      "canonical_name": "寡妇",
+      "original_label": "未亡人",
+      "raw_members": [
+        "未亡人",
+        "寡妇"
+      ],
+      "merge_ref": "M56",
+      "hashtag_token": "未亡人",
+      "search_aliases": [
+        "寡妇",
+        "未亡人"
+      ]
+    },
+    {
+      "canonical_id": "2a3927a925afa67668179f9e",
+      "canonical_name": "妹妹",
+      "original_label": "妹",
+      "raw_members": [
+        "妹",
+        "妹妹"
+      ],
+      "merge_ref": "M27",
+      "hashtag_token": "妹",
+      "search_aliases": [
+        "妹妹",
+        "妹"
+      ]
+    },
+    {
+      "canonical_id": "2a89b82719d5605cf0fcb42c",
+      "canonical_name": "足交",
+      "original_label": "足コキ",
+      "raw_members": [
+        "足コキ",
+        "足交"
+      ],
+      "merge_ref": "M77",
+      "hashtag_token": "足コキ",
+      "search_aliases": [
+        "足コキ",
+        "脚交",
+        "足交"
+      ]
+    },
+    {
+      "canonical_id": "2b88ae1c91c698b913b166cf",
+      "canonical_name": "特典あり",
+      "original_label": "特典あり",
+      "raw_members": [
+        "特典あり",
+        "特典アリ"
+      ],
+      "merge_ref": "M81",
+      "hashtag_token": "特典あり",
+      "search_aliases": [
+        "特典あり",
+        "具有特殊的福利",
+        "附特典",
+        "特典アリ",
+        "好处蚂蚁"
+      ]
+    },
+    {
+      "canonical_id": "2c18c16dee7363fa9cc37770",
+      "canonical_name": "高画質",
+      "original_label": "高画質",
+      "raw_members": [
+        "高画質"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "高画質",
+      "search_aliases": [
+        "高画質",
+        "高质量",
+        "高画质"
+      ]
+    },
+    {
+      "canonical_id": "2c32fa6d6009642e349a5f26",
+      "canonical_name": "流汗",
+      "original_label": "流汗",
+      "raw_members": [
+        "流汗"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "流汗",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "2c67a156023bb980c94cece8",
+      "canonical_name": "無",
+      "original_label": "無",
+      "raw_members": [
+        "無"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "無",
+      "search_aliases": [
+        "无"
+      ]
+    },
+    {
+      "canonical_id": "2d1bedc3fbb8fc6a8cc55820",
+      "canonical_name": "ママ友",
+      "original_label": "ママ友",
+      "raw_members": [
+        "ママ友"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "ママ友",
+      "search_aliases": [
+        "妈妈朋友"
+      ]
+    },
+    {
+      "canonical_id": "2eba77090b613ddb260dd143",
+      "canonical_name": "白天出轨",
+      "original_label": "白天出轨",
+      "raw_members": [
+        "白天出轨",
+        "白天出軌"
+      ],
+      "merge_ref": "M11",
+      "hashtag_token": "白天出轨",
+      "search_aliases": [
+        "白天出轨",
+        "白天出軌"
+      ]
+    },
+    {
+      "canonical_id": "2f8f889e42a19688e7dae0f9",
+      "canonical_name": "魔鬼系",
+      "original_label": "魔鬼系",
+      "raw_members": [
+        "魔鬼系"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "魔鬼系",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "3035670baab3fa1d95a92a46",
+      "canonical_name": "美マン",
+      "original_label": "美マン",
+      "raw_members": [
+        "美マン"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "美マン",
+      "search_aliases": [
+        "美マン",
+        "美丽的猫",
+        "美阴"
+      ]
+    },
+    {
+      "canonical_id": "31dd4472980d5d336dbd272a",
+      "canonical_name": "小柄",
+      "original_label": "小柄",
+      "raw_members": [
+        "小柄"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "小柄",
+      "search_aliases": [
+        "小柄",
+        "娇小的",
+        "娇小"
+      ]
+    },
+    {
+      "canonical_id": "31ee08dafd894c4720f8b387",
+      "canonical_name": "中出",
+      "original_label": "中出し",
+      "raw_members": [
+        "中出し",
+        "中出"
+      ],
+      "merge_ref": "M02",
+      "hashtag_token": "中出し",
+      "search_aliases": [
+        "中出し",
+        "中出"
+      ]
+    },
+    {
+      "canonical_id": "340f6872a6741d98377e2a10",
+      "canonical_name": "洗澡",
+      "original_label": "お風呂",
+      "raw_members": [
+        "お風呂",
+        "洗澡"
+      ],
+      "merge_ref": "M42",
+      "hashtag_token": "お風呂",
+      "search_aliases": [
+        "お風呂",
+        "洗澡"
+      ]
+    },
+    {
+      "canonical_id": "34758cd45516749100253852",
+      "canonical_name": "内衣",
+      "original_label": "下着",
+      "raw_members": [
+        "下着",
+        "内衣"
+      ],
+      "merge_ref": "M39",
+      "hashtag_token": "下着",
+      "search_aliases": [
+        "内衣",
+        "下着"
+      ]
+    },
+    {
+      "canonical_id": "34a1158372d2340149f2579e",
+      "canonical_name": "新娘年轻妻子",
+      "original_label": "新娘年轻妻子",
+      "raw_members": [
+        "新娘年轻妻子"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "新娘年轻妻子",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "34b3063e4e2a0967bf08916d",
+      "canonical_name": "姐姐",
+      "original_label": "お姉さん",
+      "raw_members": [
+        "お姉さん",
+        "姐姐"
+      ],
+      "merge_ref": "M13",
+      "hashtag_token": "お姉さん",
+      "search_aliases": [
+        "お姉さん",
+        "姐姐"
+      ]
+    },
+    {
+      "canonical_id": "35b28a9f99b4b95a9a5e90a8",
+      "canonical_name": "无毛",
+      "original_label": "パイパン",
+      "raw_members": [
+        "パイパン",
+        "无毛",
+        "無毛"
+      ],
+      "merge_ref": "M20",
+      "hashtag_token": "パイパン",
+      "search_aliases": [
+        "パイパン",
+        "剃光猫",
+        "无毛",
+        "無毛"
+      ]
+    },
+    {
+      "canonical_id": "362a25ebfa071cdb5122a4e0",
+      "canonical_name": "人妻・主婦",
+      "original_label": "人妻・主婦",
+      "raw_members": [
+        "人妻・主婦"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "人妻_主婦",
+      "search_aliases": [
+        "已婚妇女/家庭主妇"
+      ]
+    },
+    {
+      "canonical_id": "378431c011e506ad99fa23bb",
+      "canonical_name": "爆乳",
+      "original_label": "爆乳",
+      "raw_members": [
+        "爆乳"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "爆乳",
+      "search_aliases": [
+        "爆乳",
+        "大乳房"
+      ]
+    },
+    {
+      "canonical_id": "3c83cc93a8c29c42388c8ec9",
+      "canonical_name": "主播",
+      "original_label": "主播",
+      "raw_members": [
+        "主播"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "主播",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "3ce2c3b06de8f78af1e4b36c",
+      "canonical_name": "浴衣",
+      "original_label": "浴衣",
+      "raw_members": [
+        "浴衣"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "浴衣",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "3cf5348afb62b9576d71efdc",
+      "canonical_name": "接吻",
+      "original_label": "キス・接吻",
+      "raw_members": [
+        "キス",
+        "キス・接吻",
+        "接吻"
+      ],
+      "merge_ref": "M67",
+      "hashtag_token": "キス_接吻",
+      "search_aliases": [
+        "キス・接吻",
+        "吻/吻",
+        "接吻",
+        "キス",
+        "吻"
+      ]
+    },
+    {
+      "canonical_id": "3d00b2c7312da11c732631e8",
+      "canonical_name": "メンエス嬢",
+      "original_label": "メンエス嬢",
+      "raw_members": [
+        "メンエス嬢"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "メンエス嬢",
+      "search_aliases": [
+        "メンエス嬢",
+        "梅内斯小姐",
+        "男士SPA从业者"
+      ]
+    },
+    {
+      "canonical_id": "3d58a009cb14567bc317eefc",
+      "canonical_name": "淫乱真实",
+      "original_label": "淫乱真实",
+      "raw_members": [
+        "淫乱真实"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "淫乱真实",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "3dab64b2531747a8e4172f51",
+      "canonical_name": "数位马赛克",
+      "original_label": "数位马赛克",
+      "raw_members": [
+        "数位马赛克"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "数位马赛克",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "3dbcf36ebf23c74037accfd3",
+      "canonical_name": "舔阴",
+      "original_label": "クンニ",
+      "raw_members": [
+        "クンニ",
+        "舔阴"
+      ],
+      "merge_ref": "M43",
+      "hashtag_token": "クンニ",
+      "search_aliases": [
+        "クンニ",
+        "舔阴"
+      ]
+    },
+    {
+      "canonical_id": "3f7614f3317d0d0fd3249885",
+      "canonical_name": "イキまくり",
+      "original_label": "イキまくり",
+      "raw_members": [
+        "イキまくり"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "イキまくり",
+      "search_aliases": [
+        "イキまくり",
+        "暨卷",
+        "连续高潮"
+      ]
+    },
+    {
+      "canonical_id": "4043b4b14deec40c3a3e2fd9",
+      "canonical_name": "アスリート",
+      "original_label": "アスリート",
+      "raw_members": [
+        "アスリート"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "アスリート",
+      "search_aliases": [
+        "运动员"
+      ]
+    },
+    {
+      "canonical_id": "418b38bb8ca6396fbae45c9e",
+      "canonical_name": "旅行",
+      "original_label": "旅行",
+      "raw_members": [
+        "旅行"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "旅行",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "42495308abbaacd8d57822c5",
+      "canonical_name": "泳装",
+      "original_label": "水着",
+      "raw_members": [
+        "水着",
+        "泳装"
+      ],
+      "merge_ref": "M51",
+      "hashtag_token": "水着",
+      "search_aliases": [
+        "水着",
+        "泳装"
+      ]
+    },
+    {
+      "canonical_id": "43a89925a2070fd0a7385ad8",
+      "canonical_name": "オリジナル",
+      "original_label": "オリジナル",
+      "raw_members": [
+        "オリジナル"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "オリジナル",
+      "search_aliases": [
+        "原来的"
+      ]
+    },
+    {
+      "canonical_id": "44d74eaaa9e5a221c24cb140",
+      "canonical_name": "神乳",
+      "original_label": "神乳",
+      "raw_members": [
+        "神乳"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "神乳",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "457207d9dfa904b94185fdb5",
+      "canonical_name": "高跟鞋",
+      "original_label": "高跟鞋",
+      "raw_members": [
+        "高跟鞋"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "高跟鞋",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "4a9c481ab903a1cd0d0e04e2",
+      "canonical_name": "エステ",
+      "original_label": "エステ",
+      "raw_members": [
+        "エステ"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "エステ",
+      "search_aliases": [
+        "美容院"
+      ]
+    },
+    {
+      "canonical_id": "4ae293f7365723967140b6e5",
+      "canonical_name": "秘书",
+      "original_label": "秘书",
+      "raw_members": [
+        "秘书",
+        "秘書"
+      ],
+      "merge_ref": "M59",
+      "hashtag_token": "秘书",
+      "search_aliases": [
+        "秘书",
+        "秘書"
+      ]
+    },
+    {
+      "canonical_id": "4b904872f1646ef025533b0d",
+      "canonical_name": "69",
+      "original_label": "69",
+      "raw_members": [
+        "69"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "69",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "4c1548738cb7c5f665b3b0a6",
+      "canonical_name": "吻吻",
+      "original_label": "吻吻",
+      "raw_members": [
+        "吻吻"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "吻吻",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "4c9eb604063c03c7a6311006",
+      "canonical_name": "美容院",
+      "original_label": "美容院",
+      "raw_members": [
+        "美容院"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "美容院",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "4d7f99fe4450ad02879c9d8d",
+      "canonical_name": "マッサージ・リフレ",
+      "original_label": "マッサージ・リフレ",
+      "raw_members": [
+        "マッサージ・リフレ"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "マッサージ_リフレ",
+      "search_aliases": [
+        "マッサージ・リフレ",
+        "按摩反射",
+        "按摩/足疗"
+      ]
+    },
+    {
+      "canonical_id": "4fc75791f4edbaa1bf3852f6",
+      "canonical_name": "調教",
+      "original_label": "調教",
+      "raw_members": [
+        "調教"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "調教",
+      "search_aliases": [
+        "调教"
+      ]
+    },
+    {
+      "canonical_id": "4fe307dda6748519bef58b65",
+      "canonical_name": "汗だく",
+      "original_label": "汗だく",
+      "raw_members": [
+        "汗だく"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "汗だく",
+      "search_aliases": [
+        "汗だく",
+        "出汗的",
+        "汗湿"
+      ]
+    },
+    {
+      "canonical_id": "4fe8806605943611aedbee92",
+      "canonical_name": "病院・クリニック",
+      "original_label": "病院・クリニック",
+      "raw_members": [
+        "病院・クリニック"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "病院_クリニック",
+      "search_aliases": [
+        "医院/诊所"
+      ]
+    },
+    {
+      "canonical_id": "51f8c2dee78993c9d1276738",
+      "canonical_name": "妄想",
+      "original_label": "妄想",
+      "raw_members": [
+        "妄想"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "妄想",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "528e6d95da450d1094cb89a6",
+      "canonical_name": "電マ",
+      "original_label": "電マ",
+      "raw_members": [
+        "電マ"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "電マ",
+      "search_aliases": [
+        "电动按摩器"
+      ]
+    },
+    {
+      "canonical_id": "52bf5374caa6887be3c30f5b",
+      "canonical_name": "角色扮演",
+      "original_label": "コスプレ",
+      "raw_members": [
+        "コスプレ",
+        "角色扮演"
+      ],
+      "merge_ref": "M19",
+      "hashtag_token": "コスプレ",
+      "search_aliases": [
+        "コスプレ",
+        "角色扮演"
+      ]
+    },
+    {
+      "canonical_id": "53680b409a8ac4f323ad38dc",
+      "canonical_name": "长身体",
+      "original_label": "长身体",
+      "raw_members": [
+        "长身体"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "长身体",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "5586264f1b16ac7a1bb69da4",
+      "canonical_name": "メイド",
+      "original_label": "メイド",
+      "raw_members": [
+        "メイド",
+        "女佣"
+      ],
+      "merge_ref": "M28",
+      "hashtag_token": "メイド",
+      "search_aliases": [
+        "メイド",
+        "女佣",
+        "女仆"
+      ]
+    },
+    {
+      "canonical_id": "57c3674d57220b753c966053",
+      "canonical_name": "AI生成作品",
+      "original_label": "AI生成作品",
+      "raw_members": [
+        "AI生成作品"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "AI生成作品",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "57d5a52afb7e95724ef17b9a",
+      "canonical_name": "芸能人",
+      "original_label": "芸能人",
+      "raw_members": [
+        "芸能人"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "芸能人",
+      "search_aliases": [
+        "名人"
+      ]
+    },
+    {
+      "canonical_id": "586d89915ab9474c9c660010",
+      "canonical_name": "辣妹",
+      "original_label": "ギャル",
+      "raw_members": [
+        "ギャル",
+        "辣妹"
+      ],
+      "merge_ref": "M31",
+      "hashtag_token": "ギャル",
+      "search_aliases": [
+        "ギャル",
+        "加仑",
+        "辣妹"
+      ]
+    },
+    {
+      "canonical_id": "58cf885b7e93063fbbe0f3d1",
+      "canonical_name": "恋物癖",
+      "original_label": "フェチ",
+      "raw_members": [
+        "フェチ",
+        "恋物癖"
+      ],
+      "merge_ref": "M40",
+      "hashtag_token": "フェチ",
+      "search_aliases": [
+        "恋物癖",
+        "フェチ"
+      ]
+    },
+    {
+      "canonical_id": "5b1d6e3071a2cd2bb6081979",
+      "canonical_name": "颜射",
+      "original_label": "顔射",
+      "raw_members": [
+        "顔射",
+        "颜射",
+        "顏射"
+      ],
+      "merge_ref": "M10",
+      "hashtag_token": "顔射",
+      "search_aliases": [
+        "顔射",
+        "面部的",
+        "颜射",
+        "顏射"
+      ]
+    },
+    {
+      "canonical_id": "5b8da19c8bf565b1a577aba4",
+      "canonical_name": "シックスナイン",
+      "original_label": "シックスナイン",
+      "raw_members": [
+        "シックスナイン"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "シックスナイン",
+      "search_aliases": [
+        "六九"
+      ]
+    },
+    {
+      "canonical_id": "5c7a30ab72abf683325a525a",
+      "canonical_name": "メイドコス",
+      "original_label": "メイドコス",
+      "raw_members": [
+        "メイドコス"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "メイドコス",
+      "search_aliases": [
+        "女仆装"
+      ]
+    },
+    {
+      "canonical_id": "5ca148097dbcc14beeedbb85",
+      "canonical_name": "两女一男",
+      "original_label": "两女一男",
+      "raw_members": [
+        "两女一男"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "两女一男",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "5d5cc5f9cf633ad758735a32",
+      "canonical_name": "スポーツ",
+      "original_label": "スポーツ",
+      "raw_members": [
+        "スポーツ"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "スポーツ",
+      "search_aliases": [
+        "运动"
+      ]
+    },
+    {
+      "canonical_id": "5e217a0c1dd86d572059f334",
+      "canonical_name": "出轨",
+      "original_label": "不倫",
+      "raw_members": [
+        "不倫",
+        "不伦",
+        "出轨",
+        "出軌"
+      ],
+      "merge_ref": "M22",
+      "hashtag_token": "不倫",
+      "search_aliases": [
+        "不倫",
+        "通奸",
+        "出轨",
+        "不伦",
+        "出軌"
+      ]
+    },
+    {
+      "canonical_id": "5e89552458330932783364a2",
+      "canonical_name": "原作コラボ",
+      "original_label": "原作コラボ",
+      "raw_members": [
+        "原作コラボ"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "原作コラボ",
+      "search_aliases": [
+        "原作コラボ",
+        "原创合作",
+        "原作联动"
+      ]
+    },
+    {
+      "canonical_id": "5ecd258a0471dae16d2ca7df",
+      "canonical_name": "3P・4P",
+      "original_label": "3P・4P",
+      "raw_members": [
+        "3P・4P",
+        "3P、4P"
+      ],
+      "merge_ref": "M83",
+      "hashtag_token": "3P_4P",
+      "search_aliases": [
+        "3P・4P",
+        "3P、4P"
+      ]
+    },
+    {
+      "canonical_id": "5f0439470987d4a62dccb6d0",
+      "canonical_name": "着エロ",
+      "original_label": "着エロ",
+      "raw_members": [
+        "着エロ"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "着エロ",
+      "search_aliases": [
+        "着エロ",
+        "情趣服装",
+        "着衣情色写真"
+      ]
+    },
+    {
+      "canonical_id": "5fd24c00717787bbf30982fb",
+      "canonical_name": "兔女郎",
+      "original_label": "バニーガール",
+      "raw_members": [
+        "バニーガール",
+        "兔女郎"
+      ],
+      "merge_ref": "M55",
+      "hashtag_token": "バニーガール",
+      "search_aliases": [
+        "兔女郎",
+        "バニーガール"
+      ]
+    },
+    {
+      "canonical_id": "60901dc2b229599b445a870e",
+      "canonical_name": "自慰",
+      "original_label": "オナニー",
+      "raw_members": [
+        "オナニー",
+        "手淫",
+        "自慰"
+      ],
+      "merge_ref": "M25",
+      "hashtag_token": "オナニー",
+      "search_aliases": [
+        "オナニー",
+        "手淫",
+        "自慰"
+      ]
+    },
+    {
+      "canonical_id": "61179aece38dc9756f5cba8e",
+      "canonical_name": "受付嬢",
+      "original_label": "受付嬢",
+      "raw_members": [
+        "受付嬢"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "受付嬢",
+      "search_aliases": [
+        "接待员"
+      ]
+    },
+    {
+      "canonical_id": "61478e142e4b0c5497bc087a",
+      "canonical_name": "アイドル・芸能人",
+      "original_label": "アイドル・芸能人",
+      "raw_members": [
+        "アイドル・芸能人"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "アイドル_芸能人",
+      "search_aliases": [
+        "偶像艺人"
+      ]
+    },
+    {
+      "canonical_id": "618d92b1f015a49b9735e2ac",
+      "canonical_name": "抜ける",
+      "original_label": "抜ける",
+      "raw_members": [
+        "抜ける"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "抜ける",
+      "search_aliases": [
+        "出去"
+      ]
+    },
+    {
+      "canonical_id": "6248d8712e7020e91df0f4e6",
+      "canonical_name": "侠义立场",
+      "original_label": "侠义立场",
+      "raw_members": [
+        "侠义立场"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "侠义立场",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "629609f2bcdda192f030387a",
+      "canonical_name": "ドキュメンタリー",
+      "original_label": "ドキュメンタリー",
+      "raw_members": [
+        "ドキュメンタリー",
+        "纪录片"
+      ],
+      "merge_ref": "M65",
+      "hashtag_token": "ドキュメンタリー",
+      "search_aliases": [
+        "ドキュメンタリー",
+        "记录",
+        "纪实",
+        "纪录片"
+      ]
+    },
+    {
+      "canonical_id": "6306baa851b610adf2e800d3",
+      "canonical_name": "ミニスカ",
+      "original_label": "ミニスカ",
+      "raw_members": [
+        "ミニスカ",
+        "迷你裙"
+      ],
+      "merge_ref": "M78",
+      "hashtag_token": "ミニスカ",
+      "search_aliases": [
+        "ミニスカ",
+        "超短裙",
+        "迷你裙"
+      ]
+    },
+    {
+      "canonical_id": "6520d74bc70aafff1d3b9748",
+      "canonical_name": "女优按摩棒",
+      "original_label": "女优按摩棒",
+      "raw_members": [
+        "女优按摩棒",
+        "女優按摩棒"
+      ],
+      "merge_ref": "M49",
+      "hashtag_token": "女优按摩棒",
+      "search_aliases": [
+        "女优按摩棒",
+        "女優按摩棒"
+      ]
+    },
+    {
+      "canonical_id": "65badb2b26e333da2b86a4a9",
+      "canonical_name": "イメージビデオ",
+      "original_label": "イメージビデオ",
+      "raw_members": [
+        "イメージビデオ"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "イメージビデオ",
+      "search_aliases": [
+        "写真"
+      ]
+    },
+    {
+      "canonical_id": "667cfe4db6b344a812b51984",
+      "canonical_name": "韩国",
+      "original_label": "韩国",
+      "raw_members": [
+        "韩国"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "韩国",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "66871daff2d497d2f7a0fcb7",
+      "canonical_name": "按摩",
+      "original_label": "按摩",
+      "raw_members": [
+        "按摩"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "按摩",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "674af406891e5c61536af047",
+      "canonical_name": "痴女",
+      "original_label": "痴女",
+      "raw_members": [
+        "痴女"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "痴女",
+      "search_aliases": [
+        "痴女",
+        "荡妇",
+        "痴女（主动型女性）"
+      ]
+    },
+    {
+      "canonical_id": "674ef053b48ebe08aa05c17b",
+      "canonical_name": "生ハメ",
+      "original_label": "生ハメ",
+      "raw_members": [
+        "生ハメ"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "生ハメ",
+      "search_aliases": [
+        "原始性爱"
+      ]
+    },
+    {
+      "canonical_id": "695f6e62dd44e621d84ed20c",
+      "canonical_name": "淫语",
+      "original_label": "淫語",
+      "raw_members": [
+        "淫語",
+        "淫语"
+      ],
+      "merge_ref": "M63",
+      "hashtag_token": "淫語",
+      "search_aliases": [
+        "淫語",
+        "脏话",
+        "淫语"
+      ]
+    },
+    {
+      "canonical_id": "6a61dd9bb300b151545f8317",
+      "canonical_name": "和服・浴衣",
+      "original_label": "和服・浴衣",
+      "raw_members": [
+        "和服・浴衣"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "和服_浴衣",
+      "search_aliases": [
+        "日式服装/浴衣"
+      ]
+    },
+    {
+      "canonical_id": "6b5ca2e2eacdc54b5294e4b7",
+      "canonical_name": "加仑",
+      "original_label": "加仑",
+      "raw_members": [
+        "加仑"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "加仑",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "6c590742a53839d643068ddd",
+      "canonical_name": "口内射精",
+      "original_label": "口内発射",
+      "raw_members": [
+        "口内発射",
+        "口内射精"
+      ],
+      "merge_ref": "M48",
+      "hashtag_token": "口内発射",
+      "search_aliases": [
+        "口内発射",
+        "暨在嘴里",
+        "口内射精"
+      ]
+    },
+    {
+      "canonical_id": "6c64107e0b9561fb71a6c659",
+      "canonical_name": "ホテル",
+      "original_label": "ホテル",
+      "raw_members": [
+        "ホテル"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "ホテル",
+      "search_aliases": [
+        "酒店"
+      ]
+    },
+    {
+      "canonical_id": "6cecc0ef8fd0805f1611efb2",
+      "canonical_name": "美少女电影",
+      "original_label": "美少女电影",
+      "raw_members": [
+        "美少女电影"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "美少女电影",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "6d0321be41b5874dea1a1d5f",
+      "canonical_name": "痴漢",
+      "original_label": "痴漢",
+      "raw_members": [
+        "痴漢"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "痴漢",
+      "search_aliases": [
+        "痴漢",
+        "骚扰",
+        "痴汉题材"
+      ]
+    },
+    {
+      "canonical_id": "6f98c5d3a73e0ce236a5e87e",
+      "canonical_name": "ランジェリー",
+      "original_label": "ランジェリー",
+      "raw_members": [
+        "ランジェリー"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "ランジェリー",
+      "search_aliases": [
+        "内衣"
+      ]
+    },
+    {
+      "canonical_id": "6fa8a71c63297885065c88ef",
+      "canonical_name": "清楚系",
+      "original_label": "清楚系",
+      "raw_members": [
+        "清楚系"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "清楚系",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "70db2556b3afe5a27c3e1589",
+      "canonical_name": "精选综合",
+      "original_label": "精选综合",
+      "raw_members": [
+        "精选综合",
+        "精選綜合"
+      ],
+      "merge_ref": "M29",
+      "hashtag_token": "精选综合",
+      "search_aliases": [
+        "精选综合",
+        "精選綜合"
+      ]
+    },
+    {
+      "canonical_id": "7282015ff1229b6a1cf7bc2d",
+      "canonical_name": "ローション・オイル",
+      "original_label": "ローション・オイル",
+      "raw_members": [
+        "ローション・オイル"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "ローション_オイル",
+      "search_aliases": [
+        "ローション・オイル",
+        "乳液油",
+        "润滑液/按摩油"
+      ]
+    },
+    {
+      "canonical_id": "751ff2cd5d89cd75a507df3b",
+      "canonical_name": "女上司",
+      "original_label": "女上司",
+      "raw_members": [
+        "女上司"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "女上司",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "753794840f506da2d781d6d2",
+      "canonical_name": "原创合作",
+      "original_label": "原创合作",
+      "raw_members": [
+        "原创合作"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "原创合作",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "7551f1b6c26273b1af9c257d",
+      "canonical_name": "ピンク",
+      "original_label": "ピンク",
+      "raw_members": [
+        "ピンク"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "ピンク",
+      "search_aliases": [
+        "粉色的"
+      ]
+    },
+    {
+      "canonical_id": "75f072a865b19812c01c9774",
+      "canonical_name": "デビュー作品",
+      "original_label": "デビュー作品",
+      "raw_members": [
+        "デビュー作品",
+        "首次亮相"
+      ],
+      "merge_ref": "M72",
+      "hashtag_token": "デビュー作品",
+      "search_aliases": [
+        "デビュー作品",
+        "出道作品",
+        "首次亮相"
+      ]
+    },
+    {
+      "canonical_id": "77772b86ee45ffa264eb8b1f",
+      "canonical_name": "孕ませ",
+      "original_label": "孕ませ",
+      "raw_members": [
+        "孕ませ"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "孕ませ",
+      "search_aliases": [
+        "孕ませ",
+        "浸渍",
+        "致孕题材"
+      ]
+    },
+    {
+      "canonical_id": "77ce7084f87d523a00e42ee2",
+      "canonical_name": "逆ナン",
+      "original_label": "逆ナン",
+      "raw_members": [
+        "逆ナン"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "逆ナン",
+      "search_aliases": [
+        "逆ナン",
+        "反向馕",
+        "女性主动搭讪"
+      ]
+    },
+    {
+      "canonical_id": "7886702bd66f19a15120ec78",
+      "canonical_name": "素人作品",
+      "original_label": "素人作品",
+      "raw_members": [
+        "素人作品"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "素人作品",
+      "search_aliases": [
+        "素人作品"
+      ]
+    },
+    {
+      "canonical_id": "789714e487260e1405a252c0",
+      "canonical_name": "主观视角",
+      "original_label": "主観",
+      "raw_members": [
+        "主観",
+        "主观视角",
+        "主觀視角"
+      ],
+      "merge_ref": "M09",
+      "hashtag_token": "主観",
+      "search_aliases": [
+        "主観",
+        "主观",
+        "主观视角",
+        "主觀視角"
+      ]
+    },
+    {
+      "canonical_id": "7faa09ac149a66c0fb31558a",
+      "canonical_name": "清楚",
+      "original_label": "清楚",
+      "raw_members": [
+        "清楚"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "清楚",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "7fbb57ee73a3c77b37aef16d",
+      "canonical_name": "ぶっかけ",
+      "original_label": "ぶっかけ",
+      "raw_members": [
+        "ぶっかけ"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "ぶっかけ",
+      "search_aliases": [
+        "颜射"
+      ]
+    },
+    {
+      "canonical_id": "80ad8c9732eeebf101efa8b4",
+      "canonical_name": "尻フェチ",
+      "original_label": "尻フェチ",
+      "raw_members": [
+        "尻フェチ"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "尻フェチ",
+      "search_aliases": [
+        "尻フェチ",
+        "屁股恋物癖",
+        "恋臀"
+      ]
+    },
+    {
+      "canonical_id": "81340396b967c8e7e9aad02e",
+      "canonical_name": "企画",
+      "original_label": "企画",
+      "raw_members": [
+        "企画"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "企画",
+      "search_aliases": [
+        "企画",
+        "计划",
+        "企划作品"
+      ]
+    },
+    {
+      "canonical_id": "81b7fb999ff1b6f49aa448f7",
+      "canonical_name": "4小时以上作品",
+      "original_label": "4時間以上作品",
+      "raw_members": [
+        "4時間以上作品",
+        "4小时以上作品"
+      ],
+      "merge_ref": "M66",
+      "hashtag_token": "4時間以上作品",
+      "search_aliases": [
+        "4時間以上作品",
+        "工作时间超过4小时",
+        "4小时以上作品"
+      ]
+    },
+    {
+      "canonical_id": "8412d8e4b2271127dd33f1d3",
+      "canonical_name": "デート",
+      "original_label": "デート",
+      "raw_members": [
+        "デート"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "デート",
+      "search_aliases": [
+        "デート",
+        "日期",
+        "约会"
+      ]
+    },
+    {
+      "canonical_id": "852cd5afcf313ce1d6b118ae",
+      "canonical_name": "礼仪小姐",
+      "original_label": "礼仪小姐",
+      "raw_members": [
+        "礼仪小姐"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "礼仪小姐",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "8715eb81af6dc42e9ed24e93",
+      "canonical_name": "パンスト・タイツ",
+      "original_label": "パンスト・タイツ",
+      "raw_members": [
+        "パンスト・タイツ"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "パンスト_タイツ",
+      "search_aliases": [
+        "パンスト・タイツ",
+        "连裤袜/紧身衣",
+        "连裤袜/裤袜"
+      ]
+    },
+    {
+      "canonical_id": "881132c5ca341e3b6df09bfc",
+      "canonical_name": "個人撮影",
+      "original_label": "個人撮影",
+      "raw_members": [
+        "個人撮影"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "個人撮影",
+      "search_aliases": [
+        "个人摄影"
+      ]
+    },
+    {
+      "canonical_id": "88c2c4b1facac0d6196b4c65",
+      "canonical_name": "義母",
+      "original_label": "義母",
+      "raw_members": [
+        "義母"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "義母",
+      "search_aliases": [
+        "岳母"
+      ]
+    },
+    {
+      "canonical_id": "88c303291d527c24f314628c",
+      "canonical_name": "业余",
+      "original_label": "业余",
+      "raw_members": [
+        "业余"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "业余",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "8a2954826546c56b9d0ada54",
+      "canonical_name": "情侣",
+      "original_label": "カップル",
+      "raw_members": [
+        "カップル",
+        "情侣",
+        "情侶"
+      ],
+      "merge_ref": "M34",
+      "hashtag_token": "カップル",
+      "search_aliases": [
+        "情侣",
+        "カップル",
+        "夫妻",
+        "情侶"
+      ]
+    },
+    {
+      "canonical_id": "8afa1f2dc7f483234b798104",
+      "canonical_name": "姐妹",
+      "original_label": "姉・妹",
+      "raw_members": [
+        "姉・妹",
+        "姐妹"
+      ],
+      "merge_ref": "M21",
+      "hashtag_token": "姉_妹",
+      "search_aliases": [
+        "姉・妹",
+        "姐妹"
+      ]
+    },
+    {
+      "canonical_id": "8d91605fd16a7f9f1f49ca7f",
+      "canonical_name": "女同接吻",
+      "original_label": "レズキス",
+      "raw_members": [
+        "レズキス",
+        "女同接吻"
+      ],
+      "merge_ref": "M73",
+      "hashtag_token": "レズキス",
+      "search_aliases": [
+        "レズキス",
+        "女同性恋之吻",
+        "女同接吻"
+      ]
+    },
+    {
+      "canonical_id": "8e0f6e41a1c1785454939a19",
+      "canonical_name": "妄想族",
+      "original_label": "妄想族",
+      "raw_members": [
+        "妄想族"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "妄想族",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "8f07139134051a112dc398a5",
+      "canonical_name": "元アイドル",
+      "original_label": "元アイドル",
+      "raw_members": [
+        "元アイドル"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "元アイドル",
+      "search_aliases": [
+        "元アイドル",
+        "曾经的偶像",
+        "前偶像"
+      ]
+    },
+    {
+      "canonical_id": "90db58a70f5ab182e5ecc954",
+      "canonical_name": "处男",
+      "original_label": "童貞",
+      "raw_members": [
+        "童貞",
+        "童贞",
+        "处男"
+      ],
+      "merge_ref": "M33",
+      "hashtag_token": "童貞",
+      "search_aliases": [
+        "童貞",
+        "童贞",
+        "处男"
+      ]
+    },
+    {
+      "canonical_id": "92213ee071bab26e597cef36",
+      "canonical_name": "已婚妇女",
+      "original_label": "人妻",
+      "raw_members": [
+        "人妻",
+        "已婚妇女",
+        "已婚婦女"
+      ],
+      "merge_ref": "M14",
+      "hashtag_token": "人妻",
+      "search_aliases": [
+        "已婚妇女",
+        "人妻",
+        "已婚婦女"
+      ]
+    },
+    {
+      "canonical_id": "935f6ed07453b6cb3715b060",
+      "canonical_name": "若妻・幼妻",
+      "original_label": "若妻・幼妻",
+      "raw_members": [
+        "若妻・幼妻"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "若妻_幼妻",
+      "search_aliases": [
+        "若妻・幼妻",
+        "年轻的妻子/年轻的妻子",
+        "年轻人妻"
+      ]
+    },
+    {
+      "canonical_id": "9463cb85494de140bb55bb6a",
+      "canonical_name": "サウナ",
+      "original_label": "サウナ",
+      "raw_members": [
+        "サウナ"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "サウナ",
+      "search_aliases": [
+        "桑拿"
+      ]
+    },
+    {
+      "canonical_id": "94ba8ce2a8a83ecfcadaceec",
+      "canonical_name": "エマニエル",
+      "original_label": "エマニエル",
+      "raw_members": [
+        "エマニエル"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "エマニエル",
+      "search_aliases": [
+        "伊曼纽尔"
+      ]
+    },
+    {
+      "canonical_id": "961c885cb5a5f5588ce0bdae",
+      "canonical_name": "家教",
+      "original_label": "家庭教師",
+      "raw_members": [
+        "家庭教師",
+        "家教"
+      ],
+      "merge_ref": "M74",
+      "hashtag_token": "家庭教師",
+      "search_aliases": [
+        "家庭教師",
+        "家庭教师",
+        "家教"
+      ]
+    },
+    {
+      "canonical_id": "96ae14d039ec8c4f9ed50f03",
+      "canonical_name": "ドラッグ",
+      "original_label": "ドラッグ",
+      "raw_members": [
+        "ドラッグ"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "ドラッグ",
+      "search_aliases": [
+        "ドラッグ",
+        "拖",
+        "药物题材"
+      ]
+    },
+    {
+      "canonical_id": "9729f6ba380f978044fbdaa3",
+      "canonical_name": "NTR",
+      "original_label": "寝取り・寝取られ・NTR",
+      "raw_members": [
+        "寝取り・寝取られ・NTR",
+        "寝取り・寝取られ・ＮＴＲ",
+        "寝取り寝取られ",
+        "NTR"
+      ],
+      "merge_ref": "M15",
+      "hashtag_token": "寝取り_寝取られ_NTR",
+      "search_aliases": [
+        "寝取り・寝取られ・NTR",
+        "NTR",
+        "寝取り・寝取られ・ＮＴＲ",
+        "寝取り寝取られ"
+      ]
+    },
+    {
+      "canonical_id": "9763a0a257e1069dea789c18",
+      "canonical_name": "淫荡硬朗",
+      "original_label": "淫荡硬朗",
+      "raw_members": [
+        "淫荡硬朗"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "淫荡硬朗",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "976471fdb6d2322bfde0762d",
+      "canonical_name": "芸能人似",
+      "original_label": "芸能人似",
+      "raw_members": [
+        "芸能人似"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "芸能人似",
+      "search_aliases": [
+        "芸能人似",
+        "名人相似度",
+        "明星相似型"
+      ]
+    },
+    {
+      "canonical_id": "97920766904a013cfef6e13b",
+      "canonical_name": "お尻",
+      "original_label": "お尻",
+      "raw_members": [
+        "お尻"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "お尻",
+      "search_aliases": [
+        "お尻",
+        "屁股",
+        "臀部"
+      ]
+    },
+    {
+      "canonical_id": "9849ea3b6ba096dd5ec053ee",
+      "canonical_name": "单体作品",
+      "original_label": "単体作品",
+      "raw_members": [
+        "单体作品",
+        "単体作品",
+        "單體作品"
+      ],
+      "merge_ref": "M01",
+      "hashtag_token": "単体作品",
+      "search_aliases": [
+        "单体作品",
+        "単体作品",
+        "單體作品"
+      ]
+    },
+    {
+      "canonical_id": "9927dc5d480c34bcf9dd6f35",
+      "canonical_name": "エロい",
+      "original_label": "エロい",
+      "raw_members": [
+        "エロい"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "エロい",
+      "search_aliases": [
+        "エロい",
+        "好色之徒",
+        "情色"
+      ]
+    },
+    {
+      "canonical_id": "999ef9a27c0fd25a1aa4f487",
+      "canonical_name": "保育士",
+      "original_label": "保育士",
+      "raw_members": [
+        "保育士"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "保育士",
+      "search_aliases": [
+        "保育老师"
+      ]
+    },
+    {
+      "canonical_id": "9a1bdac8d9b3bbcb22e4e749",
+      "canonical_name": "美臀",
+      "original_label": "美尻",
+      "raw_members": [
+        "美尻",
+        "美臀"
+      ],
+      "merge_ref": "M62",
+      "hashtag_token": "美尻",
+      "search_aliases": [
+        "美臀",
+        "美尻",
+        "美丽的屁股"
+      ]
+    },
+    {
+      "canonical_id": "9b98be455f64981d47c9189a",
+      "canonical_name": "エロ動画",
+      "original_label": "エロ動画",
+      "raw_members": [
+        "エロ動画"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "エロ動画",
+      "search_aliases": [
+        "色情影片"
+      ]
+    },
+    {
+      "canonical_id": "9bb34c6494cfd66a1c6ec502",
+      "canonical_name": "妈妈的朋友",
+      "original_label": "妈妈的朋友",
+      "raw_members": [
+        "妈妈的朋友"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "妈妈的朋友",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "9bda08efc9bf4eedfffcc7bb",
+      "canonical_name": "放尿・お漏らし",
+      "original_label": "放尿・お漏らし",
+      "raw_members": [
+        "放尿・お漏らし"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "放尿_お漏らし",
+      "search_aliases": [
+        "排尿/尿湿"
+      ]
+    },
+    {
+      "canonical_id": "9d0bdfd9526f6204bc0de78f",
+      "canonical_name": "イラマチオ",
+      "original_label": "イラマチオ",
+      "raw_members": [
+        "イラマチオ"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "イラマチオ",
+      "search_aliases": [
+        "深喉咙"
+      ]
+    },
+    {
+      "canonical_id": "9fd0c2748b99911bfc2be270",
+      "canonical_name": "口交",
+      "original_label": "フェラチオ",
+      "raw_members": [
+        "フェラ",
+        "フェラチオ",
+        "口交"
+      ],
+      "merge_ref": "M03",
+      "hashtag_token": "フェラチオ",
+      "search_aliases": [
+        "フェラ",
+        "口交",
+        "フェラチオ"
+      ]
+    },
+    {
+      "canonical_id": "9fe72b921e4261a671f3ff28",
+      "canonical_name": "女学生",
+      "original_label": "女学生",
+      "raw_members": [
+        "女学生"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "女学生",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "a01e71d3b3b5f00543ac0eec",
+      "canonical_name": "ヘルス・ソープ",
+      "original_label": "ヘルス・ソープ",
+      "raw_members": [
+        "ヘルス・ソープ"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "ヘルス_ソープ",
+      "search_aliases": [
+        "ヘルス・ソープ",
+        "保健皂",
+        "风俗店（ヘルス/泡泡浴）"
+      ]
+    },
+    {
+      "canonical_id": "a027ff8671547356622c6a75",
+      "canonical_name": "実写化・原作コラボ",
+      "original_label": "実写化・原作コラボ",
+      "raw_members": [
+        "実写化・原作コラボ"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "実写化_原作コラボ",
+      "search_aliases": [
+        "実写化・原作コラボ",
+        "真人改编/原创合作",
+        "真人化/原作联动"
+      ]
+    },
+    {
+      "canonical_id": "a0f7b66da91971727c829117",
+      "canonical_name": "旗袍",
+      "original_label": "チャイナドレス",
+      "raw_members": [
+        "チャイナドレス",
+        "旗袍"
+      ],
+      "merge_ref": "M79",
+      "hashtag_token": "チャイナドレス",
+      "search_aliases": [
+        "チャイナドレス",
+        "旗袍连衣裙",
+        "旗袍"
+      ]
+    },
+    {
+      "canonical_id": "a1c49f1545a3c8dbe1b527df",
+      "canonical_name": "サンプル動画",
+      "original_label": "サンプル動画",
+      "raw_members": [
+        "サンプル動画",
+        "サンプル动画"
+      ],
+      "merge_ref": "M82",
+      "hashtag_token": "サンプル動画",
+      "search_aliases": [
+        "サンプル動画",
+        "示例视频",
+        "试看视频",
+        "サンプル动画"
+      ]
+    },
+    {
+      "canonical_id": "a1d2bcb6516f3bc338d89c3c",
+      "canonical_name": "吞精",
+      "original_label": "ごっくん",
+      "raw_members": [
+        "ごっくん",
+        "吞精"
+      ],
+      "merge_ref": "M30",
+      "hashtag_token": "ごっくん",
+      "search_aliases": [
+        "ごっくん",
+        "吞精"
+      ]
+    },
+    {
+      "canonical_id": "a23a7cfe4e01f51d05230921",
+      "canonical_name": "羞耻",
+      "original_label": "羞恥",
+      "raw_members": [
+        "羞恥",
+        "羞耻"
+      ],
+      "merge_ref": "M41",
+      "hashtag_token": "羞恥",
+      "search_aliases": [
+        "羞恥",
+        "羞耻"
+      ]
+    },
+    {
+      "canonical_id": "a291a077eef3ab197957d21d",
+      "canonical_name": "スク水",
+      "original_label": "スク水",
+      "raw_members": [
+        "スク水",
+        "学校泳装"
+      ],
+      "merge_ref": "M80",
+      "hashtag_token": "スク水",
+      "search_aliases": [
+        "学校泳装",
+        "学生泳装",
+        "スク水",
+        "学校泳衣"
+      ]
+    },
+    {
+      "canonical_id": "a2e5c3d8450124289d2f5d5f",
+      "canonical_name": "Reluctant",
+      "original_label": "Reluctant",
+      "raw_members": [
+        "Reluctant"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "Reluctant",
+      "search_aliases": [
+        "他们犹豫不决"
+      ]
+    },
+    {
+      "canonical_id": "a5770e52362f369bfc752f93",
+      "canonical_name": "写真",
+      "original_label": "写真",
+      "raw_members": [
+        "写真"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "写真",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "a64972e188c5a6637ced9a31",
+      "canonical_name": "スチュワーデス",
+      "original_label": "スチュワーデス",
+      "raw_members": [
+        "スチュワーデス",
+        "空中小姐"
+      ],
+      "merge_ref": "M58",
+      "hashtag_token": "スチュワーデス",
+      "search_aliases": [
+        "スチュワーデス",
+        "空中小姐",
+        "空姐"
+      ]
+    },
+    {
+      "canonical_id": "a7b0df216d8df171d3e4c155",
+      "canonical_name": "短裙",
+      "original_label": "短裙",
+      "raw_members": [
+        "短裙"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "短裙",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "a854b9cc3a62f8dd342597aa",
+      "canonical_name": "瘦小身型",
+      "original_label": "瘦小身型",
+      "raw_members": [
+        "瘦小身型"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "瘦小身型",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "a920afd4044fa0ac898e6f3f",
+      "canonical_name": "塾講",
+      "original_label": "塾講",
+      "raw_members": [
+        "塾講"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "塾講",
+      "search_aliases": [
+        "补习班讲座"
+      ]
+    },
+    {
+      "canonical_id": "abe66f146e3a085b7a0bc487",
+      "canonical_name": "アナル",
+      "original_label": "アナル",
+      "raw_members": [
+        "アナル"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "アナル",
+      "search_aliases": [
+        "肛门"
+      ]
+    },
+    {
+      "canonical_id": "abfd6164f8e837e78868ae11",
+      "canonical_name": "高中女生",
+      "original_label": "高中女生",
+      "raw_members": [
+        "高中女生"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "高中女生",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "ac70a6b027ddc68fb9c4521e",
+      "canonical_name": "オナサポ",
+      "original_label": "オナサポ",
+      "raw_members": [
+        "オナサポ"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "オナサポ",
+      "search_aliases": [
+        "オナサポ",
+        "奥纳萨波",
+        "自慰辅助"
+      ]
+    },
+    {
+      "canonical_id": "acc80047bc1a9df8f5179e99",
+      "canonical_name": "蕩婦",
+      "original_label": "蕩婦",
+      "raw_members": [
+        "蕩婦"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "蕩婦",
+      "search_aliases": [
+        "荡妇"
+      ]
+    },
+    {
+      "canonical_id": "aef901f34fe5713a6591d738",
+      "canonical_name": "极致高潮",
+      "original_label": "极致高潮",
+      "raw_members": [
+        "极致高潮"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "极致高潮",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "afd89def62d378ff3c3d0fcc",
+      "canonical_name": "玩具",
+      "original_label": "おもちゃ",
+      "raw_members": [
+        "おもちゃ",
+        "玩具"
+      ],
+      "merge_ref": "M37",
+      "hashtag_token": "おもちゃ",
+      "search_aliases": [
+        "おもちゃ",
+        "玩具"
+      ]
+    },
+    {
+      "canonical_id": "b07cdf599c2299e6ebdaeee9",
+      "canonical_name": "年轻女孩",
+      "original_label": "年轻女孩",
+      "raw_members": [
+        "年轻女孩"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "年轻女孩",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "b0eb30722b5ca1741d69fa0a",
+      "canonical_name": "各种职业",
+      "original_label": "職業色々",
+      "raw_members": [
+        "職業色々",
+        "各种职业"
+      ],
+      "merge_ref": "M53",
+      "hashtag_token": "職業色々",
+      "search_aliases": [
+        "各种职业",
+        "職業色々"
+      ]
+    },
+    {
+      "canonical_id": "b15124b1eb233b39e2e9b4e0",
+      "canonical_name": "SM",
+      "original_label": "SM",
+      "raw_members": [
+        "SM"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "SM",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "b2fbfdde47ce4c142f35852f",
+      "canonical_name": "従順",
+      "original_label": "従順",
+      "raw_members": [
+        "従順"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "従順",
+      "search_aliases": [
+        "服从"
+      ]
+    },
+    {
+      "canonical_id": "b349315cad7f9fa4bd37f19d",
+      "canonical_name": "バック",
+      "original_label": "バック",
+      "raw_members": [
+        "バック"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "バック",
+      "search_aliases": [
+        "バック",
+        "后退",
+        "后入式"
+      ]
+    },
+    {
+      "canonical_id": "b384ce5acd652839ebb767db",
+      "canonical_name": "アダルト",
+      "original_label": "アダルト",
+      "raw_members": [
+        "アダルト"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "アダルト",
+      "search_aliases": [
+        "成人"
+      ]
+    },
+    {
+      "canonical_id": "b3900782765265f3348caaf3",
+      "canonical_name": "剧情",
+      "original_label": "ドラマ",
+      "raw_members": [
+        "ドラマ",
+        "剧情",
+        "戏剧",
+        "戲劇"
+      ],
+      "merge_ref": "M16",
+      "hashtag_token": "ドラマ",
+      "search_aliases": [
+        "ドラマ",
+        "剧情",
+        "戏剧",
+        "戲劇"
+      ]
+    },
+    {
+      "canonical_id": "b4580ed91c45d2416fb94d91",
+      "canonical_name": "手コキ",
+      "original_label": "手コキ",
+      "raw_members": [
+        "手コキ"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "手コキ",
+      "search_aliases": [
+        "打手枪"
+      ]
+    },
+    {
+      "canonical_id": "b58c4ef627df54d766ffd514",
+      "canonical_name": "オタク",
+      "original_label": "オタク",
+      "raw_members": [
+        "オタク"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "オタク",
+      "search_aliases": [
+        "御宅族"
+      ]
+    },
+    {
+      "canonical_id": "b628952635fbc6bd1e7a55f4",
+      "canonical_name": "個撮",
+      "original_label": "個撮",
+      "raw_members": [
+        "個撮"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "個撮",
+      "search_aliases": [
+        "个撮"
+      ]
+    },
+    {
+      "canonical_id": "b6aded32b43bde6251a8b76a",
+      "canonical_name": "眼镜",
+      "original_label": "めがね",
+      "raw_members": [
+        "めがね",
+        "眼镜",
+        "眼鏡"
+      ],
+      "merge_ref": "M45",
+      "hashtag_token": "めがね",
+      "search_aliases": [
+        "めがね",
+        "眼镜",
+        "眼鏡"
+      ]
+    },
+    {
+      "canonical_id": "b7bcd1e08711b75cd0975259",
+      "canonical_name": "凌辱",
+      "original_label": "凌辱",
+      "raw_members": [
+        "凌辱"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "凌辱",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "b8686282dd6c09eb63fe0ced",
+      "canonical_name": "超乳",
+      "original_label": "超乳",
+      "raw_members": [
+        "超乳"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "超乳",
+      "search_aliases": [
+        "超乳",
+        "超级乳房"
+      ]
+    },
+    {
+      "canonical_id": "b8bb9146445dec0780339dc3",
+      "canonical_name": "倒追",
+      "original_label": "倒追",
+      "raw_members": [
+        "倒追"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "倒追",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "b91397e4f683d794de46582d",
+      "canonical_name": "卒業式",
+      "original_label": "卒業式",
+      "raw_members": [
+        "卒業式"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "卒業式",
+      "search_aliases": [
+        "毕业典礼"
+      ]
+    },
+    {
+      "canonical_id": "b939aa0f5fe52549117be40a",
+      "canonical_name": "園",
+      "original_label": "園",
+      "raw_members": [
+        "園"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "園",
+      "search_aliases": [
+        "园"
+      ]
+    },
+    {
+      "canonical_id": "ba87d8f068b3357cd11a93aa",
+      "canonical_name": "セクシー",
+      "original_label": "セクシー",
+      "raw_members": [
+        "セクシー",
+        "性感的"
+      ],
+      "merge_ref": "M24",
+      "hashtag_token": "セクシー",
+      "search_aliases": [
+        "セクシー",
+        "性感的",
+        "性感"
+      ]
+    },
+    {
+      "canonical_id": "bd7af71e42f8ce933f5ac567",
+      "canonical_name": "第一人称摄影",
+      "original_label": "第一人称摄影",
+      "raw_members": [
+        "第一人称摄影",
+        "第一人稱攝影"
+      ],
+      "merge_ref": "M07",
+      "hashtag_token": "第一人称摄影",
+      "search_aliases": [
+        "第一人称摄影",
+        "第一人稱攝影"
+      ]
+    },
+    {
+      "canonical_id": "be57ff682f5b403df71767db",
+      "canonical_name": "乳液",
+      "original_label": "乳液",
+      "raw_members": [
+        "乳液"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "乳液",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "c09f5bb985c3a7ad7a12d0a6",
+      "canonical_name": "美少女",
+      "original_label": "美少女",
+      "raw_members": [
+        "美少女"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "美少女",
+      "search_aliases": [
+        "美少女"
+      ]
+    },
+    {
+      "canonical_id": "c0ebd2555eccedb328697f7d",
+      "canonical_name": "高挑",
+      "original_label": "長身",
+      "raw_members": [
+        "長身",
+        "高挑"
+      ],
+      "merge_ref": "M61",
+      "hashtag_token": "長身",
+      "search_aliases": [
+        "長身",
+        "高的",
+        "高挑"
+      ]
+    },
+    {
+      "canonical_id": "c0f13c15e1d57eb7669101fc",
+      "canonical_name": "紧身衣",
+      "original_label": "紧身衣",
+      "raw_members": [
+        "紧身衣"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "紧身衣",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "c28f498bef56ae9074203747",
+      "canonical_name": "騎乗位",
+      "original_label": "騎乗位",
+      "raw_members": [
+        "騎乗位",
+        "骑乗位",
+        "女上位"
+      ],
+      "merge_ref": "M64",
+      "hashtag_token": "騎乗位",
+      "search_aliases": [
+        "騎乗位",
+        "女牛仔",
+        "骑乘位",
+        "女上位",
+        "骑乗位"
+      ]
+    },
+    {
+      "canonical_id": "c29da0885f0205a12d2ba504",
+      "canonical_name": "ファン感謝・訪問",
+      "original_label": "ファン感謝・訪問",
+      "raw_members": [
+        "ファン感謝・訪問"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "ファン感謝_訪問",
+      "search_aliases": [
+        "ファン感謝・訪問",
+        "粉丝赏识/参观",
+        "粉丝答谢/上门"
+      ]
+    },
+    {
+      "canonical_id": "c345eaf9a6d8f9dca565d703",
+      "canonical_name": "介绍影片",
+      "original_label": "介绍影片",
+      "raw_members": [
+        "介绍影片",
+        "介紹影片"
+      ],
+      "merge_ref": "M12",
+      "hashtag_token": "介绍影片",
+      "search_aliases": [
+        "介绍影片",
+        "介紹影片"
+      ]
+    },
+    {
+      "canonical_id": "c476ea17084c925d3b7fec26",
+      "canonical_name": "バイブ",
+      "original_label": "バイブ",
+      "raw_members": [
+        "バイブ"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "バイブ",
+      "search_aliases": [
+        "振动器"
+      ]
+    },
+    {
+      "canonical_id": "c94a24dc4dd343a14a5295f8",
+      "canonical_name": "競泳・スクール水着",
+      "original_label": "競泳・スクール水着",
+      "raw_members": [
+        "競泳・スクール水着"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "競泳_スクール水着",
+      "search_aliases": [
+        "競泳・スクール水着",
+        "竞技游泳/学校泳衣",
+        "竞泳/学生泳装"
+      ]
+    },
+    {
+      "canonical_id": "ca837ce022d2a40198313cc7",
+      "canonical_name": "校服",
+      "original_label": "学生服",
+      "raw_members": [
+        "学生服",
+        "校服"
+      ],
+      "merge_ref": "M70",
+      "hashtag_token": "学生服",
+      "search_aliases": [
+        "学生服",
+        "校服"
+      ]
+    },
+    {
+      "canonical_id": "cb3aa25956c3937ca08ebb32",
+      "canonical_name": "娃娃",
+      "original_label": "娃娃",
+      "raw_members": [
+        "娃娃"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "娃娃",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "cb433c0248c742a269a0b164",
+      "canonical_name": "OL",
+      "original_label": "OL",
+      "raw_members": [
+        "OL"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "OL",
+      "search_aliases": [
+        "OL"
+      ]
+    },
+    {
+      "canonical_id": "ccd284af7ed4bf6813a5d684",
+      "canonical_name": "幼なじみ",
+      "original_label": "幼なじみ",
+      "raw_members": [
+        "幼なじみ",
+        "儿时的朋友",
+        "童年朋友"
+      ],
+      "merge_ref": "M50",
+      "hashtag_token": "幼なじみ",
+      "search_aliases": [
+        "幼なじみ",
+        "儿时的朋友",
+        "童年玩伴",
+        "童年朋友"
+      ]
+    },
+    {
+      "canonical_id": "ceb4303cf6b1ba59edbba3b9",
+      "canonical_name": "大生",
+      "original_label": "大生",
+      "raw_members": [
+        "大生"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "大生",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "d015ca598006f15d2ca6aa39",
+      "canonical_name": "和服丧服",
+      "original_label": "和服丧服",
+      "raw_members": [
+        "和服丧服"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "和服丧服",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "d1499f1876b1abcb9773d000",
+      "canonical_name": "野外",
+      "original_label": "野外",
+      "raw_members": [
+        "野外"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "野外",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "d21b2651e71d704a19e20a09",
+      "canonical_name": "Training",
+      "original_label": "Training",
+      "raw_members": [
+        "Training"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "Training",
+      "search_aliases": [
+        "训练"
+      ]
+    },
+    {
+      "canonical_id": "d331accaf751b029bce81036",
+      "canonical_name": "恋爱",
+      "original_label": "恋愛",
+      "raw_members": [
+        "恋愛",
+        "恋爱"
+      ],
+      "merge_ref": "M75",
+      "hashtag_token": "恋愛",
+      "search_aliases": [
+        "恋愛",
+        "恋爱关系",
+        "恋爱"
+      ]
+    },
+    {
+      "canonical_id": "d47c6ed3cdd32b53ac212253",
+      "canonical_name": "猎艳",
+      "original_label": "猎艳",
+      "raw_members": [
+        "猎艳",
+        "獵豔"
+      ],
+      "merge_ref": "M57",
+      "hashtag_token": "猎艳",
+      "search_aliases": [
+        "猎艳",
+        "獵豔"
+      ]
+    },
+    {
+      "canonical_id": "d4e8e635ae893df9fbd9d33a",
+      "canonical_name": "乳首責め",
+      "original_label": "乳首責め",
+      "raw_members": [
+        "乳首責め"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "乳首責め",
+      "search_aliases": [
+        "乳首責め",
+        "乳头酷刑",
+        "乳头刺激"
+      ]
+    },
+    {
+      "canonical_id": "d5712243eedf80ca574008d2",
+      "canonical_name": "巨乳フェチ",
+      "original_label": "巨乳フェチ",
+      "raw_members": [
+        "巨乳フェチ"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "巨乳フェチ",
+      "search_aliases": [
+        "大乳房恋物癖"
+      ]
+    },
+    {
+      "canonical_id": "d5d1edb9423d64ce23428e9c",
+      "canonical_name": "M女",
+      "original_label": "M女",
+      "raw_members": [
+        "M女"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "M女",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "d646c236caa7ae1b83cab616",
+      "canonical_name": "デカチン・巨根",
+      "original_label": "デカチン・巨根",
+      "raw_members": [
+        "デカチン・巨根",
+        "巨大阴茎"
+      ],
+      "merge_ref": "M69",
+      "hashtag_token": "デカチン_巨根",
+      "search_aliases": [
+        "デカチン・巨根",
+        "大鸡巴/巨大的鸡巴",
+        "巨根",
+        "巨大阴茎"
+      ]
+    },
+    {
+      "canonical_id": "d7ec79cb8d6d82771445e253",
+      "canonical_name": "蛮横娇羞",
+      "original_label": "蛮横娇羞",
+      "raw_members": [
+        "蛮横娇羞"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "蛮横娇羞",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "d818f5f76674765b5dc64a1e",
+      "canonical_name": "複数",
+      "original_label": "複数",
+      "raw_members": [
+        "複数"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "複数",
+      "search_aliases": [
+        "複数",
+        "多种的",
+        "多人"
+      ]
+    },
+    {
+      "canonical_id": "daad61a00e816ae791e3c536",
+      "canonical_name": "内裤照",
+      "original_label": "内裤照",
+      "raw_members": [
+        "内裤照"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "内裤照",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "daefcece02764a2f8a149c96",
+      "canonical_name": "ツンデレ",
+      "original_label": "ツンデレ",
+      "raw_members": [
+        "ツンデレ"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "ツンデレ",
+      "search_aliases": [
+        "傲娇"
+      ]
+    },
+    {
+      "canonical_id": "daf36aff400f6f7acd3d2a40",
+      "canonical_name": "學校作品",
+      "original_label": "學校作品",
+      "raw_members": [
+        "學校作品"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "學校作品",
+      "search_aliases": [
+        "学校作品"
+      ]
+    },
+    {
+      "canonical_id": "db0f2aea1773cce6192f0e7e",
+      "canonical_name": "制服",
+      "original_label": "制服",
+      "raw_members": [
+        "制服"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "制服",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "db21e049b855976d2c7fe231",
+      "canonical_name": "ナンパ",
+      "original_label": "ナンパ",
+      "raw_members": [
+        "ナンパ"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "ナンパ",
+      "search_aliases": [
+        "泡妞"
+      ]
+    },
+    {
+      "canonical_id": "db547e602eb14eaeb9b31c45",
+      "canonical_name": "レイプ",
+      "original_label": "レイプ",
+      "raw_members": [
+        "レイプ"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "レイプ",
+      "search_aliases": [
+        "强奸"
+      ]
+    },
+    {
+      "canonical_id": "dbab77bf9884f109e758b738",
+      "canonical_name": "美人",
+      "original_label": "美人",
+      "raw_members": [
+        "美人"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "美人",
+      "search_aliases": [
+        "美丽的女人"
+      ]
+    },
+    {
+      "canonical_id": "dc99a210d73bbb66a4fa41d8",
+      "canonical_name": "ギリモザ",
+      "original_label": "ギリモザ",
+      "raw_members": [
+        "ギリモザ"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "ギリモザ",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "dca31484f2cc3d5d2c69b915",
+      "canonical_name": "寝取り",
+      "original_label": "寝取り",
+      "raw_members": [
+        "寝取り"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "寝取り",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "df47d33a74ddf754d3c6ccfd",
+      "canonical_name": "按摩棒",
+      "original_label": "按摩棒",
+      "raw_members": [
+        "按摩棒"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "按摩棒",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "df4f4e84fb88a9a851905a28",
+      "canonical_name": "丝袜过膝袜",
+      "original_label": "丝袜过膝袜",
+      "raw_members": [
+        "丝袜过膝袜"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "丝袜过膝袜",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "dfab58108b72b1c12cd8deef",
+      "canonical_name": "指マン",
+      "original_label": "指マン",
+      "raw_members": [
+        "指マン",
+        "手指插入"
+      ],
+      "merge_ref": "M76",
+      "hashtag_token": "指マン",
+      "search_aliases": [
+        "指マン",
+        "指法",
+        "指交",
+        "手指插入"
+      ]
+    },
+    {
+      "canonical_id": "dfef74854792a2b1ba1247bd",
+      "canonical_name": "女子校生",
+      "original_label": "女子校生",
+      "raw_members": [
+        "女子校生"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "女子校生",
+      "search_aliases": [
+        "女学生"
+      ]
+    },
+    {
+      "canonical_id": "e1c096fa49a328afb179758f",
+      "canonical_name": "原作改编",
+      "original_label": "原作改编",
+      "raw_members": [
+        "原作改编"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "原作改编",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "e1dca2ef2e4422d8466f67c3",
+      "canonical_name": "感谢祭",
+      "original_label": "感谢祭",
+      "raw_members": [
+        "感谢祭"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "感谢祭",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "e5b0e8f5794a7584d1554536",
+      "canonical_name": "鬼畜",
+      "original_label": "鬼畜",
+      "raw_members": [
+        "鬼畜"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "鬼畜",
+      "search_aliases": [
+        "鬼畜",
+        "野蛮",
+        "鬼畜/残酷系"
+      ]
+    },
+    {
+      "canonical_id": "e817fa0f6f752435aebc3747",
+      "canonical_name": "国产",
+      "original_label": "国产",
+      "raw_members": [
+        "国产"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "国产",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "e8d1f0af33e57c8f0cc1416c",
+      "canonical_name": "乱伦",
+      "original_label": "近親相姦",
+      "raw_members": [
+        "近親相姦",
+        "近亲相奸",
+        "乱伦",
+        "亂倫"
+      ],
+      "merge_ref": "M35",
+      "hashtag_token": "近親相姦",
+      "search_aliases": [
+        "近親相姦",
+        "乱伦",
+        "亂倫",
+        "近亲相奸"
+      ]
+    },
+    {
+      "canonical_id": "e8fc9da9b8a5c93a924994a2",
+      "canonical_name": "淫乱",
+      "original_label": "淫乱",
+      "raw_members": [
+        "淫乱"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "淫乱",
+      "search_aliases": [
+        "猥亵"
+      ]
+    },
+    {
+      "canonical_id": "eb49ced240da8d2a5e54662d",
+      "canonical_name": "护士",
+      "original_label": "看護婦・ナース",
+      "raw_members": [
+        "看護婦・ナース",
+        "护士",
+        "看护妇"
+      ],
+      "merge_ref": "M68",
+      "hashtag_token": "看護婦_ナース",
+      "search_aliases": [
+        "护士",
+        "看護婦・ナース",
+        "护士/护士",
+        "看护妇"
+      ]
+    },
+    {
+      "canonical_id": "eb5e572a496de4f318ce4206",
+      "canonical_name": "ビッチ",
+      "original_label": "ビッチ",
+      "raw_members": [
+        "ビッチ"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "ビッチ",
+      "search_aliases": [
+        "ビッチ",
+        "母狗",
+        "放荡系"
+      ]
+    },
+    {
+      "canonical_id": "ebf30f1f1d12cb447464241f",
+      "canonical_name": "高潮",
+      "original_label": "アクメ・オーガズム",
+      "raw_members": [
+        "アクメ・オーガズム",
+        "高潮"
+      ],
+      "merge_ref": "M18",
+      "hashtag_token": "アクメ_オーガズム",
+      "search_aliases": [
+        "アクメ・オーガズム",
+        "高潮"
+      ]
+    },
+    {
+      "canonical_id": "ec5927671ec3a4a6686832da",
+      "canonical_name": "美白",
+      "original_label": "美白",
+      "raw_members": [
+        "美白"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "美白",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "ede384c1a306a6a7e3d87a2f",
+      "canonical_name": "婆婆",
+      "original_label": "婆婆",
+      "raw_members": [
+        "婆婆"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "婆婆",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "ee7e7f41648d6c89e3df16d8",
+      "canonical_name": "業餘",
+      "original_label": "業餘",
+      "raw_members": [
+        "業餘"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "業餘",
+      "search_aliases": [
+        "业余"
+      ]
+    },
+    {
+      "canonical_id": "ee92d201416e5c8f547f5106",
+      "canonical_name": "顔出し",
+      "original_label": "顔出し",
+      "raw_members": [
+        "顔出し"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "顔出し",
+      "search_aliases": [
+        "顔出し",
+        "露出你的脸",
+        "露脸"
+      ]
+    },
+    {
+      "canonical_id": "eeb0bf3ae8ac91daefa6f814",
+      "canonical_name": "S女",
+      "original_label": "S女",
+      "raw_members": [
+        "S女"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "S女",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "eedd3720925d02d738ceb839",
+      "canonical_name": "苗条",
+      "original_label": "スレンダー",
+      "raw_members": [
+        "スレンダー",
+        "苗条",
+        "苗條"
+      ],
+      "merge_ref": "M06",
+      "hashtag_token": "スレンダー",
+      "search_aliases": [
+        "スレンダー",
+        "苗条",
+        "苗條"
+      ]
+    },
+    {
+      "canonical_id": "ef0b4d22faceec6df8f347d0",
+      "canonical_name": "AV女优",
+      "original_label": "AV女優",
+      "raw_members": [
+        "AV女優",
+        "AV女优"
+      ],
+      "merge_ref": "M17",
+      "hashtag_token": "AV女優",
+      "search_aliases": [
+        "AV女優",
+        "AV女优"
+      ]
+    },
+    {
+      "canonical_id": "f102f602c838bccb643381a3",
+      "canonical_name": "むっちり",
+      "original_label": "むっちり",
+      "raw_members": [
+        "むっちり"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "むっちり",
+      "search_aliases": [
+        "丰满"
+      ]
+    },
+    {
+      "canonical_id": "f152f866d2458508192adb93",
+      "canonical_name": "深喉",
+      "original_label": "深喉",
+      "raw_members": [
+        "深喉"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "深喉",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "f1a9d63c725369e43176aeff",
+      "canonical_name": "教学",
+      "original_label": "教学",
+      "raw_members": [
+        "教学"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "教学",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "f1fdea1f097948449293657e",
+      "canonical_name": "潮吹",
+      "original_label": "潮吹き",
+      "raw_members": [
+        "潮吹き",
+        "潮吹"
+      ],
+      "merge_ref": "M23",
+      "hashtag_token": "潮吹き",
+      "search_aliases": [
+        "潮吹き",
+        "潮吹"
+      ]
+    },
+    {
+      "canonical_id": "f2512c8a9e787bb96a3c91f1",
+      "canonical_name": "ビジネススーツ",
+      "original_label": "ビジネススーツ",
+      "raw_members": [
+        "ビジネススーツ"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "ビジネススーツ",
+      "search_aliases": [
+        "ビジネススーツ",
+        "西装",
+        "商务正装"
+      ]
+    },
+    {
+      "canonical_id": "f3b1e19ce5c0a9356691f65b",
+      "canonical_name": "娘・養女",
+      "original_label": "娘・養女",
+      "raw_members": [
+        "娘・養女"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "娘_養女",
+      "search_aliases": [
+        "女儿/养女"
+      ]
+    },
+    {
+      "canonical_id": "f3c9050342e01d79ca18a640",
+      "canonical_name": "レズ",
+      "original_label": "レズ",
+      "raw_members": [
+        "レズ",
+        "女同性恋"
+      ],
+      "merge_ref": "M47",
+      "hashtag_token": "レズ",
+      "search_aliases": [
+        "レズ",
+        "女同性恋",
+        "女同"
+      ]
+    },
+    {
+      "canonical_id": "f6a06fb17b7c57f2b28eb744",
+      "canonical_name": "黒髪",
+      "original_label": "黒髪",
+      "raw_members": [
+        "黒髪"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "黒髪",
+      "search_aliases": [
+        "黒髪",
+        "黑头发",
+        "黑发"
+      ]
+    },
+    {
+      "canonical_id": "f7b4769a70f9e0b5e0591904",
+      "canonical_name": "黒髪ロング",
+      "original_label": "黒髪ロング",
+      "raw_members": [
+        "黒髪ロング"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "黒髪ロング",
+      "search_aliases": [
+        "黒髪ロング",
+        "长黑发",
+        "黑长发"
+      ]
+    },
+    {
+      "canonical_id": "f992856a81e8f8db90eb859f",
+      "canonical_name": "顔面騎乗",
+      "original_label": "顔面騎乗",
+      "raw_members": [
+        "顔面騎乗"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "顔面騎乗",
+      "search_aliases": [
+        "顔面騎乗",
+        "坐在脸上",
+        "颜面骑乘"
+      ]
+    },
+    {
+      "canonical_id": "f9f89d8f724c9bc7ad04a16d",
+      "canonical_name": "その他フェチ",
+      "original_label": "その他フェチ",
+      "raw_members": [
+        "その他フェチ"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "その他フェチ",
+      "search_aliases": [
+        "其他恋物癖"
+      ]
+    },
+    {
+      "canonical_id": "fa38a0c7f69365dcb82b7a77",
+      "canonical_name": "偶像",
+      "original_label": "アイドル",
+      "raw_members": [
+        "アイドル",
+        "偶像"
+      ],
+      "merge_ref": "M26",
+      "hashtag_token": "アイドル",
+      "search_aliases": [
+        "偶像",
+        "アイドル"
+      ]
+    },
+    {
+      "canonical_id": "fa7bdd4186e22f50f1af2fdd",
+      "canonical_name": "自拍性爱",
+      "original_label": "ハメ撮り",
+      "raw_members": [
+        "ハメ撮り",
+        "自拍性爱"
+      ],
+      "merge_ref": "M05",
+      "hashtag_token": "ハメ撮り",
+      "search_aliases": [
+        "ハメ撮り",
+        "自拍性爱"
+      ]
+    },
+    {
+      "canonical_id": "fad1acf2ad6f7b7c5dff4de7",
+      "canonical_name": "部下・同僚",
+      "original_label": "部下・同僚",
+      "raw_members": [
+        "部下・同僚"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "部下_同僚",
+      "search_aliases": [
+        "下属/同事"
+      ]
+    },
+    {
+      "canonical_id": "fb5c728cda2ef0224e259af7",
+      "canonical_name": "女優物",
+      "original_label": "女優物",
+      "raw_members": [
+        "女優物"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "女優物",
+      "search_aliases": [
+        "女優物",
+        "演员",
+        "女优作品"
+      ]
+    },
+    {
+      "canonical_id": "fba3a1d01bf2035e09320f3d",
+      "canonical_name": "無修正",
+      "original_label": "無修正",
+      "raw_members": [
+        "無修正"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "無修正",
+      "search_aliases": [
+        "无修正"
+      ]
+    },
+    {
+      "canonical_id": "fbfc0f1641ad37ba922f79dd",
+      "canonical_name": "ノーパン",
+      "original_label": "ノーパン",
+      "raw_members": [
+        "ノーパン"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "ノーパン",
+      "search_aliases": [
+        "ノーパン",
+        "没有内裤",
+        "无内裤"
+      ]
+    },
+    {
+      "canonical_id": "fe887699eeb1abb6515316a1",
+      "canonical_name": "女教师",
+      "original_label": "女教師",
+      "raw_members": [
+        "女教師",
+        "女教师"
+      ],
+      "merge_ref": "M44",
+      "hashtag_token": "女教師",
+      "search_aliases": [
+        "女教師",
+        "女教师"
+      ]
+    },
+    {
+      "canonical_id": "fed97117b5419fb8011c4bf6",
+      "canonical_name": "汗",
+      "original_label": "汗",
+      "raw_members": [
+        "汗"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "汗",
+      "search_aliases": []
+    },
+    {
+      "canonical_id": "fee58a8d12909697a10bef39",
+      "canonical_name": "3P",
+      "original_label": "3P",
+      "raw_members": [
+        "3P"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "3P",
+      "search_aliases": [
+        "3P"
+      ]
+    },
+    {
+      "canonical_id": "fff1692872cc101bc141c83f",
+      "canonical_name": "巨乳",
+      "original_label": "巨乳",
+      "raw_members": [
+        "巨乳"
+      ],
+      "merge_ref": null,
+      "hashtag_token": "巨乳",
+      "search_aliases": [
+        "巨乳"
+      ]
+    }
+  ],
+  "merge_groups": [
+    {
+      "ref": "M01",
+      "canonical_id": "9849ea3b6ba096dd5ec053ee",
+      "canonical_name": "单体作品",
+      "original_label": "単体作品",
+      "raw_members": [
+        "单体作品",
+        "単体作品",
+        "單體作品"
+      ]
+    },
+    {
+      "ref": "M02",
+      "canonical_id": "31ee08dafd894c4720f8b387",
+      "canonical_name": "中出",
+      "original_label": "中出し",
+      "raw_members": [
+        "中出し",
+        "中出"
+      ]
+    },
+    {
+      "ref": "M03",
+      "canonical_id": "9fd0c2748b99911bfc2be270",
+      "canonical_name": "口交",
+      "original_label": "フェラチオ",
+      "raw_members": [
+        "フェラ",
+        "フェラチオ",
+        "口交"
+      ]
+    },
+    {
+      "ref": "M04",
+      "canonical_id": "269c7b1358610ac7d0582c30",
+      "canonical_name": "高清",
+      "original_label": "ハイビジョン",
+      "raw_members": [
+        "ハイビジョン",
+        "高清"
+      ]
+    },
+    {
+      "ref": "M05",
+      "canonical_id": "fa7bdd4186e22f50f1af2fdd",
+      "canonical_name": "自拍性爱",
+      "original_label": "ハメ撮り",
+      "raw_members": [
+        "ハメ撮り",
+        "自拍性爱"
+      ]
+    },
+    {
+      "ref": "M06",
+      "canonical_id": "eedd3720925d02d738ceb839",
+      "canonical_name": "苗条",
+      "original_label": "スレンダー",
+      "raw_members": [
+        "スレンダー",
+        "苗条",
+        "苗條"
+      ]
+    },
+    {
+      "ref": "M07",
+      "canonical_id": "bd7af71e42f8ce933f5ac567",
+      "canonical_name": "第一人称摄影",
+      "original_label": "第一人称摄影",
+      "raw_members": [
+        "第一人称摄影",
+        "第一人稱攝影"
+      ]
+    },
+    {
+      "ref": "M08",
+      "canonical_id": "152a9a07dadd4d23a06bf424",
+      "canonical_name": "独家",
+      "original_label": "独占配信",
+      "raw_members": [
+        "独占配信",
+        "独家"
+      ]
+    },
+    {
+      "ref": "M09",
+      "canonical_id": "789714e487260e1405a252c0",
+      "canonical_name": "主观视角",
+      "original_label": "主観",
+      "raw_members": [
+        "主観",
+        "主观视角",
+        "主觀視角"
+      ]
+    },
+    {
+      "ref": "M10",
+      "canonical_id": "5b1d6e3071a2cd2bb6081979",
+      "canonical_name": "颜射",
+      "original_label": "顔射",
+      "raw_members": [
+        "顔射",
+        "颜射",
+        "顏射"
+      ]
+    },
+    {
+      "ref": "M11",
+      "canonical_id": "2eba77090b613ddb260dd143",
+      "canonical_name": "白天出轨",
+      "original_label": "白天出轨",
+      "raw_members": [
+        "白天出轨",
+        "白天出軌"
+      ]
+    },
+    {
+      "ref": "M12",
+      "canonical_id": "c345eaf9a6d8f9dca565d703",
+      "canonical_name": "介绍影片",
+      "original_label": "介绍影片",
+      "raw_members": [
+        "介绍影片",
+        "介紹影片"
+      ]
+    },
+    {
+      "ref": "M13",
+      "canonical_id": "34b3063e4e2a0967bf08916d",
+      "canonical_name": "姐姐",
+      "original_label": "お姉さん",
+      "raw_members": [
+        "お姉さん",
+        "姐姐"
+      ]
+    },
+    {
+      "ref": "M14",
+      "canonical_id": "92213ee071bab26e597cef36",
+      "canonical_name": "已婚妇女",
+      "original_label": "人妻",
+      "raw_members": [
+        "人妻",
+        "已婚妇女",
+        "已婚婦女"
+      ]
+    },
+    {
+      "ref": "M15",
+      "canonical_id": "9729f6ba380f978044fbdaa3",
+      "canonical_name": "NTR",
+      "original_label": "寝取り・寝取られ・NTR",
+      "raw_members": [
+        "寝取り・寝取られ・NTR",
+        "寝取り・寝取られ・ＮＴＲ",
+        "寝取り寝取られ",
+        "NTR"
+      ]
+    },
+    {
+      "ref": "M16",
+      "canonical_id": "b3900782765265f3348caaf3",
+      "canonical_name": "剧情",
+      "original_label": "ドラマ",
+      "raw_members": [
+        "ドラマ",
+        "剧情",
+        "戏剧",
+        "戲劇"
+      ]
+    },
+    {
+      "ref": "M17",
+      "canonical_id": "ef0b4d22faceec6df8f347d0",
+      "canonical_name": "AV女优",
+      "original_label": "AV女優",
+      "raw_members": [
+        "AV女優",
+        "AV女优"
+      ]
+    },
+    {
+      "ref": "M18",
+      "canonical_id": "ebf30f1f1d12cb447464241f",
+      "canonical_name": "高潮",
+      "original_label": "アクメ・オーガズム",
+      "raw_members": [
+        "アクメ・オーガズム",
+        "高潮"
+      ]
+    },
+    {
+      "ref": "M19",
+      "canonical_id": "52bf5374caa6887be3c30f5b",
+      "canonical_name": "角色扮演",
+      "original_label": "コスプレ",
+      "raw_members": [
+        "コスプレ",
+        "角色扮演"
+      ]
+    },
+    {
+      "ref": "M20",
+      "canonical_id": "35b28a9f99b4b95a9a5e90a8",
+      "canonical_name": "无毛",
+      "original_label": "パイパン",
+      "raw_members": [
+        "パイパン",
+        "无毛",
+        "無毛"
+      ]
+    },
+    {
+      "ref": "M21",
+      "canonical_id": "8afa1f2dc7f483234b798104",
+      "canonical_name": "姐妹",
+      "original_label": "姉・妹",
+      "raw_members": [
+        "姉・妹",
+        "姐妹"
+      ]
+    },
+    {
+      "ref": "M22",
+      "canonical_id": "5e217a0c1dd86d572059f334",
+      "canonical_name": "出轨",
+      "original_label": "不倫",
+      "raw_members": [
+        "不倫",
+        "不伦",
+        "出轨",
+        "出軌"
+      ]
+    },
+    {
+      "ref": "M23",
+      "canonical_id": "f1fdea1f097948449293657e",
+      "canonical_name": "潮吹",
+      "original_label": "潮吹き",
+      "raw_members": [
+        "潮吹き",
+        "潮吹"
+      ]
+    },
+    {
+      "ref": "M24",
+      "canonical_id": "ba87d8f068b3357cd11a93aa",
+      "canonical_name": "セクシー",
+      "original_label": "セクシー",
+      "raw_members": [
+        "セクシー",
+        "性感的"
+      ]
+    },
+    {
+      "ref": "M25",
+      "canonical_id": "60901dc2b229599b445a870e",
+      "canonical_name": "自慰",
+      "original_label": "オナニー",
+      "raw_members": [
+        "オナニー",
+        "手淫",
+        "自慰"
+      ]
+    },
+    {
+      "ref": "M26",
+      "canonical_id": "fa38a0c7f69365dcb82b7a77",
+      "canonical_name": "偶像",
+      "original_label": "アイドル",
+      "raw_members": [
+        "アイドル",
+        "偶像"
+      ]
+    },
+    {
+      "ref": "M27",
+      "canonical_id": "2a3927a925afa67668179f9e",
+      "canonical_name": "妹妹",
+      "original_label": "妹",
+      "raw_members": [
+        "妹",
+        "妹妹"
+      ]
+    },
+    {
+      "ref": "M28",
+      "canonical_id": "5586264f1b16ac7a1bb69da4",
+      "canonical_name": "メイド",
+      "original_label": "メイド",
+      "raw_members": [
+        "メイド",
+        "女佣"
+      ]
+    },
+    {
+      "ref": "M29",
+      "canonical_id": "70db2556b3afe5a27c3e1589",
+      "canonical_name": "精选综合",
+      "original_label": "精选综合",
+      "raw_members": [
+        "精选综合",
+        "精選綜合"
+      ]
+    },
+    {
+      "ref": "M30",
+      "canonical_id": "a1d2bcb6516f3bc338d89c3c",
+      "canonical_name": "吞精",
+      "original_label": "ごっくん",
+      "raw_members": [
+        "ごっくん",
+        "吞精"
+      ]
+    },
+    {
+      "ref": "M31",
+      "canonical_id": "586d89915ab9474c9c660010",
+      "canonical_name": "辣妹",
+      "original_label": "ギャル",
+      "raw_members": [
+        "ギャル",
+        "辣妹"
+      ]
+    },
+    {
+      "ref": "M32",
+      "canonical_id": "07b9b9382ab3a463f6e93fbe",
+      "canonical_name": "可爱",
+      "original_label": "可愛い",
+      "raw_members": [
+        "可愛い",
+        "かわいい",
+        "可爱"
+      ]
+    },
+    {
+      "ref": "M33",
+      "canonical_id": "90db58a70f5ab182e5ecc954",
+      "canonical_name": "处男",
+      "original_label": "童貞",
+      "raw_members": [
+        "童貞",
+        "童贞",
+        "处男"
+      ]
+    },
+    {
+      "ref": "M34",
+      "canonical_id": "8a2954826546c56b9d0ada54",
+      "canonical_name": "情侣",
+      "original_label": "カップル",
+      "raw_members": [
+        "カップル",
+        "情侣",
+        "情侶"
+      ]
+    },
+    {
+      "ref": "M35",
+      "canonical_id": "e8d1f0af33e57c8f0cc1416c",
+      "canonical_name": "乱伦",
+      "original_label": "近親相姦",
+      "raw_members": [
+        "近親相姦",
+        "近亲相奸",
+        "乱伦",
+        "亂倫"
+      ]
+    },
+    {
+      "ref": "M36",
+      "canonical_id": "04d7f20d2789c6d3e2b51301",
+      "canonical_name": "女大学生",
+      "original_label": "女子大生",
+      "raw_members": [
+        "女子大生",
+        "女大学生"
+      ]
+    },
+    {
+      "ref": "M37",
+      "canonical_id": "afd89def62d378ff3c3d0fcc",
+      "canonical_name": "玩具",
+      "original_label": "おもちゃ",
+      "raw_members": [
+        "おもちゃ",
+        "玩具"
+      ]
+    },
+    {
+      "ref": "M38",
+      "canonical_id": "033f1ee942e54b3fd0fa0b02",
+      "canonical_name": "巨尻",
+      "original_label": "巨尻",
+      "raw_members": [
+        "巨尻",
+        "大屁股"
+      ]
+    },
+    {
+      "ref": "M39",
+      "canonical_id": "34758cd45516749100253852",
+      "canonical_name": "内衣",
+      "original_label": "下着",
+      "raw_members": [
+        "下着",
+        "内衣"
+      ]
+    },
+    {
+      "ref": "M40",
+      "canonical_id": "58cf885b7e93063fbbe0f3d1",
+      "canonical_name": "恋物癖",
+      "original_label": "フェチ",
+      "raw_members": [
+        "フェチ",
+        "恋物癖"
+      ]
+    },
+    {
+      "ref": "M41",
+      "canonical_id": "a23a7cfe4e01f51d05230921",
+      "canonical_name": "羞耻",
+      "original_label": "羞恥",
+      "raw_members": [
+        "羞恥",
+        "羞耻"
+      ]
+    },
+    {
+      "ref": "M42",
+      "canonical_id": "340f6872a6741d98377e2a10",
+      "canonical_name": "洗澡",
+      "original_label": "お風呂",
+      "raw_members": [
+        "お風呂",
+        "洗澡"
+      ]
+    },
+    {
+      "ref": "M43",
+      "canonical_id": "3dbcf36ebf23c74037accfd3",
+      "canonical_name": "舔阴",
+      "original_label": "クンニ",
+      "raw_members": [
+        "クンニ",
+        "舔阴"
+      ]
+    },
+    {
+      "ref": "M44",
+      "canonical_id": "fe887699eeb1abb6515316a1",
+      "canonical_name": "女教师",
+      "original_label": "女教師",
+      "raw_members": [
+        "女教師",
+        "女教师"
+      ]
+    },
+    {
+      "ref": "M45",
+      "canonical_id": "b6aded32b43bde6251a8b76a",
+      "canonical_name": "眼镜",
+      "original_label": "めがね",
+      "raw_members": [
+        "めがね",
+        "眼镜",
+        "眼鏡"
+      ]
+    },
+    {
+      "ref": "M46",
+      "canonical_id": "0cedf689414aa20cff5c8ee8",
+      "canonical_name": "水手服",
+      "original_label": "セーラー服",
+      "raw_members": [
+        "セーラー服",
+        "水手服"
+      ]
+    },
+    {
+      "ref": "M47",
+      "canonical_id": "f3c9050342e01d79ca18a640",
+      "canonical_name": "レズ",
+      "original_label": "レズ",
+      "raw_members": [
+        "レズ",
+        "女同性恋"
+      ]
+    },
+    {
+      "ref": "M48",
+      "canonical_id": "6c590742a53839d643068ddd",
+      "canonical_name": "口内射精",
+      "original_label": "口内発射",
+      "raw_members": [
+        "口内発射",
+        "口内射精"
+      ]
+    },
+    {
+      "ref": "M49",
+      "canonical_id": "6520d74bc70aafff1d3b9748",
+      "canonical_name": "女优按摩棒",
+      "original_label": "女优按摩棒",
+      "raw_members": [
+        "女优按摩棒",
+        "女優按摩棒"
+      ]
+    },
+    {
+      "ref": "M50",
+      "canonical_id": "ccd284af7ed4bf6813a5d684",
+      "canonical_name": "幼なじみ",
+      "original_label": "幼なじみ",
+      "raw_members": [
+        "幼なじみ",
+        "儿时的朋友",
+        "童年朋友"
+      ]
+    },
+    {
+      "ref": "M51",
+      "canonical_id": "42495308abbaacd8d57822c5",
+      "canonical_name": "泳装",
+      "original_label": "水着",
+      "raw_members": [
+        "水着",
+        "泳装"
+      ]
+    },
+    {
+      "ref": "M52",
+      "canonical_id": "06238b5f66e3984d23d31b75",
+      "canonical_name": "恶作剧",
+      "original_label": "イタズラ",
+      "raw_members": [
+        "イタズラ",
+        "恶作剧"
+      ]
+    },
+    {
+      "ref": "M53",
+      "canonical_id": "b0eb30722b5ca1741d69fa0a",
+      "canonical_name": "各种职业",
+      "original_label": "職業色々",
+      "raw_members": [
+        "職業色々",
+        "各种职业"
+      ]
+    },
+    {
+      "ref": "M54",
+      "canonical_id": "153c12349122ca8a9b965ac7",
+      "canonical_name": "局部特写",
+      "original_label": "局部アップ",
+      "raw_members": [
+        "局部アップ",
+        "局部特写"
+      ]
+    },
+    {
+      "ref": "M55",
+      "canonical_id": "5fd24c00717787bbf30982fb",
+      "canonical_name": "兔女郎",
+      "original_label": "バニーガール",
+      "raw_members": [
+        "バニーガール",
+        "兔女郎"
+      ]
+    },
+    {
+      "ref": "M56",
+      "canonical_id": "29f9a2b4e1df5784721f933e",
+      "canonical_name": "寡妇",
+      "original_label": "未亡人",
+      "raw_members": [
+        "未亡人",
+        "寡妇"
+      ]
+    },
+    {
+      "ref": "M57",
+      "canonical_id": "d47c6ed3cdd32b53ac212253",
+      "canonical_name": "猎艳",
+      "original_label": "猎艳",
+      "raw_members": [
+        "猎艳",
+        "獵豔"
+      ]
+    },
+    {
+      "ref": "M58",
+      "canonical_id": "a64972e188c5a6637ced9a31",
+      "canonical_name": "スチュワーデス",
+      "original_label": "スチュワーデス",
+      "raw_members": [
+        "スチュワーデス",
+        "空中小姐"
+      ]
+    },
+    {
+      "ref": "M59",
+      "canonical_id": "4ae293f7365723967140b6e5",
+      "canonical_name": "秘书",
+      "original_label": "秘书",
+      "raw_members": [
+        "秘书",
+        "秘書"
+      ]
+    },
+    {
+      "ref": "M60",
+      "canonical_id": "1a18ab3baeaae9cdabebaa77",
+      "canonical_name": "乳交",
+      "original_label": "パイズリ",
+      "raw_members": [
+        "パイズリ",
+        "乳交"
+      ]
+    },
+    {
+      "ref": "M61",
+      "canonical_id": "c0ebd2555eccedb328697f7d",
+      "canonical_name": "高挑",
+      "original_label": "長身",
+      "raw_members": [
+        "長身",
+        "高挑"
+      ]
+    },
+    {
+      "ref": "M62",
+      "canonical_id": "9a1bdac8d9b3bbcb22e4e749",
+      "canonical_name": "美臀",
+      "original_label": "美尻",
+      "raw_members": [
+        "美尻",
+        "美臀"
+      ]
+    },
+    {
+      "ref": "M63",
+      "canonical_id": "695f6e62dd44e621d84ed20c",
+      "canonical_name": "淫语",
+      "original_label": "淫語",
+      "raw_members": [
+        "淫語",
+        "淫语"
+      ]
+    },
+    {
+      "ref": "M64",
+      "canonical_id": "c28f498bef56ae9074203747",
+      "canonical_name": "騎乗位",
+      "original_label": "騎乗位",
+      "raw_members": [
+        "騎乗位",
+        "骑乗位",
+        "女上位"
+      ]
+    },
+    {
+      "ref": "M65",
+      "canonical_id": "629609f2bcdda192f030387a",
+      "canonical_name": "ドキュメンタリー",
+      "original_label": "ドキュメンタリー",
+      "raw_members": [
+        "ドキュメンタリー",
+        "纪录片"
+      ]
+    },
+    {
+      "ref": "M66",
+      "canonical_id": "81b7fb999ff1b6f49aa448f7",
+      "canonical_name": "4小时以上作品",
+      "original_label": "4時間以上作品",
+      "raw_members": [
+        "4時間以上作品",
+        "4小时以上作品"
+      ]
+    },
+    {
+      "ref": "M67",
+      "canonical_id": "3cf5348afb62b9576d71efdc",
+      "canonical_name": "接吻",
+      "original_label": "キス・接吻",
+      "raw_members": [
+        "キス",
+        "キス・接吻",
+        "接吻"
+      ]
+    },
+    {
+      "ref": "M68",
+      "canonical_id": "eb49ced240da8d2a5e54662d",
+      "canonical_name": "护士",
+      "original_label": "看護婦・ナース",
+      "raw_members": [
+        "看護婦・ナース",
+        "护士",
+        "看护妇"
+      ]
+    },
+    {
+      "ref": "M69",
+      "canonical_id": "d646c236caa7ae1b83cab616",
+      "canonical_name": "デカチン・巨根",
+      "original_label": "デカチン・巨根",
+      "raw_members": [
+        "デカチン・巨根",
+        "巨大阴茎"
+      ]
+    },
+    {
+      "ref": "M70",
+      "canonical_id": "ca837ce022d2a40198313cc7",
+      "canonical_name": "校服",
+      "original_label": "学生服",
+      "raw_members": [
+        "学生服",
+        "校服"
+      ]
+    },
+    {
+      "ref": "M71",
+      "canonical_id": "0499c70a7fa2b1e566e024bf",
+      "canonical_name": "Blu-ray（ブルーレイ）",
+      "original_label": "Blu-ray（ブルーレイ）",
+      "raw_members": [
+        "Blu-ray（ブルーレイ）",
+        "Blu-rayブルーレイ"
+      ]
+    },
+    {
+      "ref": "M72",
+      "canonical_id": "75f072a865b19812c01c9774",
+      "canonical_name": "デビュー作品",
+      "original_label": "デビュー作品",
+      "raw_members": [
+        "デビュー作品",
+        "首次亮相"
+      ]
+    },
+    {
+      "ref": "M73",
+      "canonical_id": "8d91605fd16a7f9f1f49ca7f",
+      "canonical_name": "女同接吻",
+      "original_label": "レズキス",
+      "raw_members": [
+        "レズキス",
+        "女同接吻"
+      ]
+    },
+    {
+      "ref": "M74",
+      "canonical_id": "961c885cb5a5f5588ce0bdae",
+      "canonical_name": "家教",
+      "original_label": "家庭教師",
+      "raw_members": [
+        "家庭教師",
+        "家教"
+      ]
+    },
+    {
+      "ref": "M75",
+      "canonical_id": "d331accaf751b029bce81036",
+      "canonical_name": "恋爱",
+      "original_label": "恋愛",
+      "raw_members": [
+        "恋愛",
+        "恋爱"
+      ]
+    },
+    {
+      "ref": "M76",
+      "canonical_id": "dfab58108b72b1c12cd8deef",
+      "canonical_name": "指マン",
+      "original_label": "指マン",
+      "raw_members": [
+        "指マン",
+        "手指插入"
+      ]
+    },
+    {
+      "ref": "M77",
+      "canonical_id": "2a89b82719d5605cf0fcb42c",
+      "canonical_name": "足交",
+      "original_label": "足コキ",
+      "raw_members": [
+        "足コキ",
+        "足交"
+      ]
+    },
+    {
+      "ref": "M78",
+      "canonical_id": "6306baa851b610adf2e800d3",
+      "canonical_name": "ミニスカ",
+      "original_label": "ミニスカ",
+      "raw_members": [
+        "ミニスカ",
+        "迷你裙"
+      ]
+    },
+    {
+      "ref": "M79",
+      "canonical_id": "a0f7b66da91971727c829117",
+      "canonical_name": "旗袍",
+      "original_label": "チャイナドレス",
+      "raw_members": [
+        "チャイナドレス",
+        "旗袍"
+      ]
+    },
+    {
+      "ref": "M80",
+      "canonical_id": "a291a077eef3ab197957d21d",
+      "canonical_name": "スク水",
+      "original_label": "スク水",
+      "raw_members": [
+        "スク水",
+        "学校泳装"
+      ]
+    },
+    {
+      "ref": "M81",
+      "canonical_id": "2b88ae1c91c698b913b166cf",
+      "canonical_name": "特典あり",
+      "original_label": "特典あり",
+      "raw_members": [
+        "特典あり",
+        "特典アリ"
+      ]
+    },
+    {
+      "ref": "M82",
+      "canonical_id": "a1c49f1545a3c8dbe1b527df",
+      "canonical_name": "サンプル動画",
+      "original_label": "サンプル動画",
+      "raw_members": [
+        "サンプル動画",
+        "サンプル动画"
+      ]
+    },
+    {
+      "ref": "M83",
+      "canonical_id": "5ecd258a0471dae16d2ca7df",
+      "canonical_name": "3P・4P",
+      "original_label": "3P・4P",
+      "raw_members": [
+        "3P・4P",
+        "3P、4P"
+      ]
+    }
+  ],
+  "drop": [
+    {
+      "raw_name": "BIGセール",
+      "category_id": "5ef429ad347b4f9798089afc"
+    },
+    {
+      "raw_name": "GW大感謝祭",
+      "category_id": "94afa66bd3c791af0ed9a146"
+    },
+    {
+      "raw_name": "妄想族・エマニエルセール",
+      "category_id": "7e1212c3019e868d8191011b"
+    },
+    {
+      "raw_name": "歳末新春セール",
+      "category_id": "add189b8bdbab868e6b8bfb3"
+    },
+    {
+      "raw_name": "秋のBIGセール",
+      "category_id": "348aed6c2bbfa39bb9c11b3a"
+    },
+    {
+      "raw_name": "AV大好きキャンペーン",
+      "category_id": "d201e820ff32ac0770176498"
+    },
+    {
+      "raw_name": "REbecca・BAGUS40％オフセール",
+      "category_id": "278ed82405f76565473663fe"
+    },
+    {
+      "raw_name": "DVDくじクーポン対象",
+      "category_id": "83df30088d338f72175de700"
+    },
+    {
+      "raw_name": "JET映像40％オフセール",
+      "category_id": "b75d4b75d2217e0651974a7c"
+    },
+    {
+      "raw_name": "エスワンキャンペーン",
+      "category_id": "29ad6f9c0afeb9a5d021ceac"
+    },
+    {
+      "raw_name": "オトナのサマーキャンペーン",
+      "category_id": "7a7682858e08a1ec647049c8"
+    },
+    {
+      "raw_name": "プレステージ50％オフセール",
+      "category_id": "2d28866a58f15715479ff899"
+    },
+    {
+      "raw_name": "プレステージ最大50％オフセール",
+      "category_id": "3d252dbf608be72b2ba0ce49"
+    },
+    {
+      "raw_name": "セール対象商品",
+      "category_id": "df983c1e2189611ce253ffd5"
+    },
+    {
+      "raw_name": "トリプルHAPPYキャンペーン",
+      "category_id": "959bcf6e89d1cbc3a2f7695b"
+    },
+    {
+      "raw_name": "1980pt",
+      "category_id": "eb61a45507c90e1c20d4ea1b"
+    },
+    {
+      "raw_name": "2980pt",
+      "category_id": "db05bd13cc46a236053cd11c"
+    },
+    {
+      "raw_name": "4990pt",
+      "category_id": "415f170ac5ac958291c70ae5"
+    },
+    {
+      "raw_name": "プレステージグループ秋の企画祭り",
+      "category_id": "b3a7045a81c0f28b297ac629"
+    },
+    {
+      "raw_name": "プレミアム春キャンペーンクーポン対象",
+      "category_id": "84808df8a08977f222346eff"
+    },
+    {
+      "raw_name": "期間限定",
+      "category_id": "4b02a8f23bdc509e1ad895d7"
+    }
+  ],
+  "raw_to_canonical_id": {
+    "恋乳癖": "0105d878805fdc69f7864e7c",
+    "平胸": "01787d4d1fc6d2deddbf75fc",
+    "脚フェチ": "02309838911d7c5fe4936915",
+    "早漏": "02343faedee98761eb8562b4",
+    "巨尻": "033f1ee942e54b3fd0fa0b02",
+    "大屁股": "033f1ee942e54b3fd0fa0b02",
+    "撸铁美女": "03ac1b8fa2842a3c69f712dc",
+    "Blu-ray（ブルーレイ）": "0499c70a7fa2b1e566e024bf",
+    "Blu-rayブルーレイ": "0499c70a7fa2b1e566e024bf",
+    "淫乱・ハード系": "04cf98821c1f08f79030cd3d",
+    "女子大生": "04d7f20d2789c6d3e2b51301",
+    "女大学生": "04d7f20d2789c6d3e2b51301",
+    "高画質特典": "05a6dd9c8badbbf74d66f992",
+    "18歳": "060306ca2a4e393f120b644c",
+    "イタズラ": "06238b5f66e3984d23d31b75",
+    "恶作剧": "06238b5f66e3984d23d31b75",
+    "恋腿癖": "066254eeb2aea3e9b3405ae6",
+    "温泉": "0666a3b25672a1d5faa3062d",
+    "可愛い": "07b9b9382ab3a463f6e93fbe",
+    "かわいい": "07b9b9382ab3a463f6e93fbe",
+    "可爱": "07b9b9382ab3a463f6e93fbe",
+    "フェラ抜き": "07fb35a3616c41a0cb1436cb",
+    "妓女": "089050a5977583225fcf8a50",
+    "ドキュメント": "099d100b05e5eda159c0f0f7",
+    "飲み会・合コン": "0a2b4a7191ddbc333153cf44",
+    "体操着・ブルマ": "0a6c13a78f82461b995eec40",
+    "色白": "0c45c719e3e5ebd2d5b0d293",
+    "セーラー服": "0cedf689414aa20cff5c8ee8",
+    "水手服": "0cedf689414aa20cff5c8ee8",
+    "多P": "0cf9fc2df3215dac4a2a28a5",
+    "素人": "0d09635e3e06a69054e05f83",
+    "くびれ": "0d4d350f5096e36722e84dc5",
+    "薄马赛克": "0de5074307671d93e4829ddf",
+    "裸エプロン": "0e6f13680a082fd9a9b47249",
+    "糖心vlog": "0f3e9cd8ebc436aeaae8d902",
+    "猥亵穿着": "0f73b61a80b6386312873037",
+    "打手枪": "0fb52de46f420007c8b7f9e1",
+    "ノーブラ": "0fb561233cdc64a3fa7f788b",
+    "连裤袜": "10b254f0f9df9be7157a4c83",
+    "ミニ系": "138a7a35c6d319fe4693ead9",
+    "独占配信": "152a9a07dadd4d23a06bf424",
+    "独家": "152a9a07dadd4d23a06bf424",
+    "局部アップ": "153c12349122ca8a9b965ac7",
+    "局部特写": "153c12349122ca8a9b965ac7",
+    "探花": "15a502f677d73fed598b5865",
+    "运动短裤": "168b6920010ee55d93b46a17",
+    "おっぱい": "19e6c77407ab517f13979197",
+    "パイズリ": "1a18ab3baeaae9cdabebaa77",
+    "乳交": "1a18ab3baeaae9cdabebaa77",
+    "熟女": "1ab67c9f8e90a62f190d3b98",
+    "角色扮演者": "1c15d8b279787af1a557ba7a",
+    "美乳": "1d498987560e722f6fa987d9",
+    "美脚": "1dc5cb5a186d2e4c772e9af3",
+    "パンチラ": "1e9fdeb6a46eea07b63be4cd",
+    "デジモ": "1fbce854194f3fd7495a9450",
+    "辱め": "1fd2c66483485f7c2aca9f7e",
+    "キャバ嬢・風俗嬢": "1fea2755484a796ad55b80b2",
+    "デカ乳首": "2122ad937b0751c1129d7aea",
+    "貧乳・微乳": "21f2524f726f963f291f19ad",
+    "4K": "220a3827d88846a496f43834",
+    "荡妇": "222d8b386e534cb419d268d9",
+    "くすぐり": "23769073021494628e6b5165",
+    "ディルド": "24163e343481ccd0ebe90af9",
+    "放尿": "24f34afdfccaa89712e17923",
+    "即ハメ": "25a7d5ef4aa6bce71ee795b9",
+    "拘束": "260cfdba5b4da7bdd4a174c5",
+    "美女": "2667917d3bf0e3462b6fb008",
+    "无码破解": "266c8ce16303478f0cc5bc3d",
+    "ハイビジョン": "269c7b1358610ac7d0582c30",
+    "高清": "269c7b1358610ac7d0582c30",
+    "野外・露出": "27101e0c771c17a6081d2d05",
+    "淫乱ハード系": "27ebed3a12c18cbf3ca32838",
+    "レオタード": "28df64790cebd73123fdaf08",
+    "药物": "291902db71688596c136be29",
+    "未亡人": "29f9a2b4e1df5784721f933e",
+    "寡妇": "29f9a2b4e1df5784721f933e",
+    "妹": "2a3927a925afa67668179f9e",
+    "妹妹": "2a3927a925afa67668179f9e",
+    "足コキ": "2a89b82719d5605cf0fcb42c",
+    "足交": "2a89b82719d5605cf0fcb42c",
+    "特典あり": "2b88ae1c91c698b913b166cf",
+    "特典アリ": "2b88ae1c91c698b913b166cf",
+    "高画質": "2c18c16dee7363fa9cc37770",
+    "流汗": "2c32fa6d6009642e349a5f26",
+    "無": "2c67a156023bb980c94cece8",
+    "ママ友": "2d1bedc3fbb8fc6a8cc55820",
+    "白天出轨": "2eba77090b613ddb260dd143",
+    "白天出軌": "2eba77090b613ddb260dd143",
+    "魔鬼系": "2f8f889e42a19688e7dae0f9",
+    "美マン": "3035670baab3fa1d95a92a46",
+    "小柄": "31dd4472980d5d336dbd272a",
+    "中出し": "31ee08dafd894c4720f8b387",
+    "中出": "31ee08dafd894c4720f8b387",
+    "お風呂": "340f6872a6741d98377e2a10",
+    "洗澡": "340f6872a6741d98377e2a10",
+    "下着": "34758cd45516749100253852",
+    "内衣": "34758cd45516749100253852",
+    "新娘年轻妻子": "34a1158372d2340149f2579e",
+    "お姉さん": "34b3063e4e2a0967bf08916d",
+    "姐姐": "34b3063e4e2a0967bf08916d",
+    "パイパン": "35b28a9f99b4b95a9a5e90a8",
+    "无毛": "35b28a9f99b4b95a9a5e90a8",
+    "無毛": "35b28a9f99b4b95a9a5e90a8",
+    "人妻・主婦": "362a25ebfa071cdb5122a4e0",
+    "爆乳": "378431c011e506ad99fa23bb",
+    "主播": "3c83cc93a8c29c42388c8ec9",
+    "浴衣": "3ce2c3b06de8f78af1e4b36c",
+    "キス": "3cf5348afb62b9576d71efdc",
+    "キス・接吻": "3cf5348afb62b9576d71efdc",
+    "接吻": "3cf5348afb62b9576d71efdc",
+    "メンエス嬢": "3d00b2c7312da11c732631e8",
+    "淫乱真实": "3d58a009cb14567bc317eefc",
+    "数位马赛克": "3dab64b2531747a8e4172f51",
+    "クンニ": "3dbcf36ebf23c74037accfd3",
+    "舔阴": "3dbcf36ebf23c74037accfd3",
+    "イキまくり": "3f7614f3317d0d0fd3249885",
+    "アスリート": "4043b4b14deec40c3a3e2fd9",
+    "旅行": "418b38bb8ca6396fbae45c9e",
+    "水着": "42495308abbaacd8d57822c5",
+    "泳装": "42495308abbaacd8d57822c5",
+    "オリジナル": "43a89925a2070fd0a7385ad8",
+    "神乳": "44d74eaaa9e5a221c24cb140",
+    "高跟鞋": "457207d9dfa904b94185fdb5",
+    "エステ": "4a9c481ab903a1cd0d0e04e2",
+    "秘书": "4ae293f7365723967140b6e5",
+    "秘書": "4ae293f7365723967140b6e5",
+    "69": "4b904872f1646ef025533b0d",
+    "吻吻": "4c1548738cb7c5f665b3b0a6",
+    "美容院": "4c9eb604063c03c7a6311006",
+    "マッサージ・リフレ": "4d7f99fe4450ad02879c9d8d",
+    "調教": "4fc75791f4edbaa1bf3852f6",
+    "汗だく": "4fe307dda6748519bef58b65",
+    "病院・クリニック": "4fe8806605943611aedbee92",
+    "妄想": "51f8c2dee78993c9d1276738",
+    "電マ": "528e6d95da450d1094cb89a6",
+    "コスプレ": "52bf5374caa6887be3c30f5b",
+    "角色扮演": "52bf5374caa6887be3c30f5b",
+    "长身体": "53680b409a8ac4f323ad38dc",
+    "メイド": "5586264f1b16ac7a1bb69da4",
+    "女佣": "5586264f1b16ac7a1bb69da4",
+    "AI生成作品": "57c3674d57220b753c966053",
+    "芸能人": "57d5a52afb7e95724ef17b9a",
+    "ギャル": "586d89915ab9474c9c660010",
+    "辣妹": "586d89915ab9474c9c660010",
+    "フェチ": "58cf885b7e93063fbbe0f3d1",
+    "恋物癖": "58cf885b7e93063fbbe0f3d1",
+    "顔射": "5b1d6e3071a2cd2bb6081979",
+    "颜射": "5b1d6e3071a2cd2bb6081979",
+    "顏射": "5b1d6e3071a2cd2bb6081979",
+    "シックスナイン": "5b8da19c8bf565b1a577aba4",
+    "メイドコス": "5c7a30ab72abf683325a525a",
+    "两女一男": "5ca148097dbcc14beeedbb85",
+    "スポーツ": "5d5cc5f9cf633ad758735a32",
+    "不倫": "5e217a0c1dd86d572059f334",
+    "不伦": "5e217a0c1dd86d572059f334",
+    "出轨": "5e217a0c1dd86d572059f334",
+    "出軌": "5e217a0c1dd86d572059f334",
+    "原作コラボ": "5e89552458330932783364a2",
+    "3P・4P": "5ecd258a0471dae16d2ca7df",
+    "3P、4P": "5ecd258a0471dae16d2ca7df",
+    "着エロ": "5f0439470987d4a62dccb6d0",
+    "バニーガール": "5fd24c00717787bbf30982fb",
+    "兔女郎": "5fd24c00717787bbf30982fb",
+    "オナニー": "60901dc2b229599b445a870e",
+    "手淫": "60901dc2b229599b445a870e",
+    "自慰": "60901dc2b229599b445a870e",
+    "受付嬢": "61179aece38dc9756f5cba8e",
+    "アイドル・芸能人": "61478e142e4b0c5497bc087a",
+    "抜ける": "618d92b1f015a49b9735e2ac",
+    "侠义立场": "6248d8712e7020e91df0f4e6",
+    "ドキュメンタリー": "629609f2bcdda192f030387a",
+    "纪录片": "629609f2bcdda192f030387a",
+    "ミニスカ": "6306baa851b610adf2e800d3",
+    "迷你裙": "6306baa851b610adf2e800d3",
+    "女优按摩棒": "6520d74bc70aafff1d3b9748",
+    "女優按摩棒": "6520d74bc70aafff1d3b9748",
+    "イメージビデオ": "65badb2b26e333da2b86a4a9",
+    "韩国": "667cfe4db6b344a812b51984",
+    "按摩": "66871daff2d497d2f7a0fcb7",
+    "痴女": "674af406891e5c61536af047",
+    "生ハメ": "674ef053b48ebe08aa05c17b",
+    "淫語": "695f6e62dd44e621d84ed20c",
+    "淫语": "695f6e62dd44e621d84ed20c",
+    "和服・浴衣": "6a61dd9bb300b151545f8317",
+    "加仑": "6b5ca2e2eacdc54b5294e4b7",
+    "口内発射": "6c590742a53839d643068ddd",
+    "口内射精": "6c590742a53839d643068ddd",
+    "ホテル": "6c64107e0b9561fb71a6c659",
+    "美少女电影": "6cecc0ef8fd0805f1611efb2",
+    "痴漢": "6d0321be41b5874dea1a1d5f",
+    "ランジェリー": "6f98c5d3a73e0ce236a5e87e",
+    "清楚系": "6fa8a71c63297885065c88ef",
+    "精选综合": "70db2556b3afe5a27c3e1589",
+    "精選綜合": "70db2556b3afe5a27c3e1589",
+    "ローション・オイル": "7282015ff1229b6a1cf7bc2d",
+    "女上司": "751ff2cd5d89cd75a507df3b",
+    "原创合作": "753794840f506da2d781d6d2",
+    "ピンク": "7551f1b6c26273b1af9c257d",
+    "デビュー作品": "75f072a865b19812c01c9774",
+    "首次亮相": "75f072a865b19812c01c9774",
+    "孕ませ": "77772b86ee45ffa264eb8b1f",
+    "逆ナン": "77ce7084f87d523a00e42ee2",
+    "素人作品": "7886702bd66f19a15120ec78",
+    "主観": "789714e487260e1405a252c0",
+    "主观视角": "789714e487260e1405a252c0",
+    "主觀視角": "789714e487260e1405a252c0",
+    "清楚": "7faa09ac149a66c0fb31558a",
+    "ぶっかけ": "7fbb57ee73a3c77b37aef16d",
+    "尻フェチ": "80ad8c9732eeebf101efa8b4",
+    "企画": "81340396b967c8e7e9aad02e",
+    "4時間以上作品": "81b7fb999ff1b6f49aa448f7",
+    "4小时以上作品": "81b7fb999ff1b6f49aa448f7",
+    "デート": "8412d8e4b2271127dd33f1d3",
+    "礼仪小姐": "852cd5afcf313ce1d6b118ae",
+    "パンスト・タイツ": "8715eb81af6dc42e9ed24e93",
+    "個人撮影": "881132c5ca341e3b6df09bfc",
+    "義母": "88c2c4b1facac0d6196b4c65",
+    "业余": "88c303291d527c24f314628c",
+    "カップル": "8a2954826546c56b9d0ada54",
+    "情侣": "8a2954826546c56b9d0ada54",
+    "情侶": "8a2954826546c56b9d0ada54",
+    "姉・妹": "8afa1f2dc7f483234b798104",
+    "姐妹": "8afa1f2dc7f483234b798104",
+    "レズキス": "8d91605fd16a7f9f1f49ca7f",
+    "女同接吻": "8d91605fd16a7f9f1f49ca7f",
+    "妄想族": "8e0f6e41a1c1785454939a19",
+    "元アイドル": "8f07139134051a112dc398a5",
+    "童貞": "90db58a70f5ab182e5ecc954",
+    "童贞": "90db58a70f5ab182e5ecc954",
+    "处男": "90db58a70f5ab182e5ecc954",
+    "人妻": "92213ee071bab26e597cef36",
+    "已婚妇女": "92213ee071bab26e597cef36",
+    "已婚婦女": "92213ee071bab26e597cef36",
+    "若妻・幼妻": "935f6ed07453b6cb3715b060",
+    "サウナ": "9463cb85494de140bb55bb6a",
+    "エマニエル": "94ba8ce2a8a83ecfcadaceec",
+    "家庭教師": "961c885cb5a5f5588ce0bdae",
+    "家教": "961c885cb5a5f5588ce0bdae",
+    "ドラッグ": "96ae14d039ec8c4f9ed50f03",
+    "寝取り・寝取られ・NTR": "9729f6ba380f978044fbdaa3",
+    "寝取り・寝取られ・ＮＴＲ": "9729f6ba380f978044fbdaa3",
+    "寝取り寝取られ": "9729f6ba380f978044fbdaa3",
+    "NTR": "9729f6ba380f978044fbdaa3",
+    "淫荡硬朗": "9763a0a257e1069dea789c18",
+    "芸能人似": "976471fdb6d2322bfde0762d",
+    "お尻": "97920766904a013cfef6e13b",
+    "单体作品": "9849ea3b6ba096dd5ec053ee",
+    "単体作品": "9849ea3b6ba096dd5ec053ee",
+    "單體作品": "9849ea3b6ba096dd5ec053ee",
+    "エロい": "9927dc5d480c34bcf9dd6f35",
+    "保育士": "999ef9a27c0fd25a1aa4f487",
+    "美尻": "9a1bdac8d9b3bbcb22e4e749",
+    "美臀": "9a1bdac8d9b3bbcb22e4e749",
+    "エロ動画": "9b98be455f64981d47c9189a",
+    "妈妈的朋友": "9bb34c6494cfd66a1c6ec502",
+    "放尿・お漏らし": "9bda08efc9bf4eedfffcc7bb",
+    "イラマチオ": "9d0bdfd9526f6204bc0de78f",
+    "フェラ": "9fd0c2748b99911bfc2be270",
+    "フェラチオ": "9fd0c2748b99911bfc2be270",
+    "口交": "9fd0c2748b99911bfc2be270",
+    "女学生": "9fe72b921e4261a671f3ff28",
+    "ヘルス・ソープ": "a01e71d3b3b5f00543ac0eec",
+    "実写化・原作コラボ": "a027ff8671547356622c6a75",
+    "チャイナドレス": "a0f7b66da91971727c829117",
+    "旗袍": "a0f7b66da91971727c829117",
+    "サンプル動画": "a1c49f1545a3c8dbe1b527df",
+    "サンプル动画": "a1c49f1545a3c8dbe1b527df",
+    "ごっくん": "a1d2bcb6516f3bc338d89c3c",
+    "吞精": "a1d2bcb6516f3bc338d89c3c",
+    "羞恥": "a23a7cfe4e01f51d05230921",
+    "羞耻": "a23a7cfe4e01f51d05230921",
+    "スク水": "a291a077eef3ab197957d21d",
+    "学校泳装": "a291a077eef3ab197957d21d",
+    "Reluctant": "a2e5c3d8450124289d2f5d5f",
+    "写真": "a5770e52362f369bfc752f93",
+    "スチュワーデス": "a64972e188c5a6637ced9a31",
+    "空中小姐": "a64972e188c5a6637ced9a31",
+    "短裙": "a7b0df216d8df171d3e4c155",
+    "瘦小身型": "a854b9cc3a62f8dd342597aa",
+    "塾講": "a920afd4044fa0ac898e6f3f",
+    "アナル": "abe66f146e3a085b7a0bc487",
+    "高中女生": "abfd6164f8e837e78868ae11",
+    "オナサポ": "ac70a6b027ddc68fb9c4521e",
+    "蕩婦": "acc80047bc1a9df8f5179e99",
+    "极致高潮": "aef901f34fe5713a6591d738",
+    "おもちゃ": "afd89def62d378ff3c3d0fcc",
+    "玩具": "afd89def62d378ff3c3d0fcc",
+    "年轻女孩": "b07cdf599c2299e6ebdaeee9",
+    "職業色々": "b0eb30722b5ca1741d69fa0a",
+    "各种职业": "b0eb30722b5ca1741d69fa0a",
+    "SM": "b15124b1eb233b39e2e9b4e0",
+    "従順": "b2fbfdde47ce4c142f35852f",
+    "バック": "b349315cad7f9fa4bd37f19d",
+    "アダルト": "b384ce5acd652839ebb767db",
+    "ドラマ": "b3900782765265f3348caaf3",
+    "剧情": "b3900782765265f3348caaf3",
+    "戏剧": "b3900782765265f3348caaf3",
+    "戲劇": "b3900782765265f3348caaf3",
+    "手コキ": "b4580ed91c45d2416fb94d91",
+    "オタク": "b58c4ef627df54d766ffd514",
+    "個撮": "b628952635fbc6bd1e7a55f4",
+    "めがね": "b6aded32b43bde6251a8b76a",
+    "眼镜": "b6aded32b43bde6251a8b76a",
+    "眼鏡": "b6aded32b43bde6251a8b76a",
+    "凌辱": "b7bcd1e08711b75cd0975259",
+    "超乳": "b8686282dd6c09eb63fe0ced",
+    "倒追": "b8bb9146445dec0780339dc3",
+    "卒業式": "b91397e4f683d794de46582d",
+    "園": "b939aa0f5fe52549117be40a",
+    "セクシー": "ba87d8f068b3357cd11a93aa",
+    "性感的": "ba87d8f068b3357cd11a93aa",
+    "第一人称摄影": "bd7af71e42f8ce933f5ac567",
+    "第一人稱攝影": "bd7af71e42f8ce933f5ac567",
+    "乳液": "be57ff682f5b403df71767db",
+    "美少女": "c09f5bb985c3a7ad7a12d0a6",
+    "長身": "c0ebd2555eccedb328697f7d",
+    "高挑": "c0ebd2555eccedb328697f7d",
+    "紧身衣": "c0f13c15e1d57eb7669101fc",
+    "騎乗位": "c28f498bef56ae9074203747",
+    "骑乗位": "c28f498bef56ae9074203747",
+    "女上位": "c28f498bef56ae9074203747",
+    "ファン感謝・訪問": "c29da0885f0205a12d2ba504",
+    "介绍影片": "c345eaf9a6d8f9dca565d703",
+    "介紹影片": "c345eaf9a6d8f9dca565d703",
+    "バイブ": "c476ea17084c925d3b7fec26",
+    "競泳・スクール水着": "c94a24dc4dd343a14a5295f8",
+    "学生服": "ca837ce022d2a40198313cc7",
+    "校服": "ca837ce022d2a40198313cc7",
+    "娃娃": "cb3aa25956c3937ca08ebb32",
+    "OL": "cb433c0248c742a269a0b164",
+    "幼なじみ": "ccd284af7ed4bf6813a5d684",
+    "儿时的朋友": "ccd284af7ed4bf6813a5d684",
+    "童年朋友": "ccd284af7ed4bf6813a5d684",
+    "大生": "ceb4303cf6b1ba59edbba3b9",
+    "和服丧服": "d015ca598006f15d2ca6aa39",
+    "野外": "d1499f1876b1abcb9773d000",
+    "Training": "d21b2651e71d704a19e20a09",
+    "恋愛": "d331accaf751b029bce81036",
+    "恋爱": "d331accaf751b029bce81036",
+    "猎艳": "d47c6ed3cdd32b53ac212253",
+    "獵豔": "d47c6ed3cdd32b53ac212253",
+    "乳首責め": "d4e8e635ae893df9fbd9d33a",
+    "巨乳フェチ": "d5712243eedf80ca574008d2",
+    "M女": "d5d1edb9423d64ce23428e9c",
+    "デカチン・巨根": "d646c236caa7ae1b83cab616",
+    "巨大阴茎": "d646c236caa7ae1b83cab616",
+    "蛮横娇羞": "d7ec79cb8d6d82771445e253",
+    "複数": "d818f5f76674765b5dc64a1e",
+    "内裤照": "daad61a00e816ae791e3c536",
+    "ツンデレ": "daefcece02764a2f8a149c96",
+    "學校作品": "daf36aff400f6f7acd3d2a40",
+    "制服": "db0f2aea1773cce6192f0e7e",
+    "ナンパ": "db21e049b855976d2c7fe231",
+    "レイプ": "db547e602eb14eaeb9b31c45",
+    "美人": "dbab77bf9884f109e758b738",
+    "ギリモザ": "dc99a210d73bbb66a4fa41d8",
+    "寝取り": "dca31484f2cc3d5d2c69b915",
+    "按摩棒": "df47d33a74ddf754d3c6ccfd",
+    "丝袜过膝袜": "df4f4e84fb88a9a851905a28",
+    "指マン": "dfab58108b72b1c12cd8deef",
+    "手指插入": "dfab58108b72b1c12cd8deef",
+    "女子校生": "dfef74854792a2b1ba1247bd",
+    "原作改编": "e1c096fa49a328afb179758f",
+    "感谢祭": "e1dca2ef2e4422d8466f67c3",
+    "鬼畜": "e5b0e8f5794a7584d1554536",
+    "国产": "e817fa0f6f752435aebc3747",
+    "近親相姦": "e8d1f0af33e57c8f0cc1416c",
+    "近亲相奸": "e8d1f0af33e57c8f0cc1416c",
+    "乱伦": "e8d1f0af33e57c8f0cc1416c",
+    "亂倫": "e8d1f0af33e57c8f0cc1416c",
+    "淫乱": "e8fc9da9b8a5c93a924994a2",
+    "看護婦・ナース": "eb49ced240da8d2a5e54662d",
+    "护士": "eb49ced240da8d2a5e54662d",
+    "看护妇": "eb49ced240da8d2a5e54662d",
+    "ビッチ": "eb5e572a496de4f318ce4206",
+    "アクメ・オーガズム": "ebf30f1f1d12cb447464241f",
+    "高潮": "ebf30f1f1d12cb447464241f",
+    "美白": "ec5927671ec3a4a6686832da",
+    "婆婆": "ede384c1a306a6a7e3d87a2f",
+    "業餘": "ee7e7f41648d6c89e3df16d8",
+    "顔出し": "ee92d201416e5c8f547f5106",
+    "S女": "eeb0bf3ae8ac91daefa6f814",
+    "スレンダー": "eedd3720925d02d738ceb839",
+    "苗条": "eedd3720925d02d738ceb839",
+    "苗條": "eedd3720925d02d738ceb839",
+    "AV女優": "ef0b4d22faceec6df8f347d0",
+    "AV女优": "ef0b4d22faceec6df8f347d0",
+    "むっちり": "f102f602c838bccb643381a3",
+    "深喉": "f152f866d2458508192adb93",
+    "教学": "f1a9d63c725369e43176aeff",
+    "潮吹き": "f1fdea1f097948449293657e",
+    "潮吹": "f1fdea1f097948449293657e",
+    "ビジネススーツ": "f2512c8a9e787bb96a3c91f1",
+    "娘・養女": "f3b1e19ce5c0a9356691f65b",
+    "レズ": "f3c9050342e01d79ca18a640",
+    "女同性恋": "f3c9050342e01d79ca18a640",
+    "黒髪": "f6a06fb17b7c57f2b28eb744",
+    "黒髪ロング": "f7b4769a70f9e0b5e0591904",
+    "顔面騎乗": "f992856a81e8f8db90eb859f",
+    "その他フェチ": "f9f89d8f724c9bc7ad04a16d",
+    "アイドル": "fa38a0c7f69365dcb82b7a77",
+    "偶像": "fa38a0c7f69365dcb82b7a77",
+    "ハメ撮り": "fa7bdd4186e22f50f1af2fdd",
+    "自拍性爱": "fa7bdd4186e22f50f1af2fdd",
+    "部下・同僚": "fad1acf2ad6f7b7c5dff4de7",
+    "女優物": "fb5c728cda2ef0224e259af7",
+    "無修正": "fba3a1d01bf2035e09320f3d",
+    "ノーパン": "fbfc0f1641ad37ba922f79dd",
+    "女教師": "fe887699eeb1abb6515316a1",
+    "女教师": "fe887699eeb1abb6515316a1",
+    "汗": "fed97117b5419fb8011c4bf6",
+    "3P": "fee58a8d12909697a10bef39",
+    "巨乳": "fff1692872cc101bc141c83f"
+  },
+  "token_to_canonical_id": {
+    "恋乳癖": "0105d878805fdc69f7864e7c",
+    "平胸": "01787d4d1fc6d2deddbf75fc",
+    "脚フェチ": "02309838911d7c5fe4936915",
+    "早漏": "02343faedee98761eb8562b4",
+    "巨尻": "033f1ee942e54b3fd0fa0b02",
+    "撸铁美女": "03ac1b8fa2842a3c69f712dc",
+    "Blu_ray_ブルーレイ": "0499c70a7fa2b1e566e024bf",
+    "淫乱_ハード系": "04cf98821c1f08f79030cd3d",
+    "女子大生": "04d7f20d2789c6d3e2b51301",
+    "高画質特典": "05a6dd9c8badbbf74d66f992",
+    "18歳": "060306ca2a4e393f120b644c",
+    "イタズラ": "06238b5f66e3984d23d31b75",
+    "恋腿癖": "066254eeb2aea3e9b3405ae6",
+    "温泉": "0666a3b25672a1d5faa3062d",
+    "可愛い": "07b9b9382ab3a463f6e93fbe",
+    "フェラ抜き": "07fb35a3616c41a0cb1436cb",
+    "妓女": "089050a5977583225fcf8a50",
+    "ドキュメント": "099d100b05e5eda159c0f0f7",
+    "飲み会_合コン": "0a2b4a7191ddbc333153cf44",
+    "体操着_ブルマ": "0a6c13a78f82461b995eec40",
+    "色白": "0c45c719e3e5ebd2d5b0d293",
+    "セーラー服": "0cedf689414aa20cff5c8ee8",
+    "多P": "0cf9fc2df3215dac4a2a28a5",
+    "素人": "0d09635e3e06a69054e05f83",
+    "くびれ": "0d4d350f5096e36722e84dc5",
+    "薄马赛克": "0de5074307671d93e4829ddf",
+    "裸エプロン": "0e6f13680a082fd9a9b47249",
+    "糖心vlog": "0f3e9cd8ebc436aeaae8d902",
+    "猥亵穿着": "0f73b61a80b6386312873037",
+    "打手枪": "0fb52de46f420007c8b7f9e1",
+    "ノーブラ": "0fb561233cdc64a3fa7f788b",
+    "连裤袜": "10b254f0f9df9be7157a4c83",
+    "ミニ系": "138a7a35c6d319fe4693ead9",
+    "独占配信": "152a9a07dadd4d23a06bf424",
+    "局部アップ": "153c12349122ca8a9b965ac7",
+    "探花": "15a502f677d73fed598b5865",
+    "运动短裤": "168b6920010ee55d93b46a17",
+    "おっぱい": "19e6c77407ab517f13979197",
+    "パイズリ": "1a18ab3baeaae9cdabebaa77",
+    "熟女": "1ab67c9f8e90a62f190d3b98",
+    "角色扮演者": "1c15d8b279787af1a557ba7a",
+    "美乳": "1d498987560e722f6fa987d9",
+    "美脚": "1dc5cb5a186d2e4c772e9af3",
+    "パンチラ": "1e9fdeb6a46eea07b63be4cd",
+    "デジモ": "1fbce854194f3fd7495a9450",
+    "辱め": "1fd2c66483485f7c2aca9f7e",
+    "キャバ嬢_風俗嬢": "1fea2755484a796ad55b80b2",
+    "デカ乳首": "2122ad937b0751c1129d7aea",
+    "貧乳_微乳": "21f2524f726f963f291f19ad",
+    "4K": "220a3827d88846a496f43834",
+    "荡妇": "222d8b386e534cb419d268d9",
+    "くすぐり": "23769073021494628e6b5165",
+    "ディルド": "24163e343481ccd0ebe90af9",
+    "放尿": "24f34afdfccaa89712e17923",
+    "即ハメ": "25a7d5ef4aa6bce71ee795b9",
+    "拘束": "260cfdba5b4da7bdd4a174c5",
+    "美女": "2667917d3bf0e3462b6fb008",
+    "无码破解": "266c8ce16303478f0cc5bc3d",
+    "ハイビジョン": "269c7b1358610ac7d0582c30",
+    "野外_露出": "27101e0c771c17a6081d2d05",
+    "淫乱ハード系": "27ebed3a12c18cbf3ca32838",
+    "レオタード": "28df64790cebd73123fdaf08",
+    "药物": "291902db71688596c136be29",
+    "未亡人": "29f9a2b4e1df5784721f933e",
+    "妹": "2a3927a925afa67668179f9e",
+    "足コキ": "2a89b82719d5605cf0fcb42c",
+    "特典あり": "2b88ae1c91c698b913b166cf",
+    "高画質": "2c18c16dee7363fa9cc37770",
+    "流汗": "2c32fa6d6009642e349a5f26",
+    "無": "2c67a156023bb980c94cece8",
+    "ママ友": "2d1bedc3fbb8fc6a8cc55820",
+    "白天出轨": "2eba77090b613ddb260dd143",
+    "魔鬼系": "2f8f889e42a19688e7dae0f9",
+    "美マン": "3035670baab3fa1d95a92a46",
+    "小柄": "31dd4472980d5d336dbd272a",
+    "中出し": "31ee08dafd894c4720f8b387",
+    "お風呂": "340f6872a6741d98377e2a10",
+    "下着": "34758cd45516749100253852",
+    "新娘年轻妻子": "34a1158372d2340149f2579e",
+    "お姉さん": "34b3063e4e2a0967bf08916d",
+    "パイパン": "35b28a9f99b4b95a9a5e90a8",
+    "人妻_主婦": "362a25ebfa071cdb5122a4e0",
+    "爆乳": "378431c011e506ad99fa23bb",
+    "主播": "3c83cc93a8c29c42388c8ec9",
+    "浴衣": "3ce2c3b06de8f78af1e4b36c",
+    "キス_接吻": "3cf5348afb62b9576d71efdc",
+    "メンエス嬢": "3d00b2c7312da11c732631e8",
+    "淫乱真实": "3d58a009cb14567bc317eefc",
+    "数位马赛克": "3dab64b2531747a8e4172f51",
+    "クンニ": "3dbcf36ebf23c74037accfd3",
+    "イキまくり": "3f7614f3317d0d0fd3249885",
+    "アスリート": "4043b4b14deec40c3a3e2fd9",
+    "旅行": "418b38bb8ca6396fbae45c9e",
+    "水着": "42495308abbaacd8d57822c5",
+    "オリジナル": "43a89925a2070fd0a7385ad8",
+    "神乳": "44d74eaaa9e5a221c24cb140",
+    "高跟鞋": "457207d9dfa904b94185fdb5",
+    "エステ": "4a9c481ab903a1cd0d0e04e2",
+    "秘书": "4ae293f7365723967140b6e5",
+    "69": "4b904872f1646ef025533b0d",
+    "吻吻": "4c1548738cb7c5f665b3b0a6",
+    "美容院": "4c9eb604063c03c7a6311006",
+    "マッサージ_リフレ": "4d7f99fe4450ad02879c9d8d",
+    "調教": "4fc75791f4edbaa1bf3852f6",
+    "汗だく": "4fe307dda6748519bef58b65",
+    "病院_クリニック": "4fe8806605943611aedbee92",
+    "妄想": "51f8c2dee78993c9d1276738",
+    "電マ": "528e6d95da450d1094cb89a6",
+    "コスプレ": "52bf5374caa6887be3c30f5b",
+    "长身体": "53680b409a8ac4f323ad38dc",
+    "メイド": "5586264f1b16ac7a1bb69da4",
+    "AI生成作品": "57c3674d57220b753c966053",
+    "芸能人": "57d5a52afb7e95724ef17b9a",
+    "ギャル": "586d89915ab9474c9c660010",
+    "フェチ": "58cf885b7e93063fbbe0f3d1",
+    "顔射": "5b1d6e3071a2cd2bb6081979",
+    "シックスナイン": "5b8da19c8bf565b1a577aba4",
+    "メイドコス": "5c7a30ab72abf683325a525a",
+    "两女一男": "5ca148097dbcc14beeedbb85",
+    "スポーツ": "5d5cc5f9cf633ad758735a32",
+    "不倫": "5e217a0c1dd86d572059f334",
+    "原作コラボ": "5e89552458330932783364a2",
+    "3P_4P": "5ecd258a0471dae16d2ca7df",
+    "着エロ": "5f0439470987d4a62dccb6d0",
+    "バニーガール": "5fd24c00717787bbf30982fb",
+    "オナニー": "60901dc2b229599b445a870e",
+    "受付嬢": "61179aece38dc9756f5cba8e",
+    "アイドル_芸能人": "61478e142e4b0c5497bc087a",
+    "抜ける": "618d92b1f015a49b9735e2ac",
+    "侠义立场": "6248d8712e7020e91df0f4e6",
+    "ドキュメンタリー": "629609f2bcdda192f030387a",
+    "ミニスカ": "6306baa851b610adf2e800d3",
+    "女优按摩棒": "6520d74bc70aafff1d3b9748",
+    "イメージビデオ": "65badb2b26e333da2b86a4a9",
+    "韩国": "667cfe4db6b344a812b51984",
+    "按摩": "66871daff2d497d2f7a0fcb7",
+    "痴女": "674af406891e5c61536af047",
+    "生ハメ": "674ef053b48ebe08aa05c17b",
+    "淫語": "695f6e62dd44e621d84ed20c",
+    "和服_浴衣": "6a61dd9bb300b151545f8317",
+    "加仑": "6b5ca2e2eacdc54b5294e4b7",
+    "口内発射": "6c590742a53839d643068ddd",
+    "ホテル": "6c64107e0b9561fb71a6c659",
+    "美少女电影": "6cecc0ef8fd0805f1611efb2",
+    "痴漢": "6d0321be41b5874dea1a1d5f",
+    "ランジェリー": "6f98c5d3a73e0ce236a5e87e",
+    "清楚系": "6fa8a71c63297885065c88ef",
+    "精选综合": "70db2556b3afe5a27c3e1589",
+    "ローション_オイル": "7282015ff1229b6a1cf7bc2d",
+    "女上司": "751ff2cd5d89cd75a507df3b",
+    "原创合作": "753794840f506da2d781d6d2",
+    "ピンク": "7551f1b6c26273b1af9c257d",
+    "デビュー作品": "75f072a865b19812c01c9774",
+    "孕ませ": "77772b86ee45ffa264eb8b1f",
+    "逆ナン": "77ce7084f87d523a00e42ee2",
+    "素人作品": "7886702bd66f19a15120ec78",
+    "主観": "789714e487260e1405a252c0",
+    "清楚": "7faa09ac149a66c0fb31558a",
+    "ぶっかけ": "7fbb57ee73a3c77b37aef16d",
+    "尻フェチ": "80ad8c9732eeebf101efa8b4",
+    "企画": "81340396b967c8e7e9aad02e",
+    "4時間以上作品": "81b7fb999ff1b6f49aa448f7",
+    "デート": "8412d8e4b2271127dd33f1d3",
+    "礼仪小姐": "852cd5afcf313ce1d6b118ae",
+    "パンスト_タイツ": "8715eb81af6dc42e9ed24e93",
+    "個人撮影": "881132c5ca341e3b6df09bfc",
+    "義母": "88c2c4b1facac0d6196b4c65",
+    "业余": "88c303291d527c24f314628c",
+    "カップル": "8a2954826546c56b9d0ada54",
+    "姉_妹": "8afa1f2dc7f483234b798104",
+    "レズキス": "8d91605fd16a7f9f1f49ca7f",
+    "妄想族": "8e0f6e41a1c1785454939a19",
+    "元アイドル": "8f07139134051a112dc398a5",
+    "童貞": "90db58a70f5ab182e5ecc954",
+    "人妻": "92213ee071bab26e597cef36",
+    "若妻_幼妻": "935f6ed07453b6cb3715b060",
+    "サウナ": "9463cb85494de140bb55bb6a",
+    "エマニエル": "94ba8ce2a8a83ecfcadaceec",
+    "家庭教師": "961c885cb5a5f5588ce0bdae",
+    "ドラッグ": "96ae14d039ec8c4f9ed50f03",
+    "寝取り_寝取られ_NTR": "9729f6ba380f978044fbdaa3",
+    "淫荡硬朗": "9763a0a257e1069dea789c18",
+    "芸能人似": "976471fdb6d2322bfde0762d",
+    "お尻": "97920766904a013cfef6e13b",
+    "単体作品": "9849ea3b6ba096dd5ec053ee",
+    "エロい": "9927dc5d480c34bcf9dd6f35",
+    "保育士": "999ef9a27c0fd25a1aa4f487",
+    "美尻": "9a1bdac8d9b3bbcb22e4e749",
+    "エロ動画": "9b98be455f64981d47c9189a",
+    "妈妈的朋友": "9bb34c6494cfd66a1c6ec502",
+    "放尿_お漏らし": "9bda08efc9bf4eedfffcc7bb",
+    "イラマチオ": "9d0bdfd9526f6204bc0de78f",
+    "フェラチオ": "9fd0c2748b99911bfc2be270",
+    "女学生": "9fe72b921e4261a671f3ff28",
+    "ヘルス_ソープ": "a01e71d3b3b5f00543ac0eec",
+    "実写化_原作コラボ": "a027ff8671547356622c6a75",
+    "チャイナドレス": "a0f7b66da91971727c829117",
+    "サンプル動画": "a1c49f1545a3c8dbe1b527df",
+    "ごっくん": "a1d2bcb6516f3bc338d89c3c",
+    "羞恥": "a23a7cfe4e01f51d05230921",
+    "スク水": "a291a077eef3ab197957d21d",
+    "Reluctant": "a2e5c3d8450124289d2f5d5f",
+    "写真": "a5770e52362f369bfc752f93",
+    "スチュワーデス": "a64972e188c5a6637ced9a31",
+    "短裙": "a7b0df216d8df171d3e4c155",
+    "瘦小身型": "a854b9cc3a62f8dd342597aa",
+    "塾講": "a920afd4044fa0ac898e6f3f",
+    "アナル": "abe66f146e3a085b7a0bc487",
+    "高中女生": "abfd6164f8e837e78868ae11",
+    "オナサポ": "ac70a6b027ddc68fb9c4521e",
+    "蕩婦": "acc80047bc1a9df8f5179e99",
+    "极致高潮": "aef901f34fe5713a6591d738",
+    "おもちゃ": "afd89def62d378ff3c3d0fcc",
+    "年轻女孩": "b07cdf599c2299e6ebdaeee9",
+    "職業色々": "b0eb30722b5ca1741d69fa0a",
+    "SM": "b15124b1eb233b39e2e9b4e0",
+    "従順": "b2fbfdde47ce4c142f35852f",
+    "バック": "b349315cad7f9fa4bd37f19d",
+    "アダルト": "b384ce5acd652839ebb767db",
+    "ドラマ": "b3900782765265f3348caaf3",
+    "手コキ": "b4580ed91c45d2416fb94d91",
+    "オタク": "b58c4ef627df54d766ffd514",
+    "個撮": "b628952635fbc6bd1e7a55f4",
+    "めがね": "b6aded32b43bde6251a8b76a",
+    "凌辱": "b7bcd1e08711b75cd0975259",
+    "超乳": "b8686282dd6c09eb63fe0ced",
+    "倒追": "b8bb9146445dec0780339dc3",
+    "卒業式": "b91397e4f683d794de46582d",
+    "園": "b939aa0f5fe52549117be40a",
+    "セクシー": "ba87d8f068b3357cd11a93aa",
+    "第一人称摄影": "bd7af71e42f8ce933f5ac567",
+    "乳液": "be57ff682f5b403df71767db",
+    "美少女": "c09f5bb985c3a7ad7a12d0a6",
+    "長身": "c0ebd2555eccedb328697f7d",
+    "紧身衣": "c0f13c15e1d57eb7669101fc",
+    "騎乗位": "c28f498bef56ae9074203747",
+    "ファン感謝_訪問": "c29da0885f0205a12d2ba504",
+    "介绍影片": "c345eaf9a6d8f9dca565d703",
+    "バイブ": "c476ea17084c925d3b7fec26",
+    "競泳_スクール水着": "c94a24dc4dd343a14a5295f8",
+    "学生服": "ca837ce022d2a40198313cc7",
+    "娃娃": "cb3aa25956c3937ca08ebb32",
+    "OL": "cb433c0248c742a269a0b164",
+    "幼なじみ": "ccd284af7ed4bf6813a5d684",
+    "大生": "ceb4303cf6b1ba59edbba3b9",
+    "和服丧服": "d015ca598006f15d2ca6aa39",
+    "野外": "d1499f1876b1abcb9773d000",
+    "Training": "d21b2651e71d704a19e20a09",
+    "恋愛": "d331accaf751b029bce81036",
+    "猎艳": "d47c6ed3cdd32b53ac212253",
+    "乳首責め": "d4e8e635ae893df9fbd9d33a",
+    "巨乳フェチ": "d5712243eedf80ca574008d2",
+    "M女": "d5d1edb9423d64ce23428e9c",
+    "デカチン_巨根": "d646c236caa7ae1b83cab616",
+    "蛮横娇羞": "d7ec79cb8d6d82771445e253",
+    "複数": "d818f5f76674765b5dc64a1e",
+    "内裤照": "daad61a00e816ae791e3c536",
+    "ツンデレ": "daefcece02764a2f8a149c96",
+    "學校作品": "daf36aff400f6f7acd3d2a40",
+    "制服": "db0f2aea1773cce6192f0e7e",
+    "ナンパ": "db21e049b855976d2c7fe231",
+    "レイプ": "db547e602eb14eaeb9b31c45",
+    "美人": "dbab77bf9884f109e758b738",
+    "ギリモザ": "dc99a210d73bbb66a4fa41d8",
+    "寝取り": "dca31484f2cc3d5d2c69b915",
+    "按摩棒": "df47d33a74ddf754d3c6ccfd",
+    "丝袜过膝袜": "df4f4e84fb88a9a851905a28",
+    "指マン": "dfab58108b72b1c12cd8deef",
+    "女子校生": "dfef74854792a2b1ba1247bd",
+    "原作改编": "e1c096fa49a328afb179758f",
+    "感谢祭": "e1dca2ef2e4422d8466f67c3",
+    "鬼畜": "e5b0e8f5794a7584d1554536",
+    "国产": "e817fa0f6f752435aebc3747",
+    "近親相姦": "e8d1f0af33e57c8f0cc1416c",
+    "淫乱": "e8fc9da9b8a5c93a924994a2",
+    "看護婦_ナース": "eb49ced240da8d2a5e54662d",
+    "ビッチ": "eb5e572a496de4f318ce4206",
+    "アクメ_オーガズム": "ebf30f1f1d12cb447464241f",
+    "美白": "ec5927671ec3a4a6686832da",
+    "婆婆": "ede384c1a306a6a7e3d87a2f",
+    "業餘": "ee7e7f41648d6c89e3df16d8",
+    "顔出し": "ee92d201416e5c8f547f5106",
+    "S女": "eeb0bf3ae8ac91daefa6f814",
+    "スレンダー": "eedd3720925d02d738ceb839",
+    "AV女優": "ef0b4d22faceec6df8f347d0",
+    "むっちり": "f102f602c838bccb643381a3",
+    "深喉": "f152f866d2458508192adb93",
+    "教学": "f1a9d63c725369e43176aeff",
+    "潮吹き": "f1fdea1f097948449293657e",
+    "ビジネススーツ": "f2512c8a9e787bb96a3c91f1",
+    "娘_養女": "f3b1e19ce5c0a9356691f65b",
+    "レズ": "f3c9050342e01d79ca18a640",
+    "黒髪": "f6a06fb17b7c57f2b28eb744",
+    "黒髪ロング": "f7b4769a70f9e0b5e0591904",
+    "顔面騎乗": "f992856a81e8f8db90eb859f",
+    "その他フェチ": "f9f89d8f724c9bc7ad04a16d",
+    "アイドル": "fa38a0c7f69365dcb82b7a77",
+    "ハメ撮り": "fa7bdd4186e22f50f1af2fdd",
+    "部下_同僚": "fad1acf2ad6f7b7c5dff4de7",
+    "女優物": "fb5c728cda2ef0224e259af7",
+    "無修正": "fba3a1d01bf2035e09320f3d",
+    "ノーパン": "fbfc0f1641ad37ba922f79dd",
+    "女教師": "fe887699eeb1abb6515316a1",
+    "汗": "fed97117b5419fb8011c4bf6",
+    "3P": "fee58a8d12909697a10bef39",
+    "巨乳": "fff1692872cc101bc141c83f"
+  },
+  "search_aliases_are_not_semantic_inputs": true
+}

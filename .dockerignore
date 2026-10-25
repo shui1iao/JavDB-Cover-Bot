@@ -1,0 +1,17 @@
+**
+!Dockerfile
+!package.json
+!package-lock.json
+!src/
+!src/**
+!vendor/
+!vendor/requirements.lock
+!vendor/se_catalog_core-2026.10.25.1-py3-none-any.whl
+!LICENSE
+!core/
+!core/LICENSE
+!core/NOTICE.md
+!core/BOT-MIT-LICENSE
+!core/OPENCC-LICENSE
+!core/THIRD-PARTY-NOTICES.md
+!core/OPENCC-THIRD-PARTY-LICENSES.md

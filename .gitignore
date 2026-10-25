@@ -1,0 +1,12 @@
+node_modules/
+.env
+/data/
+backups/
+npm-debug.log*
+docker-compose.yml.bak.*
+.github/workflows.disabled/
+__pycache__/
+*.py[cod]
+*.egg-info/
+core/build/
+core/dist/

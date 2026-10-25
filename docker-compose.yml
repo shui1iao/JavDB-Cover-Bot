@@ -1,0 +1,13 @@
+name: javdb-cover-bot
+
+services:
+  bot:
+    image: ghcr.io/shui1iao/javdb-cover-bot:latest
+    container_name: javdb-cover-bot
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      TMP_DIR: /app/data/tmp
+    volumes:
+      - ./data:/app/data
