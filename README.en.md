@@ -4,9 +4,11 @@
 
 A Telegram product-code lookup bot returning available cover art, a Chinese title, release date, cast and category hashtags. Supports Docker Compose, an optional user allowlist and spoiler-masked covers.
 
-## v0.3.13
+## v0.3.14
 
-- Bundles the MIT-licensed `se-catalog-core 2026.10.25.1` for consistent identity checks, metadata and cover selection. No extra service or database.
+- Update within Node 24 LTS to **24.22.2** (bundled undici **7.30.1**) and pin npm undici **7.30.1**. This fixes the excessive-encoding and TLS 1.2 renegotiation process crashes reachable through fallback translation fetch, retaining Google/Bing routing, timeouts, TLS validation and cache interfaces.
+- Fix `YUJ-038` being skipped because the bare YUJ prefix was assumed to mean Korean MIB. Use the existing strict full-code lookup; other MIB prefix rules are unchanged.
+- Bundles the MIT-licensed `se-catalog-core 2026.10.31.1` for consistent identity checks, metadata and cover selection. No extra service or database.
 - Original category labels: 83 exact synonym groups, 306 canonical categories and 21 exact promotional/price drops. Duplicates are removed per result. Unknown labels retain their glyphs; categories are neither machine-translated nor simplified. Punctuation is encoded into valid clickable hashtags.
 - Cast retains original names, adding Chinese names only from the trusted display-name table. No inferred names or actor identity aliases.
 - Explicit same-work recognition for `GANA-3342` / `200GANA-3342`; the 3xplanet genre parser stops at `Description` instead of turning synopsis text into tags.
@@ -72,3 +74,7 @@ Core source and licensing are in `core/`. With Python 3.14, `setuptools==82.0.1`
 The bot queries public metadata on demand and caches necessary covers and successful translations. Protect your token, allowlist, cache and logs; consider an allowlist for public deployments. The source package contains no deployment configuration, user data, channel history or credentials.
 
 MIT, JavDB Cover Bot authors. The bundled core is MIT; OpenCC and other third-party components retain their own licenses and authorship notices.
+
+### Runtime security regressions
+
+The Dockerfile pins the official Node 24.22.2 Bookworm-slim image digest and preserves its complete license. Dependency licenses are not stripped. Local `npm test` needs a Node runtime bundling undici 7.30.1 or a newer compatible fix, plus `openssl` to generate ephemeral test certificates. The new transport probes use loopback only, never translation providers or Telegram. Passing targeted tests is not a full security audit or a guarantee of no vulnerabilities.

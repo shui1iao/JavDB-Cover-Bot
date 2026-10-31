@@ -19,7 +19,8 @@ WATERMARK_LABELS = frozenset("""
     18my 22sht 7mmtv 7sht 91home 98t aavv333 bbsxv bei88 big2048 fuckbe gc2048 hhd800 hjd2048
     huachishe javday javme jitumi kfa11 kfa33 madoubt mtfdz nyap2p ses23 supjav thz thzu u3c3 yy2048
 """.split())
-# Korean MIB performer prefixes: never Japanese releases even though they look like one.
+# Performer-prefix vocabulary also used for filename recognition.
+# YUJ also names Japanese releases; it cannot alone imply Korean MIB.
 MIB_PREFIXES = frozenset("""
     WX AR JH CA IY JA MY SH HA MH DB JI ES SR SY CD YH UY NN SA JE YR
     CHU ENS ERI HAL HNL MIJ MIN SAR SEY SIA SOY SRN SUY SYN YUJ
@@ -371,7 +372,7 @@ _WESTERN_PREFIX = r"(?<![a-z])(?:[a-z]{2,}[-_]){2,}"
 
 def is_mib(code) -> bool:
     m = re.fullmatch(r"([A-Z]{2,4})-\d+", canonical(code))
-    return bool(m and m.group(1) in MIB_PREFIXES)
+    return bool(m and m.group(1) in MIB_PREFIXES and m.group(1) != "YUJ")
 
 
 def is_uncensored_number(code) -> bool:

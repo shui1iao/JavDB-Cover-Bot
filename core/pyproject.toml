@@ -3,7 +3,7 @@ requires = ["setuptools==82.0.1"]
 build-backend = "setuptools.build_meta"
 [project]
 name = "se-catalog-core"
-version = "2026.10.25.1"
+version = "2026.10.31.1"
 requires-python = ">=3.14"
 license = "MIT"
 license-files = ["LICENSE", "NOTICE.md", "BOT-MIT-LICENSE", "OPENCC-LICENSE", "OPENCC-THIRD-PARTY-LICENSES.md", "THIRD-PARTY-NOTICES.md"]

@@ -1,6 +1,6 @@
 {
   "name": "javdb-cover-bot",
-  "version": "0.3.13",
+  "version": "0.3.14",
   "description": "Telegram cover lookup bot with shared metadata core and original category labels",
   "type": "module",
   "main": "src/bot.js",

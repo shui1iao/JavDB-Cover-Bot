@@ -101,7 +101,7 @@ for (const name of ['hoi-ambiguous', 'hoi-conflict', 'hoi-title-mismatch']) test
   const r = await query(name); caption(r); assert.equal(r.publicMetadata.cover, null);
 });
 test('installed core API/version and identity guard negatives', () => {
-  assert.equal(coreSync('info').version, '2026.10.25.1');
+  assert.equal(coreSync('info').version, '2026.10.31.1');
   assert.equal(coreSync('codes', ['GANA-3342', '200GANA-3342']).same_work, true);
   assert.equal(coreSync('codes', ['GANA-3342', '999GANA-3342']).same_work, false);
   assert.equal(coreSync('codes', ['200GANA-3342', '200GANA-3343']).same_work, false);

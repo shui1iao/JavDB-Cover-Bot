@@ -10,7 +10,7 @@ files=sorted(p for p in package.rglob('*') if p.is_file() and p.name!='build.jso
 fingerprint=hashlib.sha256()
 for p in files:
  fingerprint.update(p.relative_to(source).as_posix().encode()+b'\0'+p.read_bytes()+b'\0')
-info={'name_data_sha256':hashlib.sha256((package/'data/actor-names.json').read_bytes()).hexdigest(),'source_sha256':fingerprint.hexdigest(),'version':'2026.10.25.1'}
+info={'name_data_sha256':hashlib.sha256((package/'data/actor-names.json').read_bytes()).hexdigest(),'source_sha256':fingerprint.hexdigest(),'version':'2026.10.31.1'}
 (package/'data/build.json').write_text(json.dumps(info,sort_keys=True)+'\n')
 os.environ.setdefault('SOURCE_DATE_EPOCH','0')
 subprocess.run([sys.executable,'-m','pip','wheel','--no-deps','--no-build-isolation',str(root/'core'),'-w',str(root/'vendor')],check=True)
