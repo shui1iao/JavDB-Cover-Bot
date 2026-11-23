@@ -14,6 +14,30 @@ await mkdir(tmpDir, { recursive: true });
 const allowed = new Set(String(process.env.ALLOWED_USER_IDS || '').split(',').map(s => s.trim()).filter(Boolean));
 const publicAccess = allowed.size === 0;
 const spoiler = String(process.env.SPOILER ?? 'true').toLowerCase() !== 'false';
+const maxConcurrentQueries = Math.max(1, Number.parseInt(process.env.MAX_CONCURRENT_QUERIES || '2', 10) || 2);
+const maxQueuedQueries = Math.max(0, Number.parseInt(process.env.MAX_QUEUED_QUERIES || '10', 10) || 10);
+let activeQueries = 0;
+const pendingQueue = [];
+
+function acquireQuerySlot() {
+  if (activeQueries < maxConcurrentQueries) {
+    activeQueries += 1;
+    return Promise.resolve(true);
+  }
+  if (pendingQueue.length >= maxQueuedQueries) {
+    return Promise.resolve(false);
+  }
+  return new Promise((resolve) => pendingQueue.push(resolve));
+}
+
+function releaseQuerySlot() {
+  const next = pendingQueue.shift();
+  if (next) {
+    next(true);
+  } else {
+    activeQueries = Math.max(0, activeQueries - 1);
+  }
+}
 
 const bot = new Telegraf(token);
 
@@ -29,6 +53,8 @@ async function handleQuery(ctx, raw) {
   if (!isAllowed(ctx)) return ctx.reply('无权限使用。');
   const code = normalizeCode(raw);
   if (!code) return ctx.reply('发送番号即可查询，例如：SSIS-001');
+  const acquired = await acquireQuerySlot();
+  if (!acquired) return ctx.reply('⏳ 当前查询队列繁忙，请稍后再试。');
   const loading = await ctx.reply('🔎 正在查询...');
   let coverFile;
   try {
@@ -51,6 +77,7 @@ async function handleQuery(ctx, raw) {
     console.error('[query]', code, e);
     await ctx.reply('❌ 查询失败，请稍后重试。');
   } finally {
+    releaseQuerySlot();
     try { await ctx.telegram.deleteMessage(ctx.chat.id, loading.message_id); } catch {}
     await coverFile?.cleanup?.();
   }

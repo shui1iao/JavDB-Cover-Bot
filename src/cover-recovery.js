@@ -67,7 +67,16 @@ export async function recoverCover(result, tmpRoot = tmpdir(), {
       try { await saveCache(cacheFile, bytes, maxCacheBytes); }
       catch (error) { console.warn('[cover-cache]', code, error.code || error.message); }
     } else {
-      const image = await readImage(cacheFile);
+      let image;
+      try {
+        image = await readImage(cacheFile);
+      } catch (err) {
+        if (err && err.code === 'ENOENT') {
+          await rm(dir, { recursive: true, force: true });
+          return null;
+        }
+        throw err;
+      }
       await writeFile(file, image.bytes, { mode: 0o600 });
     }
     return { file, source: cover?.url || 'cache', cleanup: () => rm(dir, { recursive: true, force: true }) };
