@@ -1,18 +1,11 @@
 # JavDB Cover Bot
 
+[![Release](https://img.shields.io/github/v/release/shui1iao/JavDB-Cover-Bot?style=flat-square&color=2563eb)](https://github.com/shui1iao/JavDB-Cover-Bot/releases/latest)
+[![Docker](https://img.shields.io/badge/Deploy-Docker%20Compose-2496ED?style=flat-square&logo=docker&logoColor=white)](#docker-compose-快速开始)
+
 **中文** | [English](README.en.md)
 
-Telegram 番号查询 Bot：发送番号，返回可用封面、中文标题、日期、演员与分类标签。支持 Docker Compose、用户白名单和封面 spoiler。
-
-## v0.3.14
-
-- 更新到同一 Node 24 LTS 系的 **24.22.2**（内置 undici **7.30.1**），并锁定 npm undici **7.30.1**，修复翻译备用 fetch 可达的过量编码响应和 TLS 1.2 重协商进程崩溃问题。保留原 Google 主路、Bing 备用、超时、TLS 校验和缓存接口。
-- 修复 `YUJ-038` 被 YUJ 裸前缀误判为韩国 MIB 而跳过查询的问题；改走现有严格完整番号校验，其它 MIB 前缀规则不变。
-- Node 消息层使用随附 MIT `se-catalog-core 2026.10.31.1`，统一番号核对、元资料和封面选择；无需额外服务或数据库。
-- 分类使用原名：83 组精确同义归一、306 个标准分类、21 个促销/价格词精确丢弃；同次去重。未知标签保留原字形，不机翻、不繁简改写分类；标点编码为合法可点击 hashtag。
-- 演员保留原名，只附加姓名表中可靠的中文名；不凭语义猜姓名或建立演员身份别名。
-- `GANA-3342` 与 `200GANA-3342` 按精确白名单视为同作；3xplanet 分类解析到 `Description` 即结束，不把简介变成标签。
-- 保留 v0.3.12 的严格数字前缀备用图机制：仅精确详情中的唯一完整番号文件名可提名，并要求目标完整号和标题匹配；不是任意去前缀。
+**轻量级 Telegram 番号查询机器人**——发送番号即可返回高清封面（支持剧透遮罩）、中文译名、发行日期、演员与规范化分类标签，支持用户白名单、并发限流与 Docker Compose 一键部署。
 
 ## 查询与封面
 
@@ -78,3 +71,19 @@ MIT，署名 JavDB Cover Bot authors。随附核心为 MIT；OpenCC 与其它第
 ### 运行时安全回归
 
 随附 Dockerfile 固定官方 Node 24.22.2 Bookworm-slim 镜像摘要，并保留其完整许可证；安装依赖的原始许可证不移除。运行 `npm test` 的本机 Node 需内置 undici 7.30.1 或更新兼容修复版，并提供 `openssl` 命令以临时生成测试证书。新增传输测试只访问本地回环地址，不访问翻译提供方、不发送 Telegram 消息。定向通过不代表无漏洞或完整安全审计。
+
+
+<details>
+<summary>核心元数据与分类策略说明</summary>
+
+## v0.3.14
+
+- 更新到同一 Node 24 LTS 系的 **24.22.2**（内置 undici **7.30.1**），并锁定 npm undici **7.30.1**，修复翻译备用 fetch 可达的过量编码响应和 TLS 1.2 重协商进程崩溃问题。保留原 Google 主路、Bing 备用、超时、TLS 校验和缓存接口。
+- 修复 `YUJ-038` 被 YUJ 裸前缀误判为韩国 MIB 而跳过查询的问题；改走现有严格完整番号校验，其它 MIB 前缀规则不变。
+- Node 消息层使用随附 MIT `se-catalog-core 2026.10.31.1`，统一番号核对、元资料和封面选择；无需额外服务或数据库。
+- 分类使用原名：83 组精确同义归一、306 个标准分类、21 个促销/价格词精确丢弃；同次去重。未知标签保留原字形，不机翻、不繁简改写分类；标点编码为合法可点击 hashtag。
+- 演员保留原名，只附加姓名表中可靠的中文名；不凭语义猜姓名或建立演员身份别名。
+- `GANA-3342` 与 `200GANA-3342` 按精确白名单视为同作；3xplanet 分类解析到 `Description` 即结束，不把简介变成标签。
+- 保留 v0.3.12 的严格数字前缀备用图机制：仅精确详情中的唯一完整番号文件名可提名，并要求目标完整号和标题匹配；不是任意去前缀。
+
+</details>
